@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="FirstFloor.ModernUI.App.Pages.LayoutWireframe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Rectangle">
+                <Setter Property="Stroke" Value="{DynamicResource WindowTextReadOnly}" />
+                <Setter Property="StrokeThickness" Value="1" />
+                <Setter Property="StrokeDashArray" Value="3,3" />
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Margin" Value="3,0,0,0" />
+            </Style>
+        </Grid.Resources>
+
+        <!-- use the root margin if you want to use the entire available space -->
+        <Grid Margin="{StaticResource RootMargin}">
+            <Rectangle  />
+            <TextBlock Text="root" />
+        </Grid>
+
+        <!-- the default page root, no margin settings required -->
+        <Grid>
+            <Rectangle Grid.RowSpan="2" />
+            <TextBlock Text="page" />
+
+            <!-- content root for additional spacing -->
+            <Grid Margin="{StaticResource ContentMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Rectangle />
+                <TextBlock Text="content" />
+
+                <!-- optional header -->
+                <Grid Margin="{StaticResource HeaderMargin}" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Rectangle />
+                    <TextBlock Text="header" />
+                </Grid>
+
+                <!-- optional status -->
+                <Grid Grid.Row="1" Margin="{StaticResource StatusMargin}" >
+                    <Rectangle />
+                    <TextBlock Text="status" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

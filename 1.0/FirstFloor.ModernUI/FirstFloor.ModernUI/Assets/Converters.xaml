@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:FirstFloor.ModernUI.Windows.Converters">
+
+    <converters:BooleanToFontWeightConverter x:Key="BooleanToFontWeightConverter" />
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:ToUpperConverter x:Key="ToUpperConverter" />
+    <converters:ToLowerConverter x:Key="ToLowerConverter" />
+
+</ResourceDictionary>

@@ -1,0 +1,42 @@
+﻿<mui:ModernWindow x:Class="FirstFloor.ModernUI.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        Title="MainWindow"
+        LogoData="F1 M0,1 L1,2 L2,1 L1,0 Z"
+        ContentSource="/Pages/Introduction.xaml">
+   
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="Settings" Source="/Pages/Settings.xaml" />
+    </mui:ModernWindow.TitleLinks>
+
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Welcome">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Introduction" Source="/Pages/Introduction.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Layout">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Wireframe" Source="/Pages/LayoutWireframe.xaml" />
+                <mui:Link DisplayName="Basic" Source="/Pages/LayoutBasic.xaml" />
+                <mui:Link DisplayName="Split" Source="/Pages/LayoutSplit.xaml" />
+                <mui:Link DisplayName="List" Source="/Pages/LayoutList.xaml"  />
+                <mui:Link DisplayName="Tab" Source="/Pages/LayoutTab.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Controls">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Styles" Source="/Pages/ControlsStyles.xaml" />
+                <mui:Link DisplayName="Modern controls" Source="/Pages/ControlsModern.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Settings" GroupName="settings">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Software" Source="/Pages/Settings.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+
+
+</mui:ModernWindow>

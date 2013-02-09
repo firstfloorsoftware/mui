@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="FirstFloor.ModernUI.App.Content.LoremIpsum"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer>
+        <StackPanel MinWidth="200">
+            <TextBlock Text="LOREM IPSUM" Style="{StaticResource Heading2}" />
+            <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis ultrices dui, vitae dapibus metus vehicula vel. Vivamus non enim lectus, vitae semper lectus. Cras arcu urna, dictum vitae elementum nec, lobortis eu ipsum. Ut vestibulum feugiat erat non semper. In porttitor viverra dolor bibendum viverra. Morbi ultrices pharetra metus id tristique. Vestibulum arcu lacus, dignissim vitae laoreet in, posuere quis dolor." Margin="0,0,0,8" TextWrapping="Wrap" />
+            <TextBlock Text="Cras pellentesque varius arcu, ac gravida neque ultricies varius. Nam eget vestibulum ante. Vestibulum semper odio id metus accumsan consequat. Ut ut gravida sem. Vestibulum eu orci massa. Integer non euismod libero. Cras tempor, metus quis scelerisque tincidunt, mi sem interdum neque, sed porttitor sem purus quis lorem. Maecenas pretium interdum dui, ut commodo ante porttitor sed. Vivamus orci diam, bibendum id elementum vel, convallis ut odio. Etiam commodo nisl vestibulum neque facilisis in molestie justo pretium. Sed porta, nunc non egestas posuere, turpis neque posuere est, nec rhoncus leo quam auctor ante. Quisque blandit, urna eget convallis bibendum, nibh ante cursus mauris, sit amet tristique lectus lacus ac ipsum. Sed luctus lectus vel ipsum egestas rutrum. Donec aliquam dapibus euismod. Sed id lectus libero, ac feugiat diam. Nunc porttitor tincidunt dui nec porttitor." Margin="0,0,0,8" TextWrapping="Wrap"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
