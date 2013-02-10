@@ -1,0 +1,51 @@
+Read the license:
+http://creativecommons.org/licenses/by/3.0/ *
+
+- If your project is open source include this license file.
+- Nothing is needed in the front facing project (UNLESS you
+  are using any of the icons listed below in the attribution section).
+- Commercial use is not only allowed but encouraged. Do not worry you
+  do not have to attribute, I know how much of a pain that is. If it is
+  an icon in the attribution list below, you still need to attribute those!
+- Do not distribute the entire package (I've allowed this dozens of
+  times for open source projects, but email me first).
+
+Creator
+- Austin Andrews (@templarian)
+
+Contributor**
+- Oren Nachman
+  - appbar.chevron.down
+  - appbar.chevron.up
+  - appbar.chevron.left
+  - appbar.chevron.right
+
+Attribution***
+- Kris Vandermotten (@kvandermotten)
+  - appbar.medical.pulse
+- Constantin Kichinsky (@kichinsky)
+  - appbar.currency.rubles
+  - appbar.currency.grivna
+- Massimo Savazzi (@msavazzi)
+  - List of missing exported icons
+- Proletkult Graphik, from The Noun Project
+  - appbar.draw.pen (inspired)
+- Olivier Guin, from The Noun Project
+  - appbar.draw.marker
+- Gibran Bisio, from The Noun Project
+  - appbar.draw.bucket
+Andrew Forrester, from The Noun Project
+  - appbar.fingerprint
+
+** Developers and designers that emailed Templarian the source .design icons to be added into the package. PNGs also accepted, but may take longer to be added.
+*** Icons I've copied so closely you want to attribute them and are also under the CC license.
+
+Contact
+- http://templarian.com/
+- admin[@]templarian[.]com
+
+* Does not apply to copyrighted logos
+- Skype
+- Facebook
+- Twitter
+- etc...
