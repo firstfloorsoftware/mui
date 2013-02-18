@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Modern UI WPF Application</Name>
+    <Description>A project for creating a WPF application with a Modern UI look and feel.</Description>
+    <Icon>ModernUI.App.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>804b9e6c-3b41-4737-a328-59e3feae1adf</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ModernUIApp</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
+      <Folder Name="Content" TargetFolderName="Content">
+        <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml">About.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml.cs">About.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SettingsAppearance.xaml">SettingsAppearance.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SettingsAppearance.xaml.cs">SettingsAppearance.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SettingsAppearanceViewModel.cs">SettingsAppearanceViewModel.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Pages" TargetFolderName="Pages">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Home.xaml">Home.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Home.xaml.cs">Home.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.xaml">Settings.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.xaml.cs">Settings.xaml.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="ModernUI.Templates..f6db4f98-80c1-42cc-8f57-b9b52c916ce9">
+      <package id="ModernUI.WPF" version="1.0.0" />
+    </packages>
+  </WizardData>
+</VSTemplate>

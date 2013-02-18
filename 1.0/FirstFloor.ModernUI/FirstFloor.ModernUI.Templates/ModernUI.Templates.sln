@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.Templates", "ModernUI.Templates\ModernUI.Templates.csproj", "{4756B8AA-6CB0-4121-9E89-9A46ABFCFD9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.App", "ModernUI.App\ModernUI.App.csproj", "{D5E3C846-3416-4A6D-9ED9-B5C545589566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.BasicPage", "ModernUI.BasicPage\ModernUI.BasicPage.csproj", "{7C12CCD1-4ADD-4569-88F1-4B30786A2295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.SplitPage", "ModernUI.SplitPage\ModernUI.SplitPage.csproj", "{6178D4C9-0C63-4E46-8FC3-E54EAECC54FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.ListPage", "ModernUI.ListPage\ModernUI.ListPage.csproj", "{74941DDC-60DB-4114-8482-50406100E331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.TabPage", "ModernUI.TabPage\ModernUI.TabPage.csproj", "{00A0C6EA-C25B-45A1-BCD9-B293DCAA9DC9}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ModernUI.App\\ModernUI.App.csproj
+		SccProjectName1 = ModernUI.App
+		SccLocalPath1 = ModernUI.App
+		SccProjectUniqueName2 = ModernUI.BasicPage\\ModernUI.BasicPage.csproj
+		SccProjectName2 = ModernUI.BasicPage
+		SccLocalPath2 = ModernUI.BasicPage
+		SccProjectUniqueName3 = ModernUI.ListPage\\ModernUI.ListPage.csproj
+		SccProjectName3 = ModernUI.ListPage
+		SccLocalPath3 = ModernUI.ListPage
+		SccProjectUniqueName4 = ModernUI.SplitPage\\ModernUI.SplitPage.csproj
+		SccProjectName4 = ModernUI.SplitPage
+		SccLocalPath4 = ModernUI.SplitPage
+		SccProjectUniqueName5 = ModernUI.TabPage\\ModernUI.TabPage.csproj
+		SccProjectName5 = ModernUI.TabPage
+		SccLocalPath5 = ModernUI.TabPage
+		SccProjectUniqueName6 = ModernUI.Templates\\ModernUI.Templates.csproj
+		SccProjectName6 = ModernUI.Templates
+		SccLocalPath6 = ModernUI.Templates
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4756B8AA-6CB0-4121-9E89-9A46ABFCFD9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4756B8AA-6CB0-4121-9E89-9A46ABFCFD9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4756B8AA-6CB0-4121-9E89-9A46ABFCFD9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4756B8AA-6CB0-4121-9E89-9A46ABFCFD9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E3C846-3416-4A6D-9ED9-B5C545589566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E3C846-3416-4A6D-9ED9-B5C545589566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E3C846-3416-4A6D-9ED9-B5C545589566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E3C846-3416-4A6D-9ED9-B5C545589566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C12CCD1-4ADD-4569-88F1-4B30786A2295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C12CCD1-4ADD-4569-88F1-4B30786A2295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C12CCD1-4ADD-4569-88F1-4B30786A2295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C12CCD1-4ADD-4569-88F1-4B30786A2295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6178D4C9-0C63-4E46-8FC3-E54EAECC54FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6178D4C9-0C63-4E46-8FC3-E54EAECC54FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6178D4C9-0C63-4E46-8FC3-E54EAECC54FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6178D4C9-0C63-4E46-8FC3-E54EAECC54FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74941DDC-60DB-4114-8482-50406100E331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74941DDC-60DB-4114-8482-50406100E331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74941DDC-60DB-4114-8482-50406100E331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74941DDC-60DB-4114-8482-50406100E331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A0C6EA-C25B-45A1-BCD9-B293DCAA9DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A0C6EA-C25B-45A1-BCD9-B293DCAA9DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A0C6EA-C25B-45A1-BCD9-B293DCAA9DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A0C6EA-C25B-45A1-BCD9-B293DCAA9DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
