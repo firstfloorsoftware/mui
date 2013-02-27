@@ -18,7 +18,7 @@ namespace FirstFloor.ModernUI.Windows.Media
         /// <param name="dependencyObject">The dependency object.</param>
         /// <param name="groupName">Name of the group.</param>
         /// <returns></returns>
-        public static VisualStateGroup TryGetVisualStateGroup(DependencyObject dependencyObject, string groupName)
+        public static VisualStateGroup TryGetVisualStateGroup(this DependencyObject dependencyObject, string groupName)
         {
             FrameworkElement root = GetImplementationRoot(dependencyObject);
             if (root == null) {
@@ -34,7 +34,7 @@ namespace FirstFloor.ModernUI.Windows.Media
         /// </summary>
         /// <param name="dependencyObject">The dependency object.</param>
         /// <returns></returns>
-        public static FrameworkElement GetImplementationRoot(DependencyObject dependencyObject)
+        public static FrameworkElement GetImplementationRoot(this DependencyObject dependencyObject)
         {
             if (1 != VisualTreeHelper.GetChildrenCount(dependencyObject)) {
                 return null;
@@ -49,7 +49,7 @@ namespace FirstFloor.ModernUI.Windows.Media
         /// <returns>
         /// A collection that contains the ancestors elements.
         /// </returns>
-        public static IEnumerable<DependencyObject> Ancestors(DependencyObject dependencyObject)
+        public static IEnumerable<DependencyObject> Ancestors(this DependencyObject dependencyObject)
         {
             if (dependencyObject == null) {
                 throw new ArgumentNullException("dependencyObject");

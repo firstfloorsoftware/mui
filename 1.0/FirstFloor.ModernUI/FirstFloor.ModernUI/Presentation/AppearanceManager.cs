@@ -108,8 +108,8 @@ namespace FirstFloor.ModernUI.Presentation
 
         static AppearanceManager()
         {
-            DarkThemeCommand = new RelayCommand(o => Theme = Theme.Dark);
-            LightThemeCommand = new RelayCommand(o => Theme = Theme.Light);
+            DarkThemeCommand = new RelayCommand(o => Theme = Theme.Dark, o => Theme == Theme.Light);
+            LightThemeCommand = new RelayCommand(o => Theme = Theme.Light, o => Theme == Theme.Dark);
             SwitchThemeCommand = new RelayCommand(o => Theme = Theme == Theme.Dark ? Theme.Light : Theme.Dark);
             LargeFontSizeCommand = new RelayCommand(o => FontSize = FontSize.Large);
             SmallFontSizeCommand = new RelayCommand(o => FontSize = FontSize.Small);
@@ -117,7 +117,14 @@ namespace FirstFloor.ModernUI.Presentation
                 if (o is Color) {
                     AccentColor = (Color)o;
                 }
-            }, o => o is Color);
+                else {
+                    // parse color from string
+                    var str = o as string;
+                    if (str != null) {
+                        AccentColor = (Color)ColorConverter.ConvertFromString(str);
+                    }
+                }
+            }, o => o is Color || o is string);
         }
 
         private static Theme GetTheme()
