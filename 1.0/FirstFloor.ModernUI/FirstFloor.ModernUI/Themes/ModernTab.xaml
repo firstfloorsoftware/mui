@@ -62,7 +62,7 @@
                         </ListBox>
 
                         <!-- content -->
-                        <controls:ModernFrame Source="{TemplateBinding SelectedSource}" />
+                        <controls:ModernFrame Source="{Binding SelectedSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -94,7 +94,7 @@
                                     <Rectangle Grid.Column="1" Fill="{DynamicResource SeparatorBackground}" Width="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
 
                                     <!-- content -->
-                                    <controls:ModernFrame Grid.Column="2" Source="{TemplateBinding SelectedSource}" Margin="32,0,0,0" />
+                                    <controls:ModernFrame Grid.Column="2" Source="{Binding SelectedSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}" Margin="32,0,0,0" />
                                 </Grid>
                             </ControlTemplate>
                         </Setter.Value>

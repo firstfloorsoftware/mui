@@ -25,7 +25,8 @@
                                      Stroke="{DynamicResource ModernButtonBorder}"
                                      StrokeThickness="1"
                                      VerticalAlignment="Stretch" />
-                            <Path Data="{TemplateBinding IconData}" 
+                            <Path x:Name="icon"
+                                  Data="{TemplateBinding IconData}" 
                                   Width="{TemplateBinding IconWidth}"
                                   Height="{TemplateBinding IconHeight}"
                                   Fill="{TemplateBinding Foreground}"
@@ -49,6 +50,8 @@
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource ModernButtonTextPressed}" />
                             <Setter TargetName="ellipse" Property="Stroke" Value="{DynamicResource ModernButtonBorderPressed}" />
+                            <Setter TargetName="ellipse" Property="Fill" Value="{DynamicResource ModernButtonIconBackgroundPressed}" />
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource ModernButtonIconForegroundPressed}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource ModernButtonTextDisabled}" />

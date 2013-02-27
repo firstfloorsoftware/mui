@@ -8,6 +8,7 @@
         <ResourceDictionary Source="CheckBox.xaml" />
         <ResourceDictionary Source="ComboBox.xaml" />
         <ResourceDictionary Source="GridSplitter.xaml" />
+        <ResourceDictionary Source="Hyperlink.xaml" />
         <ResourceDictionary Source="ListBox.xaml" />
         <ResourceDictionary Source="ListView.xaml" />
         <ResourceDictionary Source="PasswordBox.xaml" />

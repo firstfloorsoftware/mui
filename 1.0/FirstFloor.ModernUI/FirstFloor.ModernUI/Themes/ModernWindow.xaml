@@ -136,7 +136,7 @@
                                         </controls:ModernButton>
 
                                         <!-- content frame -->
-                                        <controls:ModernFrame x:Name="ContentFrame" Grid.Row="3" Grid.RowSpan="2" Margin="36,8,16,16" Source="{TemplateBinding ContentSource}"/>
+                                        <controls:ModernFrame x:Name="ContentFrame" Grid.Row="3" Grid.RowSpan="2" Margin="36,8,16,16" Source="{Binding ContentSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}"/>
 
                                         <!-- resize grip -->
                                         <Grid Grid.Row="4">

@@ -12,7 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstFloor.ModernUI.App", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{2AC3CC94-8119-4CDC-A01C-02455F8E8AF5}"
 	ProjectSection(SolutionItems) = preProject
-		License.icons.txt = License.icons.txt
+		License.Icons.txt = License.Icons.txt
+		License.RelativeAnimatingContentControl.txt = License.RelativeAnimatingContentControl.txt
 		License.txt = License.txt
 	EndProjectSection
 EndProject

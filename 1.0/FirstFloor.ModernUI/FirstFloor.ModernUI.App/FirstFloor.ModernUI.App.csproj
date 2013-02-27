@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,6 +68,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Content\ContentLoaderImages.xaml.cs">
+      <DependentUpon>ContentLoaderImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ContentLoaderIntro.xaml.cs">
+      <DependentUpon>ContentLoaderIntro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FlickrImageLoader.cs" />
+    <Compile Include="SampleDisabledCommand.cs" />
+    <Compile Include="SampleParameterCommand.cs" />
+    <Compile Include="SampleMsgBoxCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Content\ControlsStylesProgressBar.xaml.cs">
@@ -74,6 +85,12 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContentLoader.xaml.cs">
+      <DependentUpon>ContentLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ControlsModern.xaml.cs">
       <DependentUpon>ControlsModern.xaml</DependentUpon>
@@ -166,11 +183,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Content\ContentLoaderImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ContentLoaderIntro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\ControlsStylesProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ContentLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Navigation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

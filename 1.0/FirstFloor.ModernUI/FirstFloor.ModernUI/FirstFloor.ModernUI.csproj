@@ -46,7 +46,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -73,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CommandDictionary.cs" />
     <Compile Include="Windows\Controls\ModernButton.cs" />
     <Compile Include="Windows\Controls\BBCodeBlock.cs" />
     <Compile Include="Windows\Controls\BBCode\BBCodeLexer.cs" />
@@ -87,14 +87,20 @@
     <Compile Include="Windows\Controls\ModernMenu.cs" />
     <Compile Include="Windows\Controls\ModernTab.cs" />
     <Compile Include="Windows\Controls\ModernWindow.cs" />
+    <Compile Include="Windows\Controls\RelativeAnimatingContentControl.cs" />
     <Compile Include="Windows\Controls\TabLayout.cs" />
     <Compile Include="Windows\Controls\TransitioningContentControl.cs" />
     <Compile Include="Windows\Converters\BooleanToFontWeightConverter.cs" />
     <Compile Include="Windows\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Windows\Converters\ToLowerConverter.cs" />
     <Compile Include="Windows\Converters\ToUpperConverter.cs" />
+    <Compile Include="Windows\DefaultContentLoader.cs" />
+    <Compile Include="Windows\DefaultLinkNavigator.cs" />
+    <Compile Include="Windows\IContentLoader.cs" />
+    <Compile Include="Windows\ILinkNavigator.cs" />
     <Compile Include="Windows\Media\VisualTreeHelperEx.cs" />
     <Compile Include="Windows\Controls\ModernFrame.cs" />
+    <Compile Include="Windows\NavigationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Assets\Converters.xaml">
@@ -110,6 +116,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Hyperlink.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

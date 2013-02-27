@@ -123,11 +123,23 @@
   <data name="Close" xml:space="preserve">
     <value>close</value>
   </data>
+  <data name="NavigationFailed" xml:space="preserve">
+    <value>Navigation failed</value>
+  </data>
+  <data name="NavigationFailedFrameNotFound" xml:space="preserve">
+    <value>Unable to navigate to {0}, could not find a ModernFrame target '{1}'</value>
+  </data>
+  <data name="NavigationFailedSourceNotSpecified" xml:space="preserve">
+    <value>Unable to navigate to {0}, no source specified</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>no</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>ok</value>
+  </data>
+  <data name="UIThreadRequired" xml:space="preserve">
+    <value>Operation requires the UI thread</value>
   </data>
   <data name="UnexpectedToken" xml:space="preserve">
     <value>Unexpected token</value>

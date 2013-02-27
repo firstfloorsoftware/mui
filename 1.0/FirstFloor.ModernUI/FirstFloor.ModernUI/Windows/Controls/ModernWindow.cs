@@ -34,6 +34,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// Defines the ContentSource dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentSourceProperty = DependencyProperty.Register("ContentSource", typeof(Uri), typeof(ModernWindow));
+        /// <summary>
+        /// Identifies the ContentLoader dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ContentLoaderProperty = DependencyProperty.Register("ContentLoader", typeof(IContentLoader), typeof(ModernWindow), new PropertyMetadata(new DefaultContentLoader()));
 
         private Storyboard backgroundAnimation;
 
@@ -160,6 +164,15 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             get { return (Uri)GetValue(ContentSourceProperty); }
             set { SetValue(ContentSourceProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the content loader.
+        /// </summary>
+        public IContentLoader ContentLoader
+        {
+            get { return (IContentLoader)GetValue(ContentLoaderProperty); }
+            set { SetValue(ContentLoaderProperty, value); }
         }
     }
 }

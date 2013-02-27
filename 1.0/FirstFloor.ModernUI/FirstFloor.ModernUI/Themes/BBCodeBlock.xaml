@@ -3,7 +3,6 @@
                     xmlns:controls="clr-namespace:FirstFloor.ModernUI.Windows.Controls">
     
     <Style TargetType="controls:BBCodeBlock">
-        <Setter Property="AccentBrush" Value="{DynamicResource Accent}" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>

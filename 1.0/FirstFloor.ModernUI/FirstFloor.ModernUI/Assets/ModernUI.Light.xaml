@@ -14,6 +14,10 @@
     <SolidColorBrush x:Key="ButtonTextPressed" Color="#ffffff" />
     <SolidColorBrush x:Key="ButtonTextDisabled" Color="#a1a1a1" />
 
+    <SolidColorBrush x:Key="Hyperlink" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="HyperlinkHover" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="HyperlinkDisabled" Color="#919191" />
+    
     <SolidColorBrush x:Key="InputBackground" Color="#ffffff" />
     <SolidColorBrush x:Key="InputBackgroundHover" Color="#ffffff" />
     <SolidColorBrush x:Key="InputBorder" Color="#cccccc" />
@@ -41,11 +45,13 @@
 
     <SolidColorBrush x:Key="ModernButtonBorder" Color="#919191" />
     <SolidColorBrush x:Key="ModernButtonBorderHover" Color="#333333" />
-    <SolidColorBrush x:Key="ModernButtonBorderPressed" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="ModernButtonBorderPressed" Color="#333333" />
     <SolidColorBrush x:Key="ModernButtonBorderDisabled" Color="#919191" />
+    <SolidColorBrush x:Key="ModernButtonIconBackgroundPressed" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="ModernButtonIconForegroundPressed" Color="#ffffff" />
     <SolidColorBrush x:Key="ModernButtonText" Color="#333333" />
     <SolidColorBrush x:Key="ModernButtonTextHover" Color="#333333" />
-    <SolidColorBrush x:Key="ModernButtonTextPressed" Color="#717171" />
+    <SolidColorBrush x:Key="ModernButtonTextPressed" Color="#333333" />
     <SolidColorBrush x:Key="ModernButtonTextDisabled" Color="#a1a1a1" />
 
     <SolidColorBrush x:Key="PopupBackground" Color="#ffffff" />

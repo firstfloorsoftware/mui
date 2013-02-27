@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Input;
 
 namespace FirstFloor.ModernUI.Windows.Controls.BBCode
 {
@@ -72,10 +73,9 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
         }
 
         /// <summary>
-        /// Gets or sets the accent brush.
+        /// Gets or sets the available navigable commands.
         /// </summary>
-        /// <value>The accent brush.</value>
-        public Brush AccentBrush { get; set; }
+        public CommandDictionary Commands { get; set; }
 
         private void ParseTag(string tag, bool start, ParseContext context)
         {
@@ -89,13 +89,9 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 if (start) {
                     Token token = LA(1);
                     if (token.TokenType == BBCodeLexer.TokenAttribute) {
-                        if (token.Value.ToUpperInvariant() == "ACCENT") {
-                            context.Foreground = this.AccentBrush;
-                        }
-                        else {
-                            var color = (Color)ColorConverter.ConvertFromString(token.Value);
-                            context.Foreground = new SolidColorBrush(color);
-                        }
+                        var color = (Color)ColorConverter.ConvertFromString(token.Value);
+                        context.Foreground = new SolidColorBrush(color);
+
                         Consume();
                     }
                 }
@@ -158,10 +154,30 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 else if (token.TokenType == BBCodeLexer.TokenText) {
                     var parent = span;
                     if (context.NavigateUri != null) {
-                        parent = new Hyperlink { NavigateUri = new Uri(context.NavigateUri, UriKind.Absolute) };
-                        if (this.AccentBrush != null){
-                            parent.Foreground = this.AccentBrush;
+                        // parse uri value for optional parameter or target, eg [url=cmd://foo|parameter]
+                        string uriStr = context.NavigateUri;
+                        string parameter = null;
+
+                        var i = context.NavigateUri.IndexOf('|');
+                        if (i != -1) {
+                            parameter = Uri.UnescapeDataString(uriStr.Substring(i + 1));
+                            uriStr = uriStr.Substring(0, i);
                         }
+
+                        var uri = new Uri(uriStr, UriKind.RelativeOrAbsolute);
+                        var link = new Hyperlink();
+
+                        // assign ICommand instance if available, otherwise set NavigateUri
+                        ICommand command;
+                        if (this.Commands != null && this.Commands.TryGetValue(uri, out command)) {
+                            link.Command = command;
+                            link.CommandParameter = parameter;
+                        }
+                        else {
+                            link.NavigateUri = uri;
+                            link.TargetName = parameter;
+                        }
+                        parent = link;
                         span.Inlines.Add(parent);
                     }
                     var run = context.CreateRun(token.Value);

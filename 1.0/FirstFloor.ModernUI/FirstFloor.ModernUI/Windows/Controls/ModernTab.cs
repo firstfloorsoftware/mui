@@ -16,6 +16,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
         : Control
     {
         /// <summary>
+        /// Identifies the ContentLoader dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ContentLoaderProperty = DependencyProperty.Register("ContentLoader", typeof(IContentLoader), typeof(ModernTab), new PropertyMetadata(new DefaultContentLoader()));
+        /// <summary>
         /// Identifies the Layout dependency property.
         /// </summary>
         public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register("Layout", typeof(TabLayout), typeof(ModernTab), new PropertyMetadata(TabLayout.Tab));
@@ -86,6 +90,15 @@ namespace FirstFloor.ModernUI.Windows.Controls
             if (link != null && link.Source != this.SelectedSource) {
                 this.SelectedSource = link.Source;
             }
+        }
+
+        /// <summary>
+        /// Gets or sets the content loader.
+        /// </summary>
+        public IContentLoader ContentLoader
+        {
+            get { return (IContentLoader)GetValue(ContentLoaderProperty); }
+            set { SetValue(ContentLoaderProperty, value); }
         }
 
         /// <summary>

@@ -79,6 +79,33 @@ namespace FirstFloor.ModernUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Navigation failed.
+        /// </summary>
+        internal static string NavigationFailed {
+            get {
+                return ResourceManager.GetString("NavigationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to navigate to {0}, could not find a ModernFrame target &apos;{1}&apos;.
+        /// </summary>
+        internal static string NavigationFailedFrameNotFound {
+            get {
+                return ResourceManager.GetString("NavigationFailedFrameNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to navigate to {0}, no source specified.
+        /// </summary>
+        internal static string NavigationFailedSourceNotSpecified {
+            get {
+                return ResourceManager.GetString("NavigationFailedSourceNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no.
         /// </summary>
         internal static string No {
@@ -93,6 +120,15 @@ namespace FirstFloor.ModernUI {
         internal static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation requires the UI thread.
+        /// </summary>
+        internal static string UIThreadRequired {
+            get {
+                return ResourceManager.GetString("UIThreadRequired", resourceCulture);
             }
         }
         
