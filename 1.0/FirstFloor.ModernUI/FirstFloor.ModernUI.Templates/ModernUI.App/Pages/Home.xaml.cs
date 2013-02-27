@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace $safeprojectname$.Pages
 {
     /// <summary>
-    /// Interaction logic for LoremIpsum.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class LoremIpsum : UserControl
+    public partial class Home : UserControl
     {
-        public LoremIpsum()
+        public Home()
         {
             InitializeComponent();
         }
