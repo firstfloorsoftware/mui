@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel HorizontalAlignment="Left">
-        <TextBlock Text="DIALOG" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+        <TextBlock Text="MODERNDIALOG" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
 
         <Button Content="common dialog" Margin="0,0,0,8" Click="CommonDialog_Click"/>
         <Button Content="message dialog" Click="MessageDialog_Click"/>

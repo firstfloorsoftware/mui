@@ -49,8 +49,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
             this.DefaultStyleKey = typeof(ModernWindow);
 
             // create empty collections
-            this.MenuLinkGroups = new LinkGroupCollection();
-            this.TitleLinks = new LinkCollection();
+            SetCurrentValue(MenuLinkGroupsProperty, new LinkGroupCollection());
+            SetCurrentValue(TitleLinksProperty, new LinkCollection());
 
             // associate window commands with this instance
             this.CommandBindings.Add(new CommandBinding(Microsoft.Windows.Shell.SystemCommands.CloseWindowCommand, OnCloseWindow));

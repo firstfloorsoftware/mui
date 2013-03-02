@@ -123,8 +123,9 @@
 
                                         <!-- main menu -->
                                         <controls:ModernMenu Grid.Row="1"
-                                                                 SelectedSource="{Binding Source, ElementName=ContentFrame, Mode=TwoWay}"
-                                                                 LinkGroups="{TemplateBinding MenuLinkGroups}"/>
+                                                             Margin="36,0,0,0"
+                                                             SelectedSource="{Binding Source, ElementName=ContentFrame, Mode=TwoWay}"
+                                                             LinkGroups="{TemplateBinding MenuLinkGroups}"/>
 
                                         <!-- back button -->
                                         <controls:ModernButton IconData="F1 M 33,22L 33,26L 19.75,26L 27,33L 20.5,33L 11,24L 20.5,15L 27,15L 19.75,22L 33,22 Z"

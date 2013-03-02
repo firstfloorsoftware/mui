@@ -7,11 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
-        <mui:ModernTab SelectedSource="/Content/ControlsModernButton.xaml" Layout="List">
+        <mui:ModernTab SelectedSource="/Content/ControlsModernBBCodeBlock.xaml" Layout="List">
             <mui:ModernTab.Links>
-                <mui:Link DisplayName="Button" Source="/Content/ControlsModernButton.xaml" />
                 <mui:Link DisplayName="BBCodeBlock" Source="/Content/ControlsModernBBCodeBlock.xaml"/>
-                <mui:Link DisplayName="Dialog" Source="/Content/ControlsModernDialog.xaml" />
+                <mui:Link DisplayName="ModernButton" Source="/Content/ControlsModernButton.xaml" />
+                <mui:Link DisplayName="ModernDialog" Source="/Content/ControlsModernDialog.xaml" />
+                <mui:Link DisplayName="ModernMenu" Source="/Content/ControlsModernMenu.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

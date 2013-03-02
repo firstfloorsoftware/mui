@@ -42,7 +42,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             this.DefaultStyleKey = typeof(ModernTab);
 
             // create a default links collection
-            this.Links = new LinkCollection();
+            SetCurrentValue(LinksProperty, new LinkCollection());
         }
 
         private static void OnLinksChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
@@ -88,7 +88,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             var link = this.linkList.SelectedItem as Link;
             if (link != null && link.Source != this.SelectedSource) {
-                this.SelectedSource = link.Source;
+                SetCurrentValue(SelectedSourceProperty, link.Source);
             }
         }
 

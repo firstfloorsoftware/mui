@@ -1,6 +1,7 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,15 +19,28 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// <summary>
         /// Defines the LinkGroups dependency property.
         /// </summary>
-        public static readonly DependencyProperty LinkGroupsProperty = DependencyProperty.Register("LinkGroups", typeof(LinkGroupCollection), typeof(ModernMenu), new PropertyMetadata(new PropertyChangedCallback(OnLinkGroupsChanged)));
+        public static readonly DependencyProperty LinkGroupsProperty = DependencyProperty.Register("LinkGroups", typeof(LinkGroupCollection), typeof(ModernMenu), new PropertyMetadata(OnLinkGroupsChanged));
+        /// <summary>
+        /// Defines the SelectedLinkGroup dependency property.
+        /// </summary>
+        public static readonly DependencyProperty SelectedLinkGroupProperty = DependencyProperty.Register("SelectedLinkGroup", typeof(LinkGroup), typeof(ModernMenu), new PropertyMetadata(OnSelectedLinkGroupChanged));
+        /// <summary>
+        /// Defines the SelectedLink dependency property.
+        /// </summary>
+        public static readonly DependencyProperty SelectedLinkProperty = DependencyProperty.Register("SelectedLink", typeof(Link), typeof(ModernMenu), new PropertyMetadata(OnSelectedLinkChanged));
         /// <summary>
         /// Defines the SelectedSource dependency property.
         /// </summary>
-        public static readonly DependencyProperty SelectedSourceProperty = DependencyProperty.Register("SelectedSource", typeof(Uri), typeof(ModernMenu), new PropertyMetadata(new PropertyChangedCallback(OnSelectedSourceChanged)));
+        public static readonly DependencyProperty SelectedSourceProperty = DependencyProperty.Register("SelectedSource", typeof(Uri), typeof(ModernMenu), new PropertyMetadata(OnSelectedSourceChanged));
 
-        private ListBox mainMenu;
-        private ListBox subMenu;
-        private bool isSelecting = false;
+        private static readonly DependencyPropertyKey VisibleLinkGroupsPropertyKey = DependencyProperty.RegisterReadOnly("VisibleLinkGroups", typeof(ReadOnlyLinkGroupCollection), typeof(ModernMenu), null);
+        /// <summary>
+        /// Defines the VisibleLinkGroups dependency property.
+        /// </summary>
+        public static readonly DependencyProperty VisibleLinkGroupsProperty = VisibleLinkGroupsPropertyKey.DependencyProperty;
+
+        private Dictionary<string, ReadOnlyLinkGroupCollection> groupMap = new Dictionary<string, ReadOnlyLinkGroupCollection>();     // stores LinkGroupCollections by GroupName
+        private bool isSelecting;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModernMenu"/> class.
@@ -34,43 +48,87 @@ namespace FirstFloor.ModernUI.Windows.Controls
         public ModernMenu()
         {
             this.DefaultStyleKey = typeof(ModernMenu);
+
+            // create a default link groups collection
+            SetCurrentValue(LinkGroupsProperty, new LinkGroupCollection());
         }
 
         private static void OnLinkGroupsChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            ((ModernMenu)o).UpdateMenu(true);
+            ((ModernMenu)o).OnLinkGroupsChanged((LinkGroupCollection)e.OldValue, (LinkGroupCollection)e.NewValue);
+        }
+
+        private void OnLinkGroupsChanged(LinkGroupCollection oldValue, LinkGroupCollection newValue)
+        {
+            if (oldValue != null) {
+                // detach old event handler
+                oldValue.CollectionChanged -= OnLinkGroupsCollectionChanged;
+            }
+            
+            if (newValue != null) {
+                // ensures the menu is rebuild when changes in the LinkGroups occur
+                newValue.CollectionChanged += OnLinkGroupsCollectionChanged;
+            }
+
+            RebuildMenu(newValue);
+        }
+
+        private static void OnSelectedLinkGroupChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            // retrieve the selected link from the group
+            var group = (LinkGroup)e.NewValue;
+            Link selectedLink = null;
+            if (group != null) {
+                selectedLink = group.SelectedLink;
+
+                // if no link selected or link doesn't exist in group links, auto-select first
+                if (group.Links != null) {
+                    if (selectedLink != null && !group.Links.Any(l => l == selectedLink)) {
+                        selectedLink = null;
+                    }
+
+                    if (selectedLink == null) {
+                        selectedLink = group.Links.FirstOrDefault();
+                    }
+                }
+            }
+
+            // update the selected link
+            ((ModernMenu)o).SetCurrentValue(SelectedLinkProperty, selectedLink);
+        }
+
+        private static void OnSelectedLinkChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            // update selected source
+            var newValue = (Link)e.NewValue;
+            Uri selectedSource = null;
+            if (newValue != null) {
+                selectedSource = newValue.Source;
+            }
+            ((ModernMenu)o).SetCurrentValue(SelectedSourceProperty, selectedSource);
+        }
+
+        private void OnLinkGroupsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            RebuildMenu((LinkGroupCollection)sender);
         }
 
         private static void OnSelectedSourceChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            ((ModernMenu)o).UpdateMenu(false);
+            ((ModernMenu)o).OnSelectedSourceChanged((Uri)e.OldValue, (Uri)e.NewValue);
         }
 
-        /// <summary>
-        /// When overridden in a derived class, is invoked whenever application code or internal processes call System.Windows.FrameworkElement.ApplyTemplate().
-        /// </summary>
-        public override void OnApplyTemplate()
+        private void OnSelectedSourceChanged(Uri oldValue, Uri newValue) 
         {
-            base.OnApplyTemplate();
-
-            if (this.mainMenu != null) {
-                this.mainMenu.SelectionChanged -= OnMainMenuSelectionChanged;
-            }
-            if (this.subMenu != null) {
-                this.subMenu.SelectionChanged -= OnSubMenuSelectionChanged;
+            if (this.isSelecting) {
+                return;
             }
 
-            this.mainMenu = GetTemplateChild("MainMenu") as ListBox;
-            this.subMenu = GetTemplateChild("SubMenu") as ListBox;
-
-            if (this.mainMenu != null) {
-                this.mainMenu.SelectionChanged += OnMainMenuSelectionChanged;
+            // if old and new are equal, don't do anything
+            if (newValue != null && newValue.Equals(oldValue)) {
+                return;
             }
-            if (this.subMenu != null) {
-                this.subMenu.SelectionChanged += OnSubMenuSelectionChanged;
-            }
-
-            UpdateMenu(true);
+            UpdateSelection();
         }
 
         /// <summary>
@@ -84,6 +142,16 @@ namespace FirstFloor.ModernUI.Windows.Controls
         }
 
         /// <summary>
+        /// Gets or sets the selected link.
+        /// </summary>
+        /// <value>The selected link.</value>
+        public Link SelectedLink
+        {
+            get { return (Link)GetValue(SelectedLinkProperty); }
+            set { SetValue(SelectedLinkProperty, value); }
+        }
+
+        /// <summary>
         /// Gets or sets the source URI of the selected link.
         /// </summary>
         /// <value>The source URI of the selected link.</value>
@@ -93,86 +161,103 @@ namespace FirstFloor.ModernUI.Windows.Controls
             set { SetValue(SelectedSourceProperty, value); }
         }
 
-        private void UpdateMenu(bool forceUpdate)
+        /// <summary>
+        /// Gets the selected link groups.
+        /// </summary>
+        public LinkGroup SelectedLinkGroup
         {
-            if (this.mainMenu == null || this.subMenu == null || this.LinkGroups == null) {
-                return;
-            }
+            get { return (LinkGroup)GetValue(SelectedLinkGroupProperty); }
+        }
 
-            var linkInfo = (from linkGroup in this.LinkGroups
-                            from link in linkGroup.Links
-                            where link.Source == this.SelectedSource
-                            select new {
-                                LinkGroup = linkGroup,
-                                Link = link
-                            }).FirstOrDefault();
+        /// <summary>
+        /// Gets the collection of link groups that are currently visible.
+        /// </summary>
+        public ReadOnlyLinkGroupCollection VisibleLinkGroups
+        {
+            get { return (ReadOnlyLinkGroupCollection)GetValue(VisibleLinkGroupsProperty); }
+        }
 
-            if (linkInfo == null) {
-                // nothing to do here
-                return;
-            }
+        /// <summary>
+        /// Gets a non-null name for given group.
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
+        private static string GetGroupName(LinkGroup group)
+        {
+            // use special key for GroupName <null>
+            return group.GroupName ?? "<null>";
+        }
 
-            string selectedGroupName = null;
-            var selectedLinkGroup = this.mainMenu.SelectedItem as LinkGroup;
-            if (selectedLinkGroup != null) {
-                selectedGroupName = selectedLinkGroup.GroupName;
-            }
+        private void RebuildMenu(LinkGroupCollection groups)
+        {
+            this.groupMap.Clear();
+            if (groups != null) {
+                // fill the group map based on group name
+                foreach (var group in groups) {
+                    var groupName = GetGroupName(group);
 
-            if (forceUpdate || selectedGroupName != linkInfo.LinkGroup.GroupName || this.mainMenu.Items.Count == 0) {
-                this.mainMenu.Items.Clear();
-                foreach (var linkGroup in this.LinkGroups.Where(lg => lg.GroupName == linkInfo.LinkGroup.GroupName && lg.Links.Any())) {
-                    this.mainMenu.Items.Add(linkGroup);
+                    ReadOnlyLinkGroupCollection groupCollection;
+                    if (!this.groupMap.TryGetValue(groupName, out groupCollection)) {
+                        // create a new collection for this group name
+                        groupCollection = new ReadOnlyLinkGroupCollection(new LinkGroupCollection());
+                        this.groupMap.Add(groupName, groupCollection);
+                    }
+
+                    // add the group
+                    groupCollection.List.Add(group);
                 }
             }
 
-            linkInfo.LinkGroup.SelectedLink = linkInfo.Link;
-            this.mainMenu.SelectedItem = linkInfo.LinkGroup;
-            this.subMenu.SelectedItem = linkInfo.Link;
+            // update current selection
+            UpdateSelection();
         }
 
-        private void OnMainMenuSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UpdateSelection()
         {
-            if (this.isSelecting) {
-                return;
+            LinkGroup selectedGroup = null;
+            Link selectedLink = null;
+
+            if (this.LinkGroups != null) {
+                // find the current select group and link based on the selected source
+                var linkInfo = (from g in this.LinkGroups
+                                from l in g.Links
+                                where l.Source == this.SelectedSource
+                                select new {
+                                    Group = g,
+                                    Link = l
+                                }).FirstOrDefault();
+
+                if (linkInfo != null) {
+                    selectedGroup = linkInfo.Group;
+                    selectedLink = linkInfo.Link;
+                }
+                else {
+                    // could not find link and group based on selected source, fall back to selected link group
+                    selectedGroup = this.SelectedLinkGroup;
+
+                    // if selected group doesn't exist in available groups, select first group
+                    if (!this.LinkGroups.Any(g => g == selectedGroup)) {
+                        selectedGroup = this.LinkGroups.FirstOrDefault();
+                    }
+                }
             }
+            
+            ReadOnlyLinkGroupCollection groups = null;
+            if (selectedGroup != null) {
+                // ensure group itself maintains the selected link
+                selectedGroup.SelectedLink = selectedLink;
+
+                // find the collection this group belongs to
+                var groupName = GetGroupName(selectedGroup);
+                this.groupMap.TryGetValue(groupName, out groups);
+            }
+
             this.isSelecting = true;
-
-            // update sub menu
-            this.subMenu.Items.Clear();
-
-            var linkGroup = this.mainMenu.SelectedItem as LinkGroup;
-
-            if (linkGroup != null) {
-                foreach (var link in linkGroup.Links) {
-                    this.subMenu.Items.Add(link);
-                }
-
-                // update selected link in sub menu
-                var selectedLink = linkGroup.SelectedLink;
-                if (selectedLink == null) {
-                    // select the first link
-                    selectedLink = linkGroup.Links.FirstOrDefault();
-                }
-
-                this.isSelecting = false;
-                this.subMenu.SelectedItem = selectedLink;
-            }
+            // update selection
+            SetValue(VisibleLinkGroupsPropertyKey, groups);
+            SetCurrentValue(SelectedLinkGroupProperty, selectedGroup);
+            SetCurrentValue(SelectedLinkProperty, selectedLink);
             this.isSelecting = false;
-        }
-
-        private void OnSubMenuSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (this.isSelecting) {
-                return;
-            }
-
-            var link = this.subMenu.SelectedItem as Link;
-            if (link != null) {
-                this.SelectedSource = link.Source;
-            }
-            else {
-                this.SelectedSource = null;
-            }
         }
     }
 }

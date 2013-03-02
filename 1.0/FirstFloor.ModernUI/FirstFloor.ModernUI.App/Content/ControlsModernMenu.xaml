@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="FirstFloor.ModernUI.App.Content.ControlsModernMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Left">
+                <TextBlock Text="MODERNMENU" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+
+                <mui:ModernMenu x:Name="Menu" Margin="0,0,0,16" SelectedSource="/link1">
+                    <mui:ModernMenu.LinkGroups>
+                        <mui:LinkGroup DisplayName="group 1">
+                            <mui:LinkGroup.Links>
+                                <mui:Link DisplayName="link 1" Source="/link1" />
+                                <mui:Link DisplayName="link 2" Source="/link2" />
+                                <mui:Link DisplayName="link 3" Source="/link3" />
+                            </mui:LinkGroup.Links>
+                        </mui:LinkGroup>
+                        <mui:LinkGroup DisplayName="group 2">
+                            <mui:LinkGroup.Links>
+                                <mui:Link DisplayName="link 4" Source="/link4" />
+                                <mui:Link DisplayName="link 5" Source="/link5" />
+                            </mui:LinkGroup.Links>
+                        </mui:LinkGroup>
+                    </mui:ModernMenu.LinkGroups>
+                </mui:ModernMenu>
+
+                <!-- displaying the current state of the menu -->
+                <TextBlock>
+                    <Run Text="SelectedLinkGroup:" />
+                    <Run Text="{Binding SelectedLinkGroup.DisplayName, ElementName=Menu}" FontWeight="Bold" />
+                </TextBlock>
+
+                <TextBlock>
+                    <Run Text="SelectedLink:" />
+                    <Run Text="{Binding SelectedLink.DisplayName, ElementName=Menu}" FontWeight="Bold" />
+                </TextBlock>
+
+                <TextBlock Margin="0,0,0,16">
+                    <Run Text="SelectedSource:" />
+                    <Run Text="{Binding SelectedSource, ElementName=Menu}" FontWeight="Bold" />
+                </TextBlock>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="AddGroup" Content="add group" />
+                    <Button x:Name="AddLink" Content="add link" Margin="8,0,0,0" />
+                    <Button x:Name="RemoveGroup" Content="remove group" Margin="8,0,0,0" />
+                    <Button x:Name="RemoveLink" Content="remove link" Margin="8,0,0,0" />
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

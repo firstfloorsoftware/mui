@@ -36,7 +36,7 @@ namespace FirstFloor.ModernUI.Presentation
         /// Gets or sets the selected link in this group.
         /// </summary>
         /// <value>The selected link.</value>
-        public Link SelectedLink
+        internal Link SelectedLink
         {
             get { return this.selectedLink; }
             set

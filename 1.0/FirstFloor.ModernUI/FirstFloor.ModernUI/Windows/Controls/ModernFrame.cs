@@ -84,6 +84,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnSourceChanged(Uri oldValue, Uri newValue)
         {
+            // if old and new are equal, don't do anything
+            if (newValue != null && newValue.Equals(oldValue)) {
+                return;
+            }
+
             LoadContent(oldValue, newValue, false);
         }
 

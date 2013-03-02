@@ -26,7 +26,8 @@
                             <RowDefinition Height="16" />
                         </Grid.RowDefinitions>
 
-                        <ListBox x:Name="MainMenu" Margin="36,0,0,0">
+                        <ListBox ItemsSource="{TemplateBinding VisibleLinkGroups}"
+                                 SelectedItem="{Binding SelectedLinkGroup, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -63,9 +64,10 @@
                             </ListBox.ItemsPanel>
                         </ListBox>
 
-                        <ListBox x:Name="SubMenu"
-                                 Grid.Row="1"
-                                 Margin="36,0,0,0" VerticalAlignment="Top">
+                        <ListBox Grid.Row="1"
+                                 ItemsSource="{Binding SelectedLinkGroup.Links, RelativeSource={RelativeSource TemplatedParent}}"
+                                 SelectedItem="{Binding SelectedLink, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                 VerticalAlignment="Top">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
