@@ -14,7 +14,12 @@
 
                 <TextBlock Text="CHECKBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
                 <CheckBox Content="standard checkbox" Margin="0,0,0,4"  />
-                <CheckBox Content="disabled checkbox" IsEnabled="False" />
+                <CheckBox Content="disabled checkbox" IsEnabled="False" Margin="0,0,0,16" />
+
+                <TextBlock Text="RADIOBUTTON" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
+                <RadioButton Content="option 1" Margin="0,0,0,4"  />
+                <RadioButton Content="option 2" Margin="0,0,0,4" />
+                <RadioButton Content="option 3, disabled" IsEnabled="False" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

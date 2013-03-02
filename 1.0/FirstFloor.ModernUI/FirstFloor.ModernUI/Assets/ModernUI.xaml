@@ -13,6 +13,7 @@
         <ResourceDictionary Source="ListView.xaml" />
         <ResourceDictionary Source="PasswordBox.xaml" />
         <ResourceDictionary Source="ProgressBar.xaml" />
+        <ResourceDictionary Source="RadioButton.xaml" />
         <ResourceDictionary Source="ScrollBar.xaml" />
         <ResourceDictionary Source="TextBlock.xaml" />
         <ResourceDictionary Source="TextBox.xaml" />
