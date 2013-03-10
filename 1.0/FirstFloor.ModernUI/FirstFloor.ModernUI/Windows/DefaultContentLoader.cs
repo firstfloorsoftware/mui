@@ -25,7 +25,7 @@ namespace FirstFloor.ModernUI.Windows
             if (!Application.Current.Dispatcher.CheckAccess()) {
                throw new InvalidOperationException(Resources.UIThreadRequired);
             }
-
+            
             // scheduler ensures LoadContent is executed on the current UI thread
             var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
             return Task.Factory.StartNew(() => LoadContent(uri), cancellationToken, TaskCreationOptions.None, scheduler);
@@ -38,6 +38,10 @@ namespace FirstFloor.ModernUI.Windows
         /// <returns>The loaded content.</returns>
         protected virtual object LoadContent(Uri uri)
         {
+            // don't do anything in design mode
+            if (ModernUIHelper.IsInDesignMode) {
+                return null;
+            }
             return Application.LoadComponent(uri);
         }
     }
