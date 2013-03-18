@@ -4,17 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:app="clr-namespace:FirstFloor.ModernUI.App"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <mui:ModernTab SelectedSource="/Content/LoremIpsum.xaml#1" Layout="List">
+        <mui:ModernTab SelectedSource="/2" Layout="List">
             <mui:ModernTab.Links>
-                <mui:Link DisplayName="Lorem Ipsum 1" Source="/Content/LoremIpsum.xaml#1" />
-                <mui:Link DisplayName="Lorem Ipsum 2" Source="/Content/LoremIpsum.xaml#2" />
-                <mui:Link DisplayName="Lorem Ipsum 3" Source="/Content/LoremIpsum.xaml#3"/>
-                <mui:Link DisplayName="Lorem Ipsum 4" Source="/Content/LoremIpsum.xaml#4" />
-                <mui:Link DisplayName="Lorem Ipsum 5" Source="/Content/LoremIpsum.xaml#5"/>
+                <mui:Link DisplayName="Lorem Ipsum 1" Source="/1" />
+                <mui:Link DisplayName="Lorem Ipsum 2" Source="/2" />
+                <mui:Link DisplayName="Lorem Ipsum 3" Source="/3"/>
+                <mui:Link DisplayName="Lorem Ipsum 4" Source="/4" />
+                <mui:Link DisplayName="Lorem Ipsum 5" Source="/5"/>
             </mui:ModernTab.Links>
+            
+            <!-- ensures new LoremIpsum content is loaded for each uri -->
+            <mui:ModernTab.ContentLoader>
+                <app:LoremIpsumLoader />
+            </mui:ModernTab.ContentLoader>
         </mui:ModernTab>
     </Grid>
 </UserControl>

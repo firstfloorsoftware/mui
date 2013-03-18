@@ -34,6 +34,8 @@
                                     <Setter Property="FontFamily" Value="Segoe UI Light" />
                                     <Setter Property="Foreground" Value="{DynamicResource MenuText}" />
                                     <Setter Property="FontSize" Value="23"/>
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
                                     <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
                                     <Setter Property="Margin" Value="0,0,12,0" />
                                     <Setter Property="Template">
@@ -76,6 +78,7 @@
                                     <Setter Property="FontSize" Value="11"/>
                                     <Setter Property="Margin" Value="0,0,12,0" />
                                     <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ListBoxItem">

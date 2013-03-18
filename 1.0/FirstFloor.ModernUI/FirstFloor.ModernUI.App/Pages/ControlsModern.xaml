@@ -12,6 +12,7 @@
                 <mui:Link DisplayName="BBCodeBlock" Source="/Content/ControlsModernBBCodeBlock.xaml"/>
                 <mui:Link DisplayName="ModernButton" Source="/Content/ControlsModernButton.xaml" />
                 <mui:Link DisplayName="ModernDialog" Source="/Content/ControlsModernDialog.xaml" />
+                <mui:Link DisplayName="ModernFrame" Source="/Content/ControlsModernFrame.xaml" />
                 <mui:Link DisplayName="ModernMenu" Source="/Content/ControlsModernMenu.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>

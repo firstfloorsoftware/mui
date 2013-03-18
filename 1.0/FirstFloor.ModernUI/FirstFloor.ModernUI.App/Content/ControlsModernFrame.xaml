@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="FirstFloor.ModernUI.App.Content.ControlsModernFrame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="MODERNFRAME" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+
+                <Border BorderBrush="{DynamicResource ButtonBorder}" BorderThickness="1" HorizontalAlignment="Left" Margin="0,0,0,16">
+                    <mui:ModernFrame x:Name="Frame" Source="/Content/ModernFrame/Sample.xaml" 
+                                     Width="480" Height="200" Padding="4"
+                                     FragmentNavigation="Frame_FragmentNavigation"
+                                     Navigated="Frame_Navigated"
+                                     Navigating="Frame_Navigating"
+                                     NavigationFailed="Frame_NavigationFailed"/>
+                </Border>
+
+                <TextBlock Margin="0,0,0,16">
+                    <Run Text="Source:" />
+                    <Run Text="{Binding Source, ElementName=Frame}" FontWeight="Bold" />
+                </TextBlock>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+                    <Button Content="back" Command="NavigationCommands.BrowseBack" CommandTarget="{Binding ElementName=Frame}"/>
+                    <Button Content="refresh" Command="NavigationCommands.Refresh" CommandTarget="{Binding ElementName=Frame}" Margin="8,0,0,0"/>
+                    <Button Content="error" Command="NavigationCommands.GoToPage" CommandParameter="/Content/ModernFrame/ErrorSample.xaml" CommandTarget="{Binding ElementName=Frame}" Margin="8,0,0,0"/>
+                    <Button Content="cancellable" Command="NavigationCommands.GoToPage" CommandParameter="/Content/ModernFrame/CancelNavigateSample.xaml" CommandTarget="{Binding ElementName=Frame}" Margin="8,0,0,0"/>
+                    <Button Content="fragment" Command="NavigationCommands.GoToPage" CommandParameter="/Content/ModernFrame/CancelNavigateSample.xaml#somevalue" CommandTarget="{Binding ElementName=Frame}" Margin="8,0,0,0"/>
+                </StackPanel>
+
+                <!--
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+                    <mui:ModernButton IconData="F1 M 33,22L 33,26L 19.75,26L 27,33L 20.5,33L 11,24L 20.5,15L 27,15L 19.75,22L 33,22 Z"
+                                      Command="NavigationCommands.BrowseBack" CommandTarget="{Binding ElementName=Frame}"/>
+                    <mui:ModernButton IconData="F1 M 24,13C 27.1521,13 29.9945,14.3258 32,16.4501L 32,11L 35,14L 35,22L 27,22L 24,19L 29.5903,19C 28.217,17.4656 26.2212,16.5 24,16.5C 20.1969,16.5 17.055,19.3306 16.5661,23L 13.0448,23C 13.5501,17.3935 18.262,13 24,13 Z M 24,31.5C 27.8031,31.5 30.945,28.6694 31.4339,25L 34.9552,25C 34.4499,30.6065 29.738,35 24,35C 20.8479,35 18.0055,33.6742 16,31.5499L 16,37L 13,34L 13,26L 21,26L 24,29L 18.4097,29C 19.783,30.5344 21.7787,31.5 24,31.5 Z"
+                                      Command="NavigationCommands.Refresh" CommandTarget="{Binding ElementName=Frame}" />
+                    <mui:ModernButton Content="error" IconData="F1 M 19.0002,34L 19.0002,42L 43.7502,42L 33.7502,52L 44.2502,52L 58.2502,38L 44.2502,24L 33.7502,24L 43.7502,34L 19.0002,34 Z"
+                                      Command="NavigationCommands.GoToPage" CommandParameter="/Content/ModernFrame/ErrorSample.xaml" CommandTarget="{Binding ElementName=Frame}" />
+                    <mui:ModernButton Content="cancellable" IconData="F1 M 19.0002,34L 19.0002,42L 43.7502,42L 33.7502,52L 44.2502,52L 58.2502,38L 44.2502,24L 33.7502,24L 43.7502,34L 19.0002,34 Z"
+                                      Command="NavigationCommands.GoToPage" CommandParameter="/Content/ModernFrame/CancelNavigateSample.xaml" CommandTarget="{Binding ElementName=Frame}" Margin="8,0,0,0"/>
+                    <mui:ModernButton Content="fragment" IconData="F1 M 19.0002,34L 19.0002,42L 43.7502,42L 33.7502,52L 44.2502,52L 58.2502,38L 44.2502,24L 33.7502,24L 43.7502,34L 19.0002,34 Z"
+                                      Command="NavigationCommands.GoToPage" CommandParameter="/Content/ModernFrame/CancelNavigateSample.xaml#somevalue" CommandTarget="{Binding ElementName=Frame}" Margin="8,0,0,0"/>
+                </StackPanel>
+
+                <mui:BBCodeBlock BBCode="[url=cmd://browseback||Frame]back[/url]  [url=cmd://refresh||Frame]refresh[/url]  [url=/Content/ModernFrame/ErrorSample.xaml|Frame]error[/url]  [url=/Content/ModernFrame/CancelNavigateSample.xaml|Frame]cancellable[/url]  [url=/Content/ModernFrame/CancelNavigateSample.xaml#somevalue|Frame]fragment[/url]" Margin="0,0,0,16" />
+                -->
+
+                <TextBlock Text="Events" FontWeight="Bold" Margin="0,0,0,8" />
+                <TextBox x:Name="TextEvents" Width="480" Height="200" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Auto" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

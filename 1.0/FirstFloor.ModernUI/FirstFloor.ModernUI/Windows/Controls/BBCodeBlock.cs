@@ -1,5 +1,6 @@
 ﻿using FirstFloor.ModernUI.Windows.Controls.BBCode;
 using FirstFloor.ModernUI.Windows.Media;
+using FirstFloor.ModernUI.Windows.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -83,7 +84,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             if (!string.IsNullOrWhiteSpace(bbcode)) {
                 Inline inline;
                 try {
-                    var parser = new BBCodeParser(bbcode) {
+                    var parser = new BBCodeParser(bbcode, this) {
                         Commands = this.LinkNavigator.Commands
                     };
                     inline = parser.Parse();

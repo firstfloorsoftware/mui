@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FirstFloor.ModernUI.Windows
+namespace FirstFloor.ModernUI.Windows.Navigation
 {
     /// <summary>
     /// The hyperlink navigator contract.

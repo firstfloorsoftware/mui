@@ -2,12 +2,13 @@
 using FirstFloor.ModernUI.Windows.Media;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FirstFloor.ModernUI.Windows
+namespace FirstFloor.ModernUI.Windows.Navigation
 {
     /// <summary>
     /// Provides helper function for navigation.
@@ -75,6 +76,40 @@ namespace FirstFloor.ModernUI.Windows
             }
 
             return frame;
+        }
+
+        /// <summary>
+        /// Removes the fragment from specified uri and return it.
+        /// </summary>
+        /// <param name="uri">The uri</param>
+        /// <returns>The uri without the fragment, or the uri itself if no fragment is found</returns>
+        public static Uri RemoveFragment(Uri uri)
+        {
+            string fragment;
+            return RemoveFragment(uri, out fragment);
+        }
+
+        /// <summary>
+        /// Removes the fragment from specified uri and returns the uri without the fragment and the fragment itself.
+        /// </summary>
+        /// <param name="uri">The uri.</param>
+        /// <param name="fragment">The fragment, null if no fragment found</param>
+        /// <returns>The uri without the fragment, or the uri itself if no fragment is found</returns>
+        public static Uri RemoveFragment(Uri uri, out string fragment)
+        {
+            fragment = null;
+
+            if (uri != null) {
+                var value = uri.OriginalString;
+
+                var i = value.IndexOf('#');
+                if (i != -1) {
+                    fragment = value.Substring(i + 1);
+                    uri = new Uri(value.Substring(0, i), uri.IsAbsoluteUri ? UriKind.Absolute : UriKind.Relative);
+                }
+            }
+
+            return uri;
         }
     }
 }

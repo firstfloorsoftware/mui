@@ -41,6 +41,7 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("http://firstfloorsoftware.com/ModernUI", "FirstFloor.ModernUI.Windows")]
 [assembly: XmlnsDefinition("http://firstfloorsoftware.com/ModernUI", "FirstFloor.ModernUI.Windows.Controls")]
 [assembly: XmlnsDefinition("http://firstfloorsoftware.com/ModernUI", "FirstFloor.ModernUI.Windows.Converters")]
+[assembly: XmlnsDefinition("http://firstfloorsoftware.com/ModernUI", "FirstFloor.ModernUI.Windows.Navigation")]
 [assembly: XmlnsPrefix("http://firstfloorsoftware.com/ModernUI", "mui")]
 
 [assembly: ThemeInfo(

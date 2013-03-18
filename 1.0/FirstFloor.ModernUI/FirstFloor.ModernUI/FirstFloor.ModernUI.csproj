@@ -55,7 +55,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModernUIHelper.cs" />
     <Compile Include="Presentation\ReadOnlyLinkGroupCollection.cs" />
     <Compile Include="Presentation\FontSize.cs" />
     <Compile Include="Presentation\Theme.cs" />
@@ -97,12 +96,19 @@
     <Compile Include="Windows\Converters\ToLowerConverter.cs" />
     <Compile Include="Windows\Converters\ToUpperConverter.cs" />
     <Compile Include="Windows\DefaultContentLoader.cs" />
-    <Compile Include="Windows\DefaultLinkNavigator.cs" />
+    <Compile Include="Windows\Navigation\DefaultLinkNavigator.cs" />
+    <Compile Include="Windows\Navigation\FragmentNavigationEventArgs.cs" />
+    <Compile Include="Windows\IContent.cs" />
     <Compile Include="Windows\IContentLoader.cs" />
-    <Compile Include="Windows\ILinkNavigator.cs" />
+    <Compile Include="Windows\Navigation\ILinkNavigator.cs" />
     <Compile Include="Windows\Media\VisualTreeHelperEx.cs" />
     <Compile Include="Windows\Controls\ModernFrame.cs" />
-    <Compile Include="Windows\NavigationHelper.cs" />
+    <Compile Include="Windows\Navigation\NavigatingCancelEventArgs.cs" />
+    <Compile Include="Windows\Navigation\NavigationBaseEventArgs.cs" />
+    <Compile Include="Windows\Navigation\NavigationEventArgs.cs" />
+    <Compile Include="Windows\Navigation\NavigationFailedEventArgs.cs" />
+    <Compile Include="Windows\Navigation\NavigationHelper.cs" />
+    <Compile Include="Windows\Navigation\NavigationType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Assets\Converters.xaml">
@@ -224,6 +230,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

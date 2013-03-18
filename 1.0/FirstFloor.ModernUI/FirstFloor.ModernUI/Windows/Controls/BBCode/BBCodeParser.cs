@@ -63,13 +63,20 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
             }
         }
 
+        private FrameworkElement source;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BBCodeParser"/> class.
         /// </summary>
         /// <param name="value">The value.</param>
-        public BBCodeParser(string value)
+        /// <param name="source">The framework source element this parser operates in.</param>
+        public BBCodeParser(string value, FrameworkElement source)
             : base(new BBCodeLexer(value))
         {
+            if (source == null) {
+                throw new ArgumentNullException("source");
+            }
+            this.source = source;
         }
 
         /// <summary>
@@ -154,14 +161,20 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 else if (token.TokenType == BBCodeLexer.TokenText) {
                     var parent = span;
                     if (context.NavigateUri != null) {
-                        // parse uri value for optional parameter or target, eg [url=cmd://foo|parameter]
+                        // parse uri value for optional parameter and/or target, eg [url=cmd://foo|parameter|target]
                         string uriStr = context.NavigateUri;
                         string parameter = null;
+                        string targetName = null;
 
-                        var i = context.NavigateUri.IndexOf('|');
-                        if (i != -1) {
-                            parameter = Uri.UnescapeDataString(uriStr.Substring(i + 1));
-                            uriStr = uriStr.Substring(0, i);
+                        var parts = uriStr.Split(new char[] { '|' }, 3);
+                        if (parts.Length == 3) {
+                            uriStr = parts[0];
+                            parameter = Uri.UnescapeDataString(parts[1]);
+                            targetName = Uri.UnescapeDataString(parts[2]);
+                        }
+                        else if (parts.Length == 2) {
+                            uriStr = parts[0];
+                            parameter = Uri.UnescapeDataString(parts[1]);
                         }
 
                         var uri = new Uri(uriStr, UriKind.RelativeOrAbsolute);
@@ -172,6 +185,9 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                         if (this.Commands != null && this.Commands.TryGetValue(uri, out command)) {
                             link.Command = command;
                             link.CommandParameter = parameter;
+                            if (targetName != null) {
+                                link.CommandTarget = this.source.FindName(targetName) as IInputElement;
+                            }
                         }
                         else {
                             link.NavigateUri = uri;

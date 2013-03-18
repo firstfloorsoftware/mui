@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Media;
+using FirstFloor.ModernUI.Windows.Navigation;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -39,10 +41,32 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty SourceProperty = DependencyProperty.Register("Source", typeof(Uri), typeof(ModernFrame), new PropertyMetadata(OnSourceChanged));
 
+        /// <summary>
+        /// Occurs when navigation to a content fragment begins.
+        /// </summary>
+        public event EventHandler<FragmentNavigationEventArgs> FragmentNavigation;
+        /// <summary>
+        /// Occurs when a new navigation is requested.
+        /// </summary>
+        /// <remarks>
+        /// The navigating event is also raised when a parent frame is navigating. This allows for cancelling parent navigation.
+        /// </remarks>
+        public event EventHandler<NavigatingCancelEventArgs> Navigating;
+        /// <summary>
+        /// Occurs when navigation to new content has completed.
+        /// </summary>
+        public event EventHandler<NavigationEventArgs> Navigated;
+        /// <summary>
+        /// Occurs when navigation has failed.
+        /// </summary>
+        public event EventHandler<NavigationFailedEventArgs> NavigationFailed;
+
         private Stack<Uri> history = new Stack<Uri>();
         private Dictionary<Uri, object> contentCache = new Dictionary<Uri, object>();
-        private bool isNavigatingHistory = false;
+        private List<WeakReference<ModernFrame>> childFrames = new List<WeakReference<ModernFrame>>();        // list of registered frames in sub tree
         private CancellationTokenSource tokenSource;
+        private bool isNavigatingHistory;
+        private bool isResetSource;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModernFrame"/> class.
@@ -56,6 +80,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
             this.CommandBindings.Add(new CommandBinding(NavigationCommands.GoToPage, OnGoToPage, OnCanGoToPage));
             this.CommandBindings.Add(new CommandBinding(NavigationCommands.Refresh, OnRefresh, OnCanRefresh));
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.Copy, OnCopy, OnCanCopy));
+
+            this.Loaded += OnLoaded;
         }
 
         private static void OnKeepContentAliveChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
@@ -84,15 +110,66 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnSourceChanged(Uri oldValue, Uri newValue)
         {
-            // if old and new are equal, don't do anything
-            if (newValue != null && newValue.Equals(oldValue)) {
+            // if resetting source or old source equals new, don't do anything
+            if (this.isResetSource || newValue != null && newValue.Equals(oldValue)) {
                 return;
             }
 
-            LoadContent(oldValue, newValue, false);
+            // handle fragment navigation
+            string newFragment = null;
+            var oldValueNoFragment = NavigationHelper.RemoveFragment(oldValue);
+            var newValueNoFragment = NavigationHelper.RemoveFragment(newValue, out newFragment);
+
+            if (newValueNoFragment != null && newValueNoFragment.Equals(oldValueNoFragment)) {
+                // fragment navigation
+                var args = new FragmentNavigationEventArgs {
+                    Fragment = newFragment
+                };
+
+                OnFragmentNavigation(this.Content as IContent, args);
+            }
+            else {
+                var navType = this.isNavigatingHistory ? NavigationType.Back : NavigationType.New;
+
+                // only invoke CanNavigate for new navigation
+                if (!this.isNavigatingHistory && !CanNavigate(oldValue, newValue, navType)) {
+                    return;
+                }
+
+                Navigate(oldValue, newValue, navType);
+            }
         }
 
-        private async void LoadContent(Uri oldValue, Uri newValue, bool noCache) 
+        private bool CanNavigate(Uri oldValue, Uri newValue, NavigationType navigationType)
+        {
+            var cancelArgs = new NavigatingCancelEventArgs {
+                Frame = this,
+                Source = newValue,
+                IsParentFrameNavigating = true,
+                NavigationType = navigationType,
+                Cancel = false,
+            };
+            OnNavigating(this.Content as IContent, cancelArgs);
+
+            // check if navigation cancelled
+            if (cancelArgs.Cancel) {
+                Debug.WriteLine("Cancelled navigation from '{0}' to '{1}'", oldValue, newValue);
+
+                if (this.Source != oldValue) {
+                    // enqueue the operation to reset the source back to the old value
+                    Dispatcher.BeginInvoke((Action)(() => {
+                        this.isResetSource = true;
+                        SetCurrentValue(SourceProperty, oldValue);
+                        this.isResetSource = false;
+                    }));
+                }
+                return false;
+            }
+
+            return true;
+        }
+
+        private async void Navigate(Uri oldValue, Uri newValue, NavigationType navigationType)
         {
             Debug.WriteLine("Navigating from '{0}' to '{1}'", oldValue, newValue);
 
@@ -108,15 +185,18 @@ namespace FirstFloor.ModernUI.Windows.Controls
                 this.tokenSource = null;
             }
 
-            // push previous source onto the history stack
-            if (!this.isNavigatingHistory && oldValue != null) {
+            // push previous source onto the history stack (only for new navigation types)
+            if (oldValue != null && navigationType == NavigationType.New) {
                 this.history.Push(oldValue);
             }
 
-            if (newValue != null) {
-                var contentIsError = false;
+            var contentIsError = false;
 
-                if (noCache || !this.contentCache.TryGetValue(newValue, out newContent)) {
+            if (newValue != null) {
+                // content is cached on uri without fragment
+                var newValueNoFragment = NavigationHelper.RemoveFragment(newValue);
+
+                if (navigationType == NavigationType.Refresh || !this.contentCache.TryGetValue(newValueNoFragment, out newContent)) {
                     using (var localTokenSource = new CancellationTokenSource()) {
                         this.tokenSource = localTokenSource;
                         try {
@@ -135,7 +215,18 @@ namespace FirstFloor.ModernUI.Windows.Controls
                             return;
                         }
                         catch (Exception e) {
-                            newContent = e;     // the new content is the exception
+                            // raise failed event
+                            var failedArgs = new NavigationFailedEventArgs {
+                                Frame = this,
+                                Source = newValue,
+                                Error = e,
+                                Handled = false
+                            };
+
+                            OnNavigationFailed(failedArgs);
+
+                            // if not handled, show error as content
+                            newContent = failedArgs.Handled ? null : e;
                             contentIsError = true;
                         }
                         finally {
@@ -149,69 +240,225 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
                 if (!contentIsError && ShouldKeepContentAlive(newContent)) {
                     // keep the new content in memory
-                    this.contentCache[newValue] = newContent;
+                    this.contentCache[newValueNoFragment] = newContent;
                 }
             }
+
+            var oldContent = this.Content as IContent;
 
             // assign content
             this.Content = newContent;
 
+            // do not raise navigated event when error
+            if (!contentIsError) {
+                var args = new NavigationEventArgs {
+                    Frame = this,
+                    Source = newValue,
+                    Content = newContent,
+                    NavigationType = navigationType
+                };
+
+                OnNavigated(oldContent, newContent as IContent, args);
+            }
+
             // set IsLoadingContent to false
             SetValue(IsLoadingContentPropertyKey, false);
+
+            if (!contentIsError) {
+                // and raise optional fragment navigation events
+                string fragment;
+                NavigationHelper.RemoveFragment(newValue, out fragment);
+                if (fragment != null) {
+                    // fragment navigation
+                    var fragmentArgs = new FragmentNavigationEventArgs {
+                        Fragment = fragment
+                    };
+
+                    OnFragmentNavigation(newContent as IContent, fragmentArgs);
+                }
+            }
+        }
+
+        private IEnumerable<ModernFrame> GetChildFrames()
+        {
+            var refs = this.childFrames.ToArray();
+            foreach (var r in refs) {
+                var valid = false;
+                ModernFrame frame;
+                if (r.TryGetTarget(out frame)) {
+                    // check if frame is still an actual child (not the case when child is removed, but not yet garbage collected)
+                    if (NavigationHelper.FindFrame(null, frame) == this) {
+                        valid = true;
+                        yield return frame;
+                    }
+                }
+
+                if (!valid) {
+                    this.childFrames.Remove(r);
+                }
+            }
+        }
+
+        private void OnFragmentNavigation(IContent content, FragmentNavigationEventArgs e)
+        {
+            // invoke optional IContent.OnFragmentNavigation
+            if (content != null) {
+                content.OnFragmentNavigation(e);
+            }
+
+            // raise the FragmentNavigation event
+            if (FragmentNavigation != null) {
+                FragmentNavigation(this, e);
+            }
+        }
+
+        private void OnNavigating(IContent content, NavigatingCancelEventArgs e)
+        {
+            // first invoke child frame navigation events
+            foreach (var f in GetChildFrames()) {
+                f.OnNavigating(f.Content as IContent, e);
+            }
+
+            e.IsParentFrameNavigating = e.Frame != this;
+
+            // invoke IContent.OnNavigating (only if content implements IContent)
+            if (content != null) {
+                content.OnNavigatingFrom(e);
+            }
+
+            // raise the Navigating event
+            if (Navigating != null) {
+                Navigating(this, e);
+            }
+        }
+
+        private void OnNavigated(IContent oldContent, IContent newContent, NavigationEventArgs e)
+        {
+            // invoke IContent.OnNavigatedFrom and OnNavigatedTo
+            if (oldContent != null) {
+                oldContent.OnNavigatedFrom(e);
+            }
+            if (newContent != null) {
+                newContent.OnNavigatedTo(e);
+            }
+
+            // raise the Navigated event
+            if (Navigated != null) {
+                Navigated(this, e);
+            }
+        }
+
+        private void OnNavigationFailed(NavigationFailedEventArgs e)
+        {
+            if (NavigationFailed != null){
+                NavigationFailed(this, e);
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the routed event args should be handled.
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        /// <remarks>This method prevents parent frames from handling routed commands.</remarks>
+        private static bool HandleRoutedEvent(CanExecuteRoutedEventArgs args)
+        {
+            var frame = args.Source as ModernFrame;
+            var originalSource = args.OriginalSource as DependencyObject;
+
+            if (frame == null || originalSource == null) {
+                return false;
+            }
+            return originalSource.AncestorsAndSelf().OfType<ModernFrame>().FirstOrDefault() == frame;
         }
 
         private void OnCanBrowseBack(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = this.history.Count > 0;
+            // only enable browse back for source frame, do not bubble
+            if (HandleRoutedEvent(e)) {
+                e.CanExecute = this.history.Count > 0;
+            }
         }
 
         private void OnCanCopy(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = this.Content != null;
+            if (HandleRoutedEvent(e)) {
+                e.CanExecute = this.Content != null;
+            }
         }
 
         private void OnCanGoToPage(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = e.Parameter is String || e.Parameter is Uri;
+            if (HandleRoutedEvent(e)) {
+                e.CanExecute = e.Parameter is String || e.Parameter is Uri;
+            }
         }
 
         private void OnCanRefresh(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = this.Source != null;
+            if (HandleRoutedEvent(e)) {
+                e.CanExecute = this.Source != null;
+            }
         }
 
         private void OnBrowseBack(object target, ExecutedRoutedEventArgs e)
         {
             if (this.history.Count > 0) {
-                this.isNavigatingHistory = true;
-                this.Source = this.history.Pop();
-                this.isNavigatingHistory = false;
+                var oldValue = this.Source;
+                var newValue = this.history.Peek();     // do not remove just yet, navigation may be cancelled
+
+                if (CanNavigate(oldValue, newValue, NavigationType.Back)) {
+                    this.isNavigatingHistory = true;
+                    SetCurrentValue(SourceProperty, this.history.Pop());
+                    this.isNavigatingHistory = false;
+                }
             }
         }
 
         private void OnGoToPage(object target, ExecutedRoutedEventArgs e)
         {
-            var source = e.Parameter as Uri;
-            if (source != null) {
-                this.Source = source;
-            }
-            else {
-                var sourceStr = e.Parameter as string;
-                if (sourceStr != null) {
-                    this.Source = new Uri(sourceStr, UriKind.RelativeOrAbsolute);
+            var newValue = e.Parameter as Uri;
+            
+            if (newValue == null) {
+                var newValueStr = e.Parameter as string;
+                if (newValueStr != null) {
+                    newValue = new Uri(newValueStr, UriKind.RelativeOrAbsolute);
+                }
+                else {
+                    // no valid command parameter (not a uri or string), ignore
+                    return;
                 }
             }
+            SetCurrentValue(SourceProperty, newValue);
         }
 
         private void OnRefresh(object target, ExecutedRoutedEventArgs e)
         {
-            LoadContent(null, this.Source, true);
+            if (CanNavigate(this.Source, this.Source, NavigationType.Refresh)) {
+                Navigate(this.Source, this.Source, NavigationType.Refresh);
+            }
         }
 
         private void OnCopy(object target, ExecutedRoutedEventArgs e)
         {
             // copies the string representation of the current content to the clipboard
             Clipboard.SetText(this.Content.ToString());
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var parent = NavigationHelper.FindFrame(null, this);
+            if (parent != null) {
+                parent.RegisterChildFrame(this);
+            }
+        }
+
+        private void RegisterChildFrame(ModernFrame frame)
+        {
+            // do not register existing frame
+            if (!GetChildFrames().Contains(frame)) {
+                this.childFrames.Add(new WeakReference<ModernFrame>(frame));
+            }
         }
 
         /// <summary>

@@ -51,13 +51,9 @@ namespace FirstFloor.ModernUI.Windows.Media
         /// </returns>
         public static IEnumerable<DependencyObject> Ancestors(this DependencyObject dependencyObject)
         {
-            if (dependencyObject == null) {
-                throw new ArgumentNullException("dependencyObject");
-            }
-
             var parent = dependencyObject;
             while (true) {
-                parent = VisualTreeHelper.GetParent(parent);
+                parent = GetParent(parent);
                 if (parent != null) {
                     yield return parent;
                 }
@@ -65,6 +61,56 @@ namespace FirstFloor.ModernUI.Windows.Media
                     break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns a collection of visual elements that contain specified object, and the ancestors of specified object.
+        /// </summary>
+        /// <param name="dependencyObject">The dependency object.</param>
+        /// <returns>
+        /// A collection that contains the ancestors elements and the object itself.
+        /// </returns>
+        public static IEnumerable<DependencyObject> AncestorsAndSelf(this DependencyObject dependencyObject)
+        {
+            if (dependencyObject == null) {
+                throw new ArgumentNullException("dependencyObject");
+            }
+
+            var parent = dependencyObject;
+            while (true) {
+                if (parent != null) {
+                    yield return parent;
+                }
+                else {
+                    break;
+                }
+                parent = GetParent(parent);
+            }
+        }
+
+        /// <summary>
+        /// Gets the parent for specified dependency object.
+        /// </summary>
+        /// <param name="dependencyObject">The dependency object</param>
+        /// <returns>The parent object or null if there is no parent.</returns>
+        public static DependencyObject GetParent(this DependencyObject dependencyObject)
+        {
+            if (dependencyObject == null) {
+                throw new ArgumentNullException("dependencyObject");
+            }
+
+            var ce = dependencyObject as ContentElement;
+            if (ce != null) {
+                var parent = ContentOperations.GetParent(ce);
+                if (parent != null) {
+                    return parent;
+                }
+
+                var fce = ce as FrameworkContentElement;
+                return fce != null ? fce.Parent : null;
+            }
+
+            return VisualTreeHelper.GetParent(dependencyObject);
         }
     }
 }

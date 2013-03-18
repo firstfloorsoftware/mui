@@ -74,10 +74,23 @@
     <Compile Include="Content\ContentLoaderIntro.xaml.cs">
       <DependentUpon>ContentLoaderIntro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\ControlsModernFrame.xaml.cs">
+      <DependentUpon>ControlsModernFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\ControlsModernMenu.xaml.cs">
       <DependentUpon>ControlsModernMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\ModernFrame\CancelNavigateSample.xaml.cs">
+      <DependentUpon>CancelNavigateSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ModernFrame\ErrorSample.xaml.cs">
+      <DependentUpon>ErrorSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ModernFrame\Sample.xaml.cs">
+      <DependentUpon>Sample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FlickrImageLoader.cs" />
+    <Compile Include="LoremIpsumLoader.cs" />
     <Compile Include="SampleDisabledCommand.cs" />
     <Compile Include="SampleParameterCommand.cs" />
     <Compile Include="SampleMsgBoxCommand.cs" />
@@ -194,11 +207,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Content\ControlsModernFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\ControlsModernMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\ControlsStylesProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ModernFrame\CancelNavigateSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ModernFrame\ErrorSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ModernFrame\Sample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
