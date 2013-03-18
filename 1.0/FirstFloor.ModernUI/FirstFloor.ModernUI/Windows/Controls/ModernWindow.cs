@@ -112,22 +112,22 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnCloseWindow(object target, ExecutedRoutedEventArgs e)
         {
-            SystemCommands.CloseWindow(this);
+            Microsoft.Windows.Shell.SystemCommands.CloseWindow(this);
         }
 
         private void OnMaximizeWindow(object target, ExecutedRoutedEventArgs e)
         {
-            SystemCommands.MaximizeWindow(this);
+            Microsoft.Windows.Shell.SystemCommands.MaximizeWindow(this);
         }
 
         private void OnMinimizeWindow(object target, ExecutedRoutedEventArgs e)
         {
-            SystemCommands.MinimizeWindow(this);
+            Microsoft.Windows.Shell.SystemCommands.MinimizeWindow(this);
         }
 
         private void OnRestoreWindow(object target, ExecutedRoutedEventArgs e)
         {
-            SystemCommands.RestoreWindow(this);
+            Microsoft.Windows.Shell.SystemCommands.RestoreWindow(this);
         }
 
         /// <summary>

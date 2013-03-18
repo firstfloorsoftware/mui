@@ -17,9 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{2AC3
 		License.txt = License.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstFloor.ModernUI.WPF4", "FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj", "{A0EA4572-2726-4585-8E17-3A81A0EAFA61}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
 		SccLocalPath0 = .
@@ -29,6 +31,9 @@ Global
 		SccProjectUniqueName2 = FirstFloor.ModernUI\\FirstFloor.ModernUI.csproj
 		SccProjectName2 = FirstFloor.ModernUI
 		SccLocalPath2 = FirstFloor.ModernUI
+		SccProjectUniqueName3 = FirstFloor.ModernUI.WPF4\\FirstFloor.ModernUI.WPF4.csproj
+		SccProjectName3 = FirstFloor.ModernUI.WPF4
+		SccLocalPath3 = FirstFloor.ModernUI.WPF4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +48,10 @@ Global
 		{BA5911EB-F34B-4F8D-AB29-6B967ED0B8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA5911EB-F34B-4F8D-AB29-6B967ED0B8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA5911EB-F34B-4F8D-AB29-6B967ED0B8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0EA4572-2726-4585-8E17-3A81A0EAFA61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EA4572-2726-4585-8E17-3A81A0EAFA61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EA4572-2726-4585-8E17-3A81A0EAFA61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EA4572-2726-4585-8E17-3A81A0EAFA61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

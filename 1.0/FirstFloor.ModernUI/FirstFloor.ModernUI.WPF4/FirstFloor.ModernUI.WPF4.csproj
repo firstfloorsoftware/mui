@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0EA4572-2726-4585-8E17-3A81A0EAFA61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FirstFloor.ModernUI</RootNamespace>
+    <AssemblyName>FirstFloor.ModernUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Debug\FirstFloor.ModernUI.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\FirstFloor.ModernUI.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\AppearanceManager.cs">
+      <Link>Presentation\AppearanceManager.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\CommandBase.cs">
+      <Link>Presentation\CommandBase.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\Displayable.cs">
+      <Link>Presentation\Displayable.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\FontSize.cs">
+      <Link>Presentation\FontSize.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\Link.cs">
+      <Link>Presentation\Link.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\LinkCollection.cs">
+      <Link>Presentation\LinkCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\LinkGroup.cs">
+      <Link>Presentation\LinkGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\LinkGroupCollection.cs">
+      <Link>Presentation\LinkGroupCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\NotifyPropertyChanged.cs">
+      <Link>Presentation\NotifyPropertyChanged.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\ReadOnlyLinkGroupCollection.cs">
+      <Link>Presentation\ReadOnlyLinkGroupCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\RelayCommand.cs">
+      <Link>Presentation\RelayCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Presentation\Theme.cs">
+      <Link>Presentation\Theme.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\CommandDictionary.cs">
+      <Link>Windows\CommandDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCodeBlock.cs">
+      <Link>Windows\Controls\BBCodeBlock.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\BBCodeLexer.cs">
+      <Link>Windows\Controls\BBCode\BBCodeLexer.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\BBCodeParser.cs">
+      <Link>Windows\Controls\BBCode\BBCodeParser.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\CharBuffer.cs">
+      <Link>Windows\Controls\BBCode\CharBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\Lexer.cs">
+      <Link>Windows\Controls\BBCode\Lexer.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\ParseException.cs">
+      <Link>Windows\Controls\BBCode\ParseException.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\Parser.cs">
+      <Link>Windows\Controls\BBCode\Parser.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\Token.cs">
+      <Link>Windows\Controls\BBCode\Token.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\TokenBuffer.cs">
+      <Link>Windows\Controls\BBCode\TokenBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernButton.cs">
+      <Link>Windows\Controls\ModernButton.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernDialog.cs">
+      <Link>Windows\Controls\ModernDialog.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernFrame.cs">
+      <Link>Windows\Controls\ModernFrame.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernMenu.cs">
+      <Link>Windows\Controls\ModernMenu.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernTab.cs">
+      <Link>Windows\Controls\ModernTab.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernWindow.cs">
+      <Link>Windows\Controls\ModernWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\RelativeAnimatingContentControl.cs">
+      <Link>Windows\Controls\RelativeAnimatingContentControl.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\TabLayout.cs">
+      <Link>Windows\Controls\TabLayout.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\TransitioningContentControl.cs">
+      <Link>Windows\Controls\TransitioningContentControl.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\BooleanToFontWeightConverter.cs">
+      <Link>Windows\Converters\BooleanToFontWeightConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\BooleanToVisibilityConverter.cs">
+      <Link>Windows\Converters\BooleanToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\ToLowerConverter.cs">
+      <Link>Windows\Converters\ToLowerConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\ToUpperConverter.cs">
+      <Link>Windows\Converters\ToUpperConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\DefaultContentLoader.cs">
+      <Link>Windows\DefaultContentLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\IContent.cs">
+      <Link>Windows\IContent.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\IContentLoader.cs">
+      <Link>Windows\IContentLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Media\VisualTreeHelperEx.cs">
+      <Link>Windows\Media\VisualTreeHelperEx.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\DefaultLinkNavigator.cs">
+      <Link>Windows\Navigation\DefaultLinkNavigator.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\FragmentNavigationEventArgs.cs">
+      <Link>Windows\Navigation\FragmentNavigationEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\ILinkNavigator.cs">
+      <Link>Windows\Navigation\ILinkNavigator.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigatingCancelEventArgs.cs">
+      <Link>Windows\Navigation\NavigatingCancelEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigationBaseEventArgs.cs">
+      <Link>Windows\Navigation\NavigationBaseEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigationEventArgs.cs">
+      <Link>Windows\Navigation\NavigationEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigationFailedEventArgs.cs">
+      <Link>Windows\Navigation\NavigationFailedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigationHelper.cs">
+      <Link>Windows\Navigation\NavigationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigationType.cs">
+      <Link>Windows\Navigation\NavigationType.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Resources.Designer.cs">
+      <Link>Resources.Designer.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\FirstFloor.ModernUI\Assets\Button.xaml">
+      <Link>Assets\Button.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\CheckBox.xaml">
+      <Link>Assets\CheckBox.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ComboBox.xaml">
+      <Link>Assets\ComboBox.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\Converters.xaml">
+      <Link>Assets\Converters.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\GridSplitter.xaml">
+      <Link>Assets\GridSplitter.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\Hyperlink.xaml">
+      <Link>Assets\Hyperlink.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ListBox.xaml">
+      <Link>Assets\ListBox.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ListView.xaml">
+      <Link>Assets\ListView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ModernUI.Dark.xaml">
+      <Link>Assets\ModernUI.Dark.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ModernUI.Light.xaml">
+      <Link>Assets\ModernUI.Light.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ModernUI.xaml">
+      <Link>Assets\ModernUI.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\PasswordBox.xaml">
+      <Link>Assets\PasswordBox.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ProgressBar.xaml">
+      <Link>Assets\ProgressBar.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\RadioButton.xaml">
+      <Link>Assets\RadioButton.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ScrollBar.xaml">
+      <Link>Assets\ScrollBar.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\TextBlock.xaml">
+      <Link>Assets\TextBlock.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\TextBox.xaml">
+      <Link>Assets\TextBox.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ToolTip.xaml">
+      <Link>Assets\ToolTip.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\TreeView.xaml">
+      <Link>Assets\TreeView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\BBCodeBlock.xaml">
+      <Link>Themes\BBCodeBlock.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\Generic.xaml">
+      <Link>Themes\Generic.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernButton.xaml">
+      <Link>Themes\ModernButton.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernDialog.xaml">
+      <Link>Themes\ModernDialog.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernFrame.xaml">
+      <Link>Themes\ModernFrame.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernMenu.xaml">
+      <Link>Themes\ModernMenu.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernTab.xaml">
+      <Link>Themes\ModernTab.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernWindow.xaml">
+      <Link>Themes\ModernWindow.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\TransitioningContentControl.xaml">
+      <Link>Themes\TransitioningContentControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\FirstFloor.ModernUI\Resources.resx">
+      <Link>Resources.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

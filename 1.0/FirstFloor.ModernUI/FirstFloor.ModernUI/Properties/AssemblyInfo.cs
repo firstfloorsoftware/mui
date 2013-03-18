@@ -8,7 +8,11 @@ using System.Windows.Markup;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ModernUI")]
-[assembly: AssemblyDescription("Modern UI for WPF")]
+#if NET4
+[assembly: AssemblyDescription("Modern UI for WPF 4")]
+#else
+[assembly: AssemblyDescription("Modern UI for WPF 4.5")]
+#endif
 [assembly: AssemblyConfiguration("retail")]
 [assembly: AssemblyCompany("First Floor Software")]
 [assembly: AssemblyProduct("ModernUI")]

@@ -63,7 +63,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private Stack<Uri> history = new Stack<Uri>();
         private Dictionary<Uri, object> contentCache = new Dictionary<Uri, object>();
+#if NET4
+        private List<WeakReference> childFrames = new List<WeakReference>();        // list of registered frames in sub tree
+#else
         private List<WeakReference<ModernFrame>> childFrames = new List<WeakReference<ModernFrame>>();        // list of registered frames in sub tree
+#endif
         private CancellationTokenSource tokenSource;
         private bool isNavigatingHistory;
         private bool isResetSource;
@@ -169,11 +173,9 @@ namespace FirstFloor.ModernUI.Windows.Controls
             return true;
         }
 
-        private async void Navigate(Uri oldValue, Uri newValue, NavigationType navigationType)
+        private void Navigate(Uri oldValue, Uri newValue, NavigationType navigationType)
         {
             Debug.WriteLine("Navigating from '{0}' to '{1}'", oldValue, newValue);
-
-            object newContent = null;
 
             // set IsLoadingContent state
             SetValue(IsLoadingContentPropertyKey, true);
@@ -190,60 +192,70 @@ namespace FirstFloor.ModernUI.Windows.Controls
                 this.history.Push(oldValue);
             }
 
-            var contentIsError = false;
+            object newContent = null;
 
             if (newValue != null) {
                 // content is cached on uri without fragment
                 var newValueNoFragment = NavigationHelper.RemoveFragment(newValue);
 
                 if (navigationType == NavigationType.Refresh || !this.contentCache.TryGetValue(newValueNoFragment, out newContent)) {
-                    using (var localTokenSource = new CancellationTokenSource()) {
-                        this.tokenSource = localTokenSource;
+                    var localTokenSource = new CancellationTokenSource();
+                    this.tokenSource = localTokenSource;
+                    // load the content (asynchronous!)
+                    var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+                    var task = this.ContentLoader.LoadContentAsync(newValue, this.tokenSource.Token);
+
+                    task.ContinueWith(t => {
                         try {
-                            // load the content (asynchronous!)
-                            newContent = await this.ContentLoader.LoadContentAsync(newValue, this.tokenSource.Token);
-
-                            // check if task has been cancelled (happens when ContentLoader ignores the CancellationTokenSource and does not throw TaskCancelledException)
-                            if (localTokenSource.IsCancellationRequested) {
+                            if (t.IsCanceled || localTokenSource.IsCancellationRequested) {
                                 Debug.WriteLine("Cancelled navigation to '{0}'", newValue);
-                                return;
                             }
-                        }
-                        catch (TaskCanceledException) {
-                            // load content task has been cancelled, log it and quit
-                            Debug.WriteLine("Cancelled navigation to '{0}'", newValue);
-                            return;
-                        }
-                        catch (Exception e) {
-                            // raise failed event
-                            var failedArgs = new NavigationFailedEventArgs {
-                                Frame = this,
-                                Source = newValue,
-                                Error = e,
-                                Handled = false
-                            };
+                            else if (t.IsFaulted) {
+                                // raise failed event
+                                var failedArgs = new NavigationFailedEventArgs {
+                                    Frame = this,
+                                    Source = newValue,
+                                    Error = t.Exception.InnerException,
+                                    Handled = false
+                                };
 
-                            OnNavigationFailed(failedArgs);
+                                OnNavigationFailed(failedArgs);
 
-                            // if not handled, show error as content
-                            newContent = failedArgs.Handled ? null : e;
-                            contentIsError = true;
+                                // if not handled, show error as content
+                                newContent = failedArgs.Handled ? null : failedArgs.Error;
+
+                                SetContent(newValue, navigationType, newContent, true);
+                            }
+                            else {
+                                newContent = t.Result;
+                                if (ShouldKeepContentAlive(newContent)) {
+                                    // keep the new content in memory
+                                    this.contentCache[newValueNoFragment] = newContent;
+                                }
+
+                                SetContent(newValue, navigationType, newContent, false);
+                            }
                         }
                         finally {
                             // clear global tokenSource to avoid a Cancel on a disposed object
                             if (this.tokenSource == localTokenSource) {
                                 this.tokenSource = null;
                             }
-                        }
-                    }
-                }
 
-                if (!contentIsError && ShouldKeepContentAlive(newContent)) {
-                    // keep the new content in memory
-                    this.contentCache[newValueNoFragment] = newContent;
+                            // and dispose of the local tokensource
+                            localTokenSource.Dispose();
+                        }
+                    }, scheduler);
+                    return;
                 }
             }
 
+            // newValue is null or newContent was found in the cache
+            SetContent(newValue, navigationType, newContent, false);
+        }
+
+        private void SetContent(Uri newSource, NavigationType navigationType, object newContent, bool contentIsError)
+        {
             var oldContent = this.Content as IContent;
 
             // assign content
@@ -253,7 +265,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             if (!contentIsError) {
                 var args = new NavigationEventArgs {
                     Frame = this,
-                    Source = newValue,
+                    Source = newSource,
                     Content = newContent,
                     NavigationType = navigationType
                 };
@@ -267,7 +279,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             if (!contentIsError) {
                 // and raise optional fragment navigation events
                 string fragment;
-                NavigationHelper.RemoveFragment(newValue, out fragment);
+                NavigationHelper.RemoveFragment(newSource, out fragment);
                 if (fragment != null) {
                     // fragment navigation
                     var fragmentArgs = new FragmentNavigationEventArgs {
@@ -279,13 +291,20 @@ namespace FirstFloor.ModernUI.Windows.Controls
             }
         }
 
+
         private IEnumerable<ModernFrame> GetChildFrames()
         {
             var refs = this.childFrames.ToArray();
             foreach (var r in refs) {
                 var valid = false;
                 ModernFrame frame;
+
+#if NET4
+                if (r.IsAlive) {
+                    frame = (ModernFrame)r.Target;
+#else
                 if (r.TryGetTarget(out frame)) {
+#endif
                     // check if frame is still an actual child (not the case when child is removed, but not yet garbage collected)
                     if (NavigationHelper.FindFrame(null, frame) == this) {
                         valid = true;
@@ -457,7 +476,12 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             // do not register existing frame
             if (!GetChildFrames().Contains(frame)) {
-                this.childFrames.Add(new WeakReference<ModernFrame>(frame));
+#if NET4
+                var r = new WeakReference(frame);
+#else
+                var r = new WeakReference<ModernFrame>(frame);
+#endif
+                this.childFrames.Add(r);
             }
         }
 
