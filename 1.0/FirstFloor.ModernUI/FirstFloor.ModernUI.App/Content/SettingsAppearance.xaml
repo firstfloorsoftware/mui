@@ -8,21 +8,20 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <ScrollViewer>
-            <StackPanel MinWidth="150">
+            <StackPanel x:Name="Panel" MinWidth="150">
                 <TextBlock Text="APPEARANCE" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-
+                
                 <ListBox ItemsSource="{Binding AccentColors}"
                          SelectedItem="{Binding SelectedAccentColor, Mode=TwoWay}"
-                         Margin="0,0,0,16"
-                         ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                         Margin="0,0,0,16">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" />
+                            <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=Panel}" />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Rectangle Width="40" Height="40" Margin="2,4,4,4" >
+                            <Rectangle Width="40" Height="40" Margin="4" >
                                 <Rectangle.Fill>
                                     <SolidColorBrush x:Name="Brush" Color="{Binding}" />
                                 </Rectangle.Fill>
