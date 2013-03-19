@@ -57,6 +57,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\FirstFloor.ModernUI\ModernUIHelper.cs">
+      <Link>ModernUIHelper.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Presentation\AppearanceManager.cs">
       <Link>Presentation\AppearanceManager.cs</Link>
     </Compile>
