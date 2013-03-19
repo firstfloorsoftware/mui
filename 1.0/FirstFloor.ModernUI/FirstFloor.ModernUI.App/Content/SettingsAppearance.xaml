@@ -21,7 +21,7 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Rectangle Width="40" Height="40" Margin="4" >
+                            <Rectangle Width="40" Height="40" Margin="2" >
                                 <Rectangle.Fill>
                                     <SolidColorBrush x:Name="Brush" Color="{Binding}" />
                                 </Rectangle.Fill>
