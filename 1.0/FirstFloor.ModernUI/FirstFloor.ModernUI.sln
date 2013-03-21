@@ -15,9 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{2AC3
 		License.Icons.txt = License.Icons.txt
 		License.RelativeAnimatingContentControl.txt = License.RelativeAnimatingContentControl.txt
 		License.txt = License.txt
+		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstFloor.ModernUI.WPF4", "FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj", "{A0EA4572-2726-4585-8E17-3A81A0EAFA61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B74B36EF-E37C-4A70-A9C8-C0715D593B67}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Build.bat = Build\Build.bat
+		Build\ModernUI.msbuild = Build\ModernUI.msbuild
+		Build\ModernUI.WPF.nuspec = Build\ModernUI.WPF.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binaries", "Binaries", "{14C3EC42-FD0C-4966-A684-AF2B1808A10A}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Binaries\MSBuild.Community.Tasks.dll = Build\Binaries\MSBuild.Community.Tasks.dll
+		Build\Binaries\NuGet.exe = Build\Binaries\NuGet.exe
+		Build\Binaries\signvsix.exe = Build\Binaries\signvsix.exe
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -55,5 +70,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14C3EC42-FD0C-4966-A684-AF2B1808A10A} = {B74B36EF-E37C-4A70-A9C8-C0715D593B67}
 	EndGlobalSection
 EndGlobal
