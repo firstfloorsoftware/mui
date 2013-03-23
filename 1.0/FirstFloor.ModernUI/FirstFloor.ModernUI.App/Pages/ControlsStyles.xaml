@@ -12,6 +12,7 @@
                 <mui:Link DisplayName="Button" Source="/Content/ControlsStylesButton.xaml" />
                 <mui:Link DisplayName="ItemsControl" Source="/Content/ControlsStylesItemsControl.xaml"/>
                 <mui:Link DisplayName="ProgressBar" Source="/Content/ControlsStylesProgressBar.xaml"/>
+                <mui:Link DisplayName="Slider" Source="/Content/ControlsStylesSlider.xaml"/>
                 <mui:Link DisplayName="Text" Source="/Content/ControlsStylesText.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>

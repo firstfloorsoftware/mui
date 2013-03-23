@@ -69,6 +69,21 @@
     
     <SolidColorBrush x:Key="SeparatorBackground" Color="#cccccc" />
 
+    <SolidColorBrush x:Key="SliderSelectionBackground" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="SliderSelectionBorder" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffffff" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundDragging" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundHover" Color="#dddddd" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="#cccccc" />
+    <SolidColorBrush x:Key="SliderThumbBorder" Color="#cccccc" />
+    <SolidColorBrush x:Key="SliderThumbBorderDragging" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="SliderThumbBorderHover" Color="#cccccc" />
+    <SolidColorBrush x:Key="SliderThumbBorderDisabled" Color="#cccccc" />
+    <SolidColorBrush x:Key="SliderTrackBackground" Color="#cccccc" />
+    <SolidColorBrush x:Key="SliderTrackBorder" Color="#cccccc" />
+    <SolidColorBrush x:Key="SliderTick" Color="#919191" />
+    <SolidColorBrush x:Key="SliderTickDisabled" Color="#cccccc" />
+
     <SolidColorBrush x:Key="SubMenuText" Color="#99000000" />
     <SolidColorBrush x:Key="SubMenuTextHover" Color="#66000000" />
     <SolidColorBrush x:Key="SubMenuTextSelected" Color="#333333" />

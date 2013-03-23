@@ -80,6 +80,9 @@
     <Compile Include="Content\ControlsModernMenu.xaml.cs">
       <DependentUpon>ControlsModernMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\ControlsStylesSlider.xaml.cs">
+      <DependentUpon>ControlsStylesSlider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\ModernFrame\CancelNavigateSample.xaml.cs">
       <DependentUpon>CancelNavigateSample.xaml</DependentUpon>
     </Compile>
@@ -276,6 +279,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\ControlsStylesProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ControlsStylesSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
