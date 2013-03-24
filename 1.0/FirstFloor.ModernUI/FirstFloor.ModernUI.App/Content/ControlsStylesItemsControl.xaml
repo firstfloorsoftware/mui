@@ -25,6 +25,13 @@
                     <ListBoxItem Content="Item 5" />
                 </ListBox>
                 <TextBlock Text="LISTVIEW" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
+                <ListView Margin="0,0,0,16">
+                    <ListViewItem Content="Item 1" />
+                    <ListViewItem Content="Item 2" />
+                    <ListViewItem Content="Item 3" />
+                    <ListViewItem Content="Item 4" />
+                    <ListViewItem Content="Item 5" />
+                </ListView>
                 <ListView Margin="0,0,0,32">
                     <ListView.View>
                         <GridView>
@@ -40,7 +47,7 @@
                     <ListViewItem Content="Item 4" />
                     <ListViewItem Content="Item 5" />
                 </ListView>
-                
+
                 <TextBlock Text="TREEVIEW" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
                 <TreeView>
                     <TreeViewItem Header="Item 1">
