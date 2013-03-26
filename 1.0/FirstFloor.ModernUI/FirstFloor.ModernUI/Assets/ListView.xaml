@@ -154,14 +154,14 @@
                         <Border Name="Selection" Visibility="Collapsed" />
                         <!-- This is used when GridView is put inside the ListView -->
                         <GridViewRowPresenter Grid.RowSpan="2"
-                                              Margin="5,1,5,2"
+                                              Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
 
                         <!-- This is used for ListView that does not use GridView -->
                         <ContentPresenter x:Name="contentPresenter"
-                                          Margin="5,1,5,2"
+                                          Margin="{TemplateBinding Padding}"
                                       Content="{TemplateBinding ContentControl.Content}"
                                       Visibility="Collapsed"
                                       ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"

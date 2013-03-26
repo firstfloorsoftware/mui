@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="FirstFloor.ModernUI.App.Content.ControlsStylesDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:FirstFloor.ModernUI.App.Content"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <!--Create list of enumeration values-->
+            <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="local:OrderStatus"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </Grid.Resources>
+        
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top" Text="DATAGRID" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+            <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                    <mui:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                    <mui:DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <mui:DataGridCheckBoxColumn Header="Member" Binding="{Binding IsMember}" />
+                    <mui:DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -129,6 +129,15 @@
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\BBCode\TokenBuffer.cs">
       <Link>Windows\Controls\BBCode\TokenBuffer.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\DataGridCheckBoxColumn.cs">
+      <Link>Windows\Controls\DataGridCheckBoxColumn.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\DataGridComboBoxColumn.cs">
+      <Link>Windows\Controls\DataGridComboBoxColumn.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\DataGridTextColumn.cs">
+      <Link>Windows\Controls\DataGridTextColumn.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernButton.cs">
       <Link>Windows\Controls\ModernButton.cs</Link>
     </Compile>
@@ -232,6 +241,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\DataGrid.xaml">
+      <Link>Assets\DataGrid.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\GridSplitter.xaml">
       <Link>Assets\GridSplitter.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -284,6 +298,11 @@
     </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\ScrollBar.xaml">
       <Link>Assets\ScrollBar.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\Slider.xaml">
+      <Link>Assets\Slider.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

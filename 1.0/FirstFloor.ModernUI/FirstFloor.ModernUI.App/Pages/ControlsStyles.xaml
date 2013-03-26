@@ -10,6 +10,7 @@
         <mui:ModernTab SelectedSource="/Content/ControlsStylesButton.xaml" Layout="List">
             <mui:ModernTab.Links>
                 <mui:Link DisplayName="Button" Source="/Content/ControlsStylesButton.xaml" />
+                <mui:Link DisplayName="DataGrid" Source="/Content/ControlsStylesDataGrid.xaml" />
                 <mui:Link DisplayName="ItemsControl" Source="/Content/ControlsStylesItemsControl.xaml"/>
                 <mui:Link DisplayName="ProgressBar" Source="/Content/ControlsStylesProgressBar.xaml"/>
                 <mui:Link DisplayName="Slider" Source="/Content/ControlsStylesSlider.xaml"/>

@@ -13,6 +13,25 @@
     <SolidColorBrush x:Key="ButtonTextHover" Color="#d1d1d1" />
     <SolidColorBrush x:Key="ButtonTextPressed" Color="#d1d1d1" />
     <SolidColorBrush x:Key="ButtonTextDisabled" Color="#515151" />
+
+    <SolidColorBrush x:Key="DataGridBackground" Color="{StaticResource WindowBackgroundColor}" />
+    <SolidColorBrush x:Key="DataGridForeground" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridCellBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="DataGridCellBackgroundHover" Color="#3e3e42" />
+    <SolidColorBrush x:Key="DataGridCellBackgroundSelected" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="DataGridCellForeground" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridCellForegroundHover" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridCellForegroundSelected" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridHeaderBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="DataGridHeaderBackgroundHover" Color="#3e3e42" />
+    <SolidColorBrush x:Key="DataGridHeaderBackgroundPressed" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="DataGridHeaderBackgroundSelected" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="DataGridHeaderForeground" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridHeaderForegroundHover" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridHeaderForegroundPressed" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridHeaderForegroundSelected" Color="#d1d1d1" />
+    <SolidColorBrush x:Key="DataGridGridLines" Color="#333333" />
+    <SolidColorBrush x:Key="DataGridDropSeparator" Color="{DynamicResource AccentColor}" />
     
     <SolidColorBrush x:Key="Hyperlink" Color="{DynamicResource AccentColor}" />
     <SolidColorBrush x:Key="HyperlinkHover" Color="{DynamicResource AccentColor}" />

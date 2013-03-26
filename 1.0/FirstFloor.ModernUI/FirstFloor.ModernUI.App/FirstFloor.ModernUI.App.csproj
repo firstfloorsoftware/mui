@@ -80,6 +80,9 @@
     <Compile Include="Content\ControlsModernMenu.xaml.cs">
       <DependentUpon>ControlsModernMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\ControlsStylesDataGrid.xaml.cs">
+      <DependentUpon>ControlsStylesDataGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\ControlsStylesSlider.xaml.cs">
       <DependentUpon>ControlsStylesSlider.xaml</DependentUpon>
     </Compile>
@@ -275,6 +278,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\ControlsModernMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ControlsStylesDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
