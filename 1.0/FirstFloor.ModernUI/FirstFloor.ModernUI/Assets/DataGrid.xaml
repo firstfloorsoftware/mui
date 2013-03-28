@@ -180,6 +180,8 @@
         <Setter Property="Foreground" Value="{DynamicResource DataGridHeaderForeground}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Padding" Value="4,3,4,3"/>
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -192,11 +194,25 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Padding ="{TemplateBinding Padding}"
 >
-                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            <Grid x:Name="containerGrid" Margin="5" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter Grid.Column="0" 
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                <Path x:Name="SortArrow"
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Width="8" Height="6"  Margin="5,0,5,0"
+                                      Stretch="Fill" Opacity="0.5" Fill="{TemplateBinding Foreground}"
+                                      RenderTransformOrigin="0.5,0.4"
+                                      Visibility="Hidden"
+                                      Data="M0,0 L1,0 0.5,1 z" />
+                            </Grid>
                         </Border>
-
                         <Thumb x:Name="PART_LeftHeaderGripper"
                                HorizontalAlignment="Left"
                                Style="{StaticResource ColumnHeaderGripperStyle}"/>
@@ -204,10 +220,24 @@
                                HorizontalAlignment="Right"
                                Style="{StaticResource ColumnHeaderGripperStyle}"/>
                     </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="SortDirection" Value="Ascending">
+                            <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="SortArrow" Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="SortDirection" Value="Descending">
+                            <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
+
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource DataGridHeaderBackgroundHover}" />
@@ -218,7 +248,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource DataGridHeaderForegroundPressed}" />
             </Trigger>
         </Style.Triggers>
-        
+
     </Style>
 
     <Style x:Key="{x:Type DataGridRowHeader}" TargetType="{x:Type DataGridRowHeader}">
