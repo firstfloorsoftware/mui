@@ -18,7 +18,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Border BorderThickness="1" BorderBrush="#FFdc000c" VerticalAlignment="Top">
                             <Grid>
-                                <AdornedElementPlaceholder x:Name="adorner"/>
+                                <AdornedElementPlaceholder x:Name="adorner" Margin="-1"/>
                             </Grid>
                         </Border>
                         <Border x:Name="errorBorder" Background="#FFdc000c" Margin="8,0,0,0"
@@ -26,7 +26,7 @@
                                 IsHitTestVisible="False"
                                 MinHeight="24" >
                             <TextBlock Text="{Binding ElementName=adorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
-                                       Foreground="White" Margin="8,3,8,3" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                       Foreground="White" Margin="8,2,8,3" TextWrapping="Wrap" VerticalAlignment="Center"/>
                         </Border>
                     </StackPanel>
                     <ControlTemplate.Triggers>
@@ -78,6 +78,9 @@
                         </Trigger>
                         <Trigger Property="IsReadOnly" Value="true">
                             <Setter Property="Foreground" Value="{DynamicResource InputTextDisabled}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource Accent}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

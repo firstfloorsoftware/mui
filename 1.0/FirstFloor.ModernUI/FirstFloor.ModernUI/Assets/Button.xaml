@@ -85,6 +85,7 @@
 
     <Style x:Key="BaseButtonStyle"
            TargetType="{x:Type ButtonBase}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background"
                 Value="{DynamicResource ButtonBackground}"/>
         <Setter Property="BorderBrush"
@@ -126,6 +127,9 @@
                             <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderPressed}"/>
                             <Setter Property="Foreground" Value="{DynamicResource ButtonTextPressed}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter TargetName="Chrome" Property="BorderBrush" Value="{DynamicResource Accent}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

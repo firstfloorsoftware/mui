@@ -7,6 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
     
     <Style TargetType="controls:ModernButton">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource ModernButtonText}" />
@@ -56,6 +57,9 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource ModernButtonTextDisabled}" />
                             <Setter TargetName="ellipse" Property="Stroke" Value="{DynamicResource ModernButtonBorderDisabled}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter TargetName="ellipse" Property="Stroke" Value="{DynamicResource Accent}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

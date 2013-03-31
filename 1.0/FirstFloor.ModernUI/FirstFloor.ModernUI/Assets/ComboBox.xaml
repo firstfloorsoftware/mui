@@ -47,6 +47,7 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -69,7 +70,8 @@
                                 <Border x:Name="DropDownBorder"
                                         Background="{DynamicResource PopupBackground}"
                                         BorderBrush="{DynamicResource WindowBorderActive}"
-                                        BorderThickness="1">        <!-- popup border thickness not dependent on BorderThickness property-->
+                                        BorderThickness="1"
+                                        Margin="0,-1,0,0">        <!-- popup border thickness not dependent on BorderThickness property-->
                                     <ScrollViewer Name="DropDownScrollViewer">
                                         <Grid RenderOptions.ClearTypeHint="Enabled">
                                             <Canvas Height="0" Width="0" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -120,6 +122,9 @@
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Background" Value="{DynamicResource InputBackgroundHover}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource InputBorderHover}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
                         </Trigger>
                         <Trigger Property="IsGrouping" Value="true">
                             <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>

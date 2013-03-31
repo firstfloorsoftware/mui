@@ -83,6 +83,9 @@
     <Compile Include="Content\ControlsStylesDataGrid.xaml.cs">
       <DependentUpon>ControlsStylesDataGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\ControlsStylesSampleForm.xaml.cs">
+      <DependentUpon>ControlsStylesSampleForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\ControlsStylesSlider.xaml.cs">
       <DependentUpon>ControlsStylesSlider.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,7 @@
     <Compile Include="Content\ModernFrame\Sample.xaml.cs">
       <DependentUpon>Sample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SampleFormViewModel.cs" />
     <Compile Include="FlickrImageLoader.cs" />
     <Compile Include="LoremIpsumLoader.cs" />
     <Compile Include="SampleDisabledCommand.cs" />
@@ -286,6 +290,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content\ControlsStylesProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ControlsStylesSampleForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
