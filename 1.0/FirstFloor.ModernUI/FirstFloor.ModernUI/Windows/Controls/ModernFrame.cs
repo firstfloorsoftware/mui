@@ -380,15 +380,14 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// <param name="args"></param>
         /// <returns></returns>
         /// <remarks>This method prevents parent frames from handling routed commands.</remarks>
-        private static bool HandleRoutedEvent(CanExecuteRoutedEventArgs args)
+        private bool HandleRoutedEvent(CanExecuteRoutedEventArgs args)
         {
-            var frame = args.Source as ModernFrame;
             var originalSource = args.OriginalSource as DependencyObject;
 
-            if (frame == null || originalSource == null) {
+            if (originalSource == null) {
                 return false;
             }
-            return originalSource.AncestorsAndSelf().OfType<ModernFrame>().FirstOrDefault() == frame;
+            return originalSource.AncestorsAndSelf().OfType<ModernFrame>().FirstOrDefault() == this;
         }
 
         private void OnCanBrowseBack(object sender, CanExecuteRoutedEventArgs e)
