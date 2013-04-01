@@ -9,6 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
     
     <Style TargetType="controls:ModernDialog">
+        <Setter Property="BackgroundContent" Value="{DynamicResource WindowBackgroundContent}" />
         <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowText}" />
@@ -29,8 +30,8 @@
                         <Grid>
                             <Border BorderBrush="{DynamicResource WindowBorder}" BorderThickness="1">
                                 <Grid>
-                                    <!-- header background -->
-                                    <Rectangle Height="96" HorizontalAlignment="Stretch" VerticalAlignment="Top" Fill="{DynamicResource WindowHeaderGradient}" />
+                                    <!-- window background content -->
+                                    <ContentControl Content="{TemplateBinding BackgroundContent}" />
 
                                     <!-- top blob -->
                                     <Canvas>

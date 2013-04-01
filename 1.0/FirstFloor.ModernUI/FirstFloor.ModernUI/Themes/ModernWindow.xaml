@@ -9,6 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:ModernWindow">
+        <Setter Property="BackgroundContent" Value="{DynamicResource WindowBackgroundContent}" />
         <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowText}" />
@@ -19,7 +20,7 @@
         <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
-
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:ModernWindow">
@@ -45,8 +46,8 @@
                                             <RowDefinition Height="15" />
                                         </Grid.RowDefinitions>
 
-                                        <!-- header background -->
-                                        <Rectangle x:Name="HeaderBackground" Grid.RowSpan="5" Height="96" Fill="{DynamicResource WindowHeaderGradient}" VerticalAlignment="Top"/>
+                                        <!-- window background content -->
+                                        <ContentControl Grid.RowSpan="5" Content="{TemplateBinding BackgroundContent}" />
 
                                         <!-- left blob -->
                                         <Rectangle Fill="{DynamicResource Accent}" Grid.RowSpan="5" RenderTransform="1,0,0,1,0,32" Width="14" Height="53" HorizontalAlignment="Left" VerticalAlignment="Top" />

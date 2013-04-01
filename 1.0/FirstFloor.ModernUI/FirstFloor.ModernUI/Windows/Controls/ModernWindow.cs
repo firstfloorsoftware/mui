@@ -19,6 +19,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
         : Window
     {
         /// <summary>
+        /// Identifies the BackgroundContent dependency property.
+        /// </summary>
+        public static readonly DependencyProperty BackgroundContentProperty = DependencyProperty.Register("BackgroundContent", typeof(object), typeof(ModernWindow));
+        /// <summary>
         /// Identifies the MenuLinkGroups dependency property.
         /// </summary>
         public static readonly DependencyProperty MenuLinkGroupsProperty = DependencyProperty.Register("MenuLinkGroups", typeof(LinkGroupCollection), typeof(ModernWindow));
@@ -128,6 +132,15 @@ namespace FirstFloor.ModernUI.Windows.Controls
         private void OnRestoreWindow(object target, ExecutedRoutedEventArgs e)
         {
             Microsoft.Windows.Shell.SystemCommands.RestoreWindow(this);
+        }
+
+        /// <summary>
+        /// Gets or sets the background content of this window instance.
+        /// </summary>
+        public object BackgroundContent
+        {
+            get { return GetValue(BackgroundContentProperty); }
+            set { SetValue(BackgroundContentProperty, value); }
         }
 
         /// <summary>

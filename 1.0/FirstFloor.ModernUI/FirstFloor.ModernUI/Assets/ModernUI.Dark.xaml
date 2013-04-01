@@ -14,7 +14,7 @@
     <SolidColorBrush x:Key="ButtonTextPressed" Color="#d1d1d1" />
     <SolidColorBrush x:Key="ButtonTextDisabled" Color="#515151" />
 
-    <SolidColorBrush x:Key="DataGridBackground" Color="{StaticResource WindowBackgroundColor}" />
+    <SolidColorBrush x:Key="DataGridBackground" Color="Transparent" />
     <SolidColorBrush x:Key="DataGridForeground" Color="#d1d1d1" />
     <SolidColorBrush x:Key="DataGridCellBackground" Color="Transparent" />
     <SolidColorBrush x:Key="DataGridCellBackgroundHover" Color="#3e3e42" />
@@ -113,4 +113,6 @@
     <SolidColorBrush x:Key="WindowHeaderGradient" Color="Transparent" />
     <SolidColorBrush x:Key="WindowText" Color="#c1c1c1" />
     <SolidColorBrush x:Key="WindowTextReadOnly" Color="#717171" />
+
+    <Rectangle x:Key="WindowBackgroundContent" x:Shared="false" />
 </ResourceDictionary>

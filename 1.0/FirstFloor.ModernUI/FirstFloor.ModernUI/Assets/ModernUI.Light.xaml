@@ -14,15 +14,15 @@
     <SolidColorBrush x:Key="ButtonTextPressed" Color="#ffffff" />
     <SolidColorBrush x:Key="ButtonTextDisabled" Color="#a1a1a1" />
 
-    <SolidColorBrush x:Key="DataGridBackground" Color="#ffffff" />
+    <SolidColorBrush x:Key="DataGridBackground" Color="Transparent" />
     <SolidColorBrush x:Key="DataGridForeground" Color="#333333" />
-    <SolidColorBrush x:Key="DataGridCellBackground" Color="#ffffff" />
+    <SolidColorBrush x:Key="DataGridCellBackground" Color="Transparent" />
     <SolidColorBrush x:Key="DataGridCellBackgroundHover" Color="#dddddd" />
     <SolidColorBrush x:Key="DataGridCellBackgroundSelected" Color="{DynamicResource AccentColor}" />
     <SolidColorBrush x:Key="DataGridCellForeground" Color="#333333" />
     <SolidColorBrush x:Key="DataGridCellForegroundHover" Color="#333333" />
     <SolidColorBrush x:Key="DataGridCellForegroundSelected" Color="#ffffff" />
-    <SolidColorBrush x:Key="DataGridHeaderBackground" Color="#ffffff" />
+    <SolidColorBrush x:Key="DataGridHeaderBackground" Color="Transparent" />
     <SolidColorBrush x:Key="DataGridHeaderBackgroundHover" Color="#dddddd" />
     <SolidColorBrush x:Key="DataGridHeaderBackgroundPressed" Color="{DynamicResource AccentColor}" />
     <SolidColorBrush x:Key="DataGridHeaderBackgroundSelected" Color="{DynamicResource AccentColor}" />
@@ -117,4 +117,6 @@
     </LinearGradientBrush>
     <SolidColorBrush x:Key="WindowText" Color="#333333" />
     <SolidColorBrush x:Key="WindowTextReadOnly" Color="#919191" />
+
+    <Rectangle x:Key="WindowBackgroundContent" x:Shared="false" Height="96" Fill="{StaticResource WindowHeaderGradient}" VerticalAlignment="Top"/>
 </ResourceDictionary>

@@ -17,6 +17,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
         : Window
     {
         /// <summary>
+        /// Identifies the BackgroundContent dependency property.
+        /// </summary>
+        public static readonly DependencyProperty BackgroundContentProperty = DependencyProperty.Register("BackgroundContent", typeof(object), typeof(ModernDialog));
+        /// <summary>
         /// Identifies the Buttons dependency property.
         /// </summary>
         public static readonly DependencyProperty ButtonsProperty = DependencyProperty.Register("Buttons", typeof(IEnumerable<Button>), typeof(ModernDialog));
@@ -164,6 +168,15 @@ namespace FirstFloor.ModernUI.Windows.Controls
                 }
                 return this.closeButton;
             }
+        }
+
+        /// <summary>
+        /// Gets or sets the background content of this window instance.
+        /// </summary>
+        public object BackgroundContent
+        {
+            get { return GetValue(BackgroundContentProperty); }
+            set { SetValue(BackgroundContentProperty, value); }
         }
 
         /// <summary>
