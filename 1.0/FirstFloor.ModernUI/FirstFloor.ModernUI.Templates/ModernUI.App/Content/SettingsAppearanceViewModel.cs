@@ -1,6 +1,7 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +9,12 @@ using System.Windows.Media;
 
 namespace $safeprojectname$.Content
 {
-/// <summary>
+    /// <summary>
     /// A simple view model for configuring theme, font and accent colors.
     /// </summary>
     public class SettingsAppearanceViewModel
         : NotifyPropertyChanged
     {
-        private const string ThemeDark = "dark";
-        private const string ThemeLight = "light";
-
         private const string FontSmall = "small";
         private const string FontLarge = "large";
 
@@ -58,27 +56,41 @@ namespace $safeprojectname$.Content
         };
 
         private Color selectedAccentColor;
-
-        private string selectedTheme;
+        private LinkCollection themes = new LinkCollection();
+        private Link selectedTheme;
         private string selectedFontSize;
 
         public SettingsAppearanceViewModel()
         {
-            this.SelectedTheme = AppearanceManager.Theme == Theme.Dark ? ThemeDark : ThemeLight;
-            this.SelectedFontSize = AppearanceManager.FontSize == FontSize.Large ? FontLarge : FontSmall;
-            this.SelectedAccentColor = AppearanceManager.AccentColor;
+            // add the default themes
+            this.themes.Add(new Link { DisplayName = "dark", Source = AppearanceManager.DarkThemeSource });
+            this.themes.Add(new Link { DisplayName = "light", Source = AppearanceManager.LightThemeSource });
 
-            AppearanceManager.ThemeChanged += OnThemeChanged;
+            this.SelectedFontSize = AppearanceManager.Current.FontSize == FontSize.Large ? FontLarge : FontSmall;
+            SyncThemeAndColor();
+
+            AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }
 
-        private void OnThemeChanged(object sender, EventArgs e)
+        private void SyncThemeAndColor()
         {
-            this.SelectedTheme = AppearanceManager.Theme == Theme.Dark ? ThemeDark : ThemeLight;
+            // synchronizes the selected viewmodel theme with the actual theme used by the appearance manager.
+            this.SelectedTheme = this.themes.FirstOrDefault(l => l.Source.Equals(AppearanceManager.Current.ThemeSource));
+
+            // and make sure accent color is up-to-date
+            this.SelectedAccentColor = AppearanceManager.Current.AccentColor;
         }
 
-        public string[] Themes
+        private void OnAppearanceManagerPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            get { return new string[] { ThemeDark, ThemeLight }; }
+            if (e.PropertyName == "ThemeSource" || e.PropertyName == "AccentColor") {
+                SyncThemeAndColor();
+            }
+        }
+
+        public LinkCollection Themes
+        {
+            get { return this.themes; }
         }
 
         public string[] FontSizes
@@ -91,7 +103,7 @@ namespace $safeprojectname$.Content
             get { return this.accentColors; }
         }
 
-        public string SelectedTheme
+        public Link SelectedTheme
         {
             get { return this.selectedTheme; }
             set
@@ -100,7 +112,8 @@ namespace $safeprojectname$.Content
                     this.selectedTheme = value;
                     OnPropertyChanged("SelectedTheme");
 
-                    AppearanceManager.Theme = value == ThemeDark ? Theme.Dark : Theme.Light;
+                    // and update the actual theme
+                    AppearanceManager.Current.ThemeSource = value.Source;
                 }
             }
         }
@@ -114,7 +127,7 @@ namespace $safeprojectname$.Content
                     this.selectedFontSize = value;
                     OnPropertyChanged("SelectedFontSize");
 
-                    AppearanceManager.FontSize = value == FontLarge ? FontSize.Large : FontSize.Small;
+                    AppearanceManager.Current.FontSize = value == FontLarge ? FontSize.Large : FontSize.Small;
                 }
             }
         }
@@ -128,7 +141,7 @@ namespace $safeprojectname$.Content
                     this.selectedAccentColor = value;
                     OnPropertyChanged("SelectedAccentColor");
 
-                    AppearanceManager.AccentColor = value;
+                    AppearanceManager.Current.AccentColor = value;
                 }
             }
         }

@@ -58,7 +58,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\ModernUI.WPF.1.0.2.nupkg">
+    <Content Include="Packages\ModernUI.WPF.1.0.3.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">
@@ -98,7 +98,14 @@
       <Project>{00A0C6EA-C25B-45A1-BCD9-B293DCAA9DC9}</Project>
       <Name>ModernUI.TabPage</Name>
       <VSIXSubPath>ItemTemplates</VSIXSubPath>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\ModernUI.Theme\ModernUI.Theme.csproj">
+      <Project>{c21bf009-8b83-4782-9154-36c8f80a9978}</Project>
+      <Name>ModernUI.Theme</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
   </ItemGroup>

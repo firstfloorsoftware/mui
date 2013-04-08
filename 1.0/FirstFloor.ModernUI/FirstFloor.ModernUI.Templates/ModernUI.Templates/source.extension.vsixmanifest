@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="ModernUI.Templates..f6db4f98-80c1-42cc-8f57-b9b52c916ce9" Version="1.0.2" Language="en-US" Publisher="First Floor Software" />
+    <Identity Id="ModernUI.Templates..f6db4f98-80c1-42cc-8f57-b9b52c916ce9" Version="1.0.3" Language="en-US" Publisher="First Floor Software" />
     <DisplayName>Modern UI for WPF Templates</DisplayName>
     <Description xml:space="preserve">A collection of project and item templates for Modern UI for WPF.</Description>
     <MoreInfo>http://mui.codeplex.com</MoreInfo>
@@ -20,9 +20,10 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ModernUI.App" d:TargetPath="|ModernUI.App;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ModernUI.BasicPage" d:TargetPath="|ModernUI.BasicPage;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
-    <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:TargetPath="|ModernUI.SplitPage;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ModernUI.SplitPage" d:TargetPath="|ModernUI.SplitPage;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ModernUI.ListPage" d:TargetPath="|ModernUI.ListPage;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ModernUI.TabPage" d:TargetPath="|ModernUI.TabPage;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ModernUI.Theme" d:TargetPath="|ModernUI.Theme;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
   </Assets>
-  <CustomExtension Type="ModernUI.WPF.1.0.2.nupkg">Packages/ModernUI.WPF.1.0.2.nupkg</CustomExtension>
+  <CustomExtension Type="ModernUI.WPF.1.0.3.nupkg">Packages/ModernUI.WPF.1.0.3.nupkg</CustomExtension>
 </PackageManifest>
