@@ -65,7 +65,6 @@
     <Compile Include="ModernUIHelper.cs" />
     <Compile Include="Presentation\ReadOnlyLinkGroupCollection.cs" />
     <Compile Include="Presentation\FontSize.cs" />
-    <Compile Include="Presentation\Theme.cs" />
     <Compile Include="Presentation\CommandBase.cs" />
     <Compile Include="Presentation\LinkGroupCollection.cs" />
     <Compile Include="Presentation\Displayable.cs" />

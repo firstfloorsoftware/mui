@@ -1,6 +1,7 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             this.CommandBindings.Add(new CommandBinding(Microsoft.Windows.Shell.SystemCommands.RestoreWindowCommand, OnRestoreWindow, OnCanResizeWindow));
 
             // listen for theme changes
-            AppearanceManager.ThemeChanged += OnThemeChanged;
+            AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }
 
         /// <summary>
@@ -74,8 +75,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             base.OnClosed(e);
 
-            // detach ThemeCommands.ThemeChanged handler
-            AppearanceManager.ThemeChanged -= OnThemeChanged;
+            // detach event handler
+            AppearanceManager.Current.PropertyChanged -= OnAppearanceManagerPropertyChanged;
         }
 
         /// <summary>
@@ -96,10 +97,10 @@ namespace FirstFloor.ModernUI.Windows.Controls
             }
         }
 
-        private void OnThemeChanged(object sender, EventArgs e)
+        private void OnAppearanceManagerPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            // start background animation
-            if (this.backgroundAnimation != null) {
+            // start background animation if theme has changed
+            if (e.PropertyName == "ThemeSource" && this.backgroundAnimation != null) {
                 this.backgroundAnimation.Begin();
             }
         }

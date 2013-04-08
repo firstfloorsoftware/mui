@@ -100,9 +100,6 @@
     <Compile Include="..\FirstFloor.ModernUI\Presentation\RelayCommand.cs">
       <Link>Presentation\RelayCommand.cs</Link>
     </Compile>
-    <Compile Include="..\FirstFloor.ModernUI\Presentation\Theme.cs">
-      <Link>Presentation\Theme.cs</Link>
-    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>

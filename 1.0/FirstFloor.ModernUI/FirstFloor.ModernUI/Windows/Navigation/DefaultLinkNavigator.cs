@@ -25,12 +25,12 @@ namespace FirstFloor.ModernUI.Windows.Navigation
         public DefaultLinkNavigator()
         {
             // register all ApperanceManager commands
-            this.Commands.Add(new Uri("cmd://accentcolor"), AppearanceManager.AccentColorCommand);
-            this.Commands.Add(new Uri("cmd://darktheme"), AppearanceManager.DarkThemeCommand);
-            this.Commands.Add(new Uri("cmd://largefontsize"), AppearanceManager.LargeFontSizeCommand);
-            this.Commands.Add(new Uri("cmd://lighttheme"), AppearanceManager.LightThemeCommand);
-            this.Commands.Add(new Uri("cmd://smallfontsize"), AppearanceManager.SmallFontSizeCommand);
-            this.Commands.Add(new Uri("cmd://switchtheme"), AppearanceManager.SwitchThemeCommand);
+            this.Commands.Add(new Uri("cmd://accentcolor"), AppearanceManager.Current.AccentColorCommand);
+            this.Commands.Add(new Uri("cmd://darktheme"), AppearanceManager.Current.DarkThemeCommand);
+            this.Commands.Add(new Uri("cmd://largefontsize"), AppearanceManager.Current.LargeFontSizeCommand);
+            this.Commands.Add(new Uri("cmd://lighttheme"), AppearanceManager.Current.LightThemeCommand);
+            this.Commands.Add(new Uri("cmd://settheme"), AppearanceManager.Current.SetThemeCommand);
+            this.Commands.Add(new Uri("cmd://smallfontsize"), AppearanceManager.Current.SmallFontSizeCommand);
 
             // register navigation commands
             this.commands.Add(new Uri("cmd://browseback"), NavigationCommands.BrowseBack);

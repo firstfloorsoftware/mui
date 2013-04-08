@@ -53,7 +53,7 @@
                     <RadioButton Content="Female" Margin="8,0,0,0" />
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Addresss"/>
+                    <TextBlock Text="Address"/>
                     <TextBox Width="150" />
                 </StackPanel>
                 <StackPanel>

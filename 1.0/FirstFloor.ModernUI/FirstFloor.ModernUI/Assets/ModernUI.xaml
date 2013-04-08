@@ -24,10 +24,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- default accent colors and brushes -->
-    <Color x:Key="AccentColor">#3399ff</Color>
-    <Color x:Key="AccentLightColor">#7fbfff</Color>
+    <Color x:Key="AccentColor">#1ba1e2</Color>
     <SolidColorBrush x:Key="Accent" Color="{DynamicResource AccentColor}" />
-    <SolidColorBrush x:Key="AccentLight" Color="{DynamicResource AccentLightColor}" />
 
     <!-- font settings -->
     <FontFamily x:Key="DefaultFontFamily">Segoe UI</FontFamily>

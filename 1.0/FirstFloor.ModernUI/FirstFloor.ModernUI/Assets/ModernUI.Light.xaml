@@ -108,7 +108,7 @@
     <SolidColorBrush x:Key="SubMenuTextSelected" Color="#333333" />
 
     <SolidColorBrush x:Key="WindowBackground" Color="{StaticResource WindowBackgroundColor}" />
-    <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource AccentLightColor}" />
+    <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource AccentColor}" Opacity=".5" />
     <SolidColorBrush x:Key="WindowBorderActive" Color="{DynamicResource AccentColor}" />
     <LinearGradientBrush x:Key="WindowHeaderGradient" StartPoint="0, 0" EndPoint="0, 1" Opacity=".1">
         <GradientStop Offset="0" Color="{DynamicResource AccentColor}" />
