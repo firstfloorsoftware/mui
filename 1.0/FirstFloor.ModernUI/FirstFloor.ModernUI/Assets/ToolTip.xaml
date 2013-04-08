@@ -6,7 +6,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderActive}"/>
         <Setter Property="Background" Value="{DynamicResource WindowBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource WindowText}"/>
-        <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}"/>
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
         <Setter Property="FontStyle" Value="Normal"/>
         <Setter Property="FontWeight" Value="Normal"/>
