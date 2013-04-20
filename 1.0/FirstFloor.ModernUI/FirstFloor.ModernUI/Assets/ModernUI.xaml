@@ -12,6 +12,7 @@
         <ResourceDictionary Source="Hyperlink.xaml" />
         <ResourceDictionary Source="ListBox.xaml" />
         <ResourceDictionary Source="ListView.xaml" />
+        <ResourceDictionary Source="ModernWindowEx.xaml" />
         <ResourceDictionary Source="PasswordBox.xaml" />
         <ResourceDictionary Source="ProgressBar.xaml" />
         <ResourceDictionary Source="RadioButton.xaml" />
