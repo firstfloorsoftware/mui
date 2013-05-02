@@ -285,6 +285,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ModernWindowEx.xaml">
+      <Link>Assets\ModernWindowEx.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\PasswordBox.xaml">
       <Link>Assets\PasswordBox.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
