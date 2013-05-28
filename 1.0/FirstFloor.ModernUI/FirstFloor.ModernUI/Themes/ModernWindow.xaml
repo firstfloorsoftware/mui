@@ -52,9 +52,11 @@
                                         <!-- left blob -->
                                         <Rectangle Fill="{DynamicResource Accent}" Grid.RowSpan="5" RenderTransform="1,0,0,1,0,32" Width="14" Height="53" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
-                                        <!-- logo -->
-                                        <Border Background="{DynamicResource Accent}" Width="36" Height="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,76,0">
-                                            <Path Data="{TemplateBinding LogoData}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <!-- logo (visible only when LogoData is not null) -->
+                                        <Border Background="{DynamicResource Accent}" Width="36" Height="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,76,0"
+                                                DataContext="{TemplateBinding LogoData}"
+                                                Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=inverse}">
+                                            <Path Data="{Binding}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
 
                                         <!-- window system buttons-->

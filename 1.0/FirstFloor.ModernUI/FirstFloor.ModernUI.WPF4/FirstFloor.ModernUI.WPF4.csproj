@@ -175,6 +175,9 @@
     <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\BooleanToVisibilityConverter.cs">
       <Link>Windows\Converters\BooleanToVisibilityConverter.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\NullToVisibilityConverter.cs">
+      <Link>Windows\Converters\NullToVisibilityConverter.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\ToLowerConverter.cs">
       <Link>Windows\Converters\ToLowerConverter.cs</Link>
     </Compile>
