@@ -38,4 +38,10 @@
         <Setter Property="FontSize" Value="{DynamicResource FixedFontSize}"/>
         <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
     </Style>
+
+    <Style x:Key="ModernWindowTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="9"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+    </Style>
 </ResourceDictionary>
