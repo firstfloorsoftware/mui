@@ -84,6 +84,7 @@
     <Compile Include="Windows\Controls\DataGridComboBoxColumn.cs" />
     <Compile Include="Windows\Controls\DataGridTextColumn.cs" />
     <Compile Include="Windows\Controls\DataGridCheckBoxColumn.cs" />
+    <Compile Include="Windows\Controls\SourceEventArgs.cs" />
     <Compile Include="Windows\Controls\ModernButton.cs" />
     <Compile Include="Windows\Controls\BBCodeBlock.cs" />
     <Compile Include="Windows\Controls\BBCode\BBCodeLexer.cs" />

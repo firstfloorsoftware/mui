@@ -39,6 +39,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty VisibleLinkGroupsProperty = VisibleLinkGroupsPropertyKey.DependencyProperty;
 
+        /// <summary>
+        /// Occurs when the selected source has changed.
+        /// </summary>
+        public event EventHandler<SourceEventArgs> SelectedSourceChanged;
+
         private Dictionary<string, ReadOnlyLinkGroupCollection> groupMap = new Dictionary<string, ReadOnlyLinkGroupCollection>();     // stores LinkGroupCollections by GroupName
         private bool isSelecting;
 
@@ -120,15 +125,20 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnSelectedSourceChanged(Uri oldValue, Uri newValue) 
         {
-            if (this.isSelecting) {
-                return;
+            if (!this.isSelecting) {
+                // if old and new are equal, don't do anything
+                if (newValue != null && newValue.Equals(oldValue)) {
+                    return;
+                }
+
+                UpdateSelection();
             }
 
-            // if old and new are equal, don't do anything
-            if (newValue != null && newValue.Equals(oldValue)) {
-                return;
+            // raise SelectedSourceChanged event
+            var handler = this.SelectedSourceChanged;
+            if (handler != null) {
+                handler(this, new SourceEventArgs(newValue));
             }
-            UpdateSelection();
         }
 
         /// <summary>

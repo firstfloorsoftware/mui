@@ -1,6 +1,7 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,11 @@ namespace FirstFloor.ModernUI.App.Content
             this.RemoveLink.Command = new RelayCommand(o => {
                 this.Menu.SelectedLinkGroup.Links.Remove(this.Menu.SelectedLink);
             }, o => this.Menu.SelectedLinkGroup != null && this.Menu.SelectedLink != null);
+
+            // log SourceChanged events
+            this.Menu.SelectedSourceChanged += (o, e) => {
+                Debug.WriteLine("SelectedSourceChanged: {0}", e.Source);
+            };
         }
     }
 }

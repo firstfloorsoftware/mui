@@ -163,6 +163,9 @@
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\RelativeAnimatingContentControl.cs">
       <Link>Windows\Controls\RelativeAnimatingContentControl.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\SourceEventArgs.cs">
+      <Link>Windows\Controls\SourceEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\TabLayout.cs">
       <Link>Windows\Controls\TabLayout.cs</Link>
     </Compile>

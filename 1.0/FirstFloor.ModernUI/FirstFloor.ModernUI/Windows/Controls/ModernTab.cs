@@ -32,6 +32,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty SelectedSourceProperty = DependencyProperty.Register("SelectedSource", typeof(Uri), typeof(ModernTab), new PropertyMetadata(OnSelectedSourceChanged));
 
+        /// <summary>
+        /// Occurs when the selected source has changed.
+        /// </summary>
+        public event EventHandler<SourceEventArgs> SelectedSourceChanged;
+
         private ListBox linkList;
 
         /// <summary>
@@ -52,7 +57,18 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private static void OnSelectedSourceChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            ((ModernTab)o).UpdateSelection();
+            ((ModernTab)o).OnSelectedSourceChanged((Uri)e.OldValue, (Uri)e.NewValue);
+        }
+
+        private void OnSelectedSourceChanged(Uri oldValue, Uri newValue)
+        {
+            UpdateSelection();
+
+            // raise SelectedSourceChanged event
+            var handler = this.SelectedSourceChanged;
+            if (handler != null) {
+                handler(this, new SourceEventArgs(newValue));
+            }
         }
 
         private void UpdateSelection()
