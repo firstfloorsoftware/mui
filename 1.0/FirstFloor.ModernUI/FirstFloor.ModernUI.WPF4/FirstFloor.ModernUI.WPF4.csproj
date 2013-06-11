@@ -243,6 +243,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ContextMenu.xaml">
+      <Link>Assets\ContextMenu.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\Converters.xaml">
       <Link>Assets\Converters.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +275,11 @@
     </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\ListView.xaml">
       <Link>Assets\ListView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\MenuItem.xaml">
+      <Link>Assets\MenuItem.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

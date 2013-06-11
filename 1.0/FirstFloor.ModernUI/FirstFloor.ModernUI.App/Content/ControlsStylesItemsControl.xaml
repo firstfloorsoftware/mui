@@ -8,14 +8,17 @@
     <Grid>
         <ScrollViewer>
             <StackPanel HorizontalAlignment="Left">
-                <TextBlock Text="COMBOBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
-                <ComboBox Margin="0,0,0,32">
+                <TextBlock Text="COMBOBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                <ComboBox Margin="0,0,0,32" HorizontalAlignment="Left" MinWidth="100">
                     <ComboBoxItem Content="Item 1" />
                     <ComboBoxItem Content="Item 2" />
                     <ComboBoxItem Content="Item 3" />
                     <ComboBoxItem Content="Item 4" />
                     <ComboBoxItem Content="Item 5" />
                 </ComboBox>
+                <TextBlock Text="CONTEXTMENU" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                <Button Content="show context menu" Click="ShowContextMenu_Click" Margin="0,0,0,32" HorizontalAlignment="Left"/>
+                
                 <TextBlock Text="LISTBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
                 <ListBox Margin="0,0,0,32">
                     <ListBoxItem Content="Item 1" />

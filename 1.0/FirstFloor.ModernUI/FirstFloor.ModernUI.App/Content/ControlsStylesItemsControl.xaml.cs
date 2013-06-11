@@ -24,5 +24,33 @@ namespace FirstFloor.ModernUI.App.Content
         {
             InitializeComponent();
         }
+
+        private MenuItem CreateSubMenu(string header)
+        {
+            var item = new MenuItem { Header = header };
+            item.Items.Add("Item 1");
+            item.Items.Add("Item 2");
+            item.Items.Add(new Separator());
+            item.Items.Add("item 3");
+            return item;
+        }
+
+        private void ShowContextMenu_Click(object sender, RoutedEventArgs e)
+        {
+            var contextMenu = new ContextMenu();
+            
+            contextMenu.Items.Add(new MenuItem { Header = "Item" });
+            contextMenu.Items.Add(new MenuItem { Header = "Item, disabled", IsEnabled = false });
+            contextMenu.Items.Add(new MenuItem { Header = "Item, checked", IsChecked = true });
+            contextMenu.Items.Add(new MenuItem { Header = "Item, checked and disabled", IsChecked = true, IsEnabled = false });
+            contextMenu.Items.Add(new Separator());
+            contextMenu.Items.Add(CreateSubMenu("Item with submenu"));
+
+            var menu = CreateSubMenu("Item with submenu, disabled");
+            menu.IsEnabled = false;
+            contextMenu.Items.Add(menu);
+            
+            contextMenu.IsOpen = true;
+        }
     }
 }

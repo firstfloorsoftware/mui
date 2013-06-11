@@ -7,12 +7,14 @@
         <ResourceDictionary Source="Button.xaml" />
         <ResourceDictionary Source="CheckBox.xaml" />
         <ResourceDictionary Source="ComboBox.xaml" />
+        <ResourceDictionary Source="ContextMenu.xaml" />
         <ResourceDictionary Source="DataGrid.xaml" />
         <ResourceDictionary Source="GridSplitter.xaml" />
         <ResourceDictionary Source="Hyperlink.xaml" />
         <ResourceDictionary Source="ListBox.xaml" />
         <ResourceDictionary Source="ListView.xaml" />
         <ResourceDictionary Source="ModernWindowEx.xaml" />
+        <ResourceDictionary Source="MenuItem.xaml" />
         <ResourceDictionary Source="PasswordBox.xaml" />
         <ResourceDictionary Source="ProgressBar.xaml" />
         <ResourceDictionary Source="RadioButton.xaml" />
