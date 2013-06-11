@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ModernUI.WPF</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <title>ModernUI for WPF</title>
     <authors>First Floor Software</authors>
     <owners>First Floor Software</owners>
@@ -18,7 +18,6 @@
   <files>
     <file src="Output\Temp\FirstFloor.ModernUI.dll" target="lib\net45\FirstFloor.ModernUI.dll" />
     <file src="Output\Temp\FirstFloor.ModernUI.XML" target="lib\net45\FirstFloor.ModernUI.XML" />
-    <file src="Output\Temp\Microsoft.Windows.Shell.dll" target="lib\net45\Microsoft.Windows.Shell.dll" />
     <file src="Output\Temp\net40\FirstFloor.ModernUI.dll" target="lib\net40\FirstFloor.ModernUI.dll" />
     <file src="Output\Temp\net40\FirstFloor.ModernUI.XML" target="lib\net40\FirstFloor.ModernUI.XML" />
     <file src="Output\Temp\net40\Microsoft.Windows.Shell.dll" target="lib\net40\Microsoft.Windows.Shell.dll" />
