@@ -62,11 +62,17 @@ namespace FirstFloor.ModernUI.Windows.Controls
             SetCurrentValue(TitleLinksProperty, new LinkCollection());
 
             // associate window commands with this instance
+#if NET4
             this.CommandBindings.Add(new CommandBinding(Microsoft.Windows.Shell.SystemCommands.CloseWindowCommand, OnCloseWindow));
             this.CommandBindings.Add(new CommandBinding(Microsoft.Windows.Shell.SystemCommands.MaximizeWindowCommand, OnMaximizeWindow, OnCanResizeWindow));
             this.CommandBindings.Add(new CommandBinding(Microsoft.Windows.Shell.SystemCommands.MinimizeWindowCommand, OnMinimizeWindow, OnCanMinimizeWindow));
             this.CommandBindings.Add(new CommandBinding(Microsoft.Windows.Shell.SystemCommands.RestoreWindowCommand, OnRestoreWindow, OnCanResizeWindow));
-
+#else
+            this.CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, OnCloseWindow));
+            this.CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand, OnMaximizeWindow, OnCanResizeWindow));
+            this.CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand, OnMinimizeWindow, OnCanMinimizeWindow));
+            this.CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, OnRestoreWindow, OnCanResizeWindow));
+#endif
             // listen for theme changes
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }
@@ -121,22 +127,38 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnCloseWindow(object target, ExecutedRoutedEventArgs e)
         {
+#if NET4
             Microsoft.Windows.Shell.SystemCommands.CloseWindow(this);
+#else
+            SystemCommands.CloseWindow(this);
+#endif
         }
 
         private void OnMaximizeWindow(object target, ExecutedRoutedEventArgs e)
         {
+#if NET4
             Microsoft.Windows.Shell.SystemCommands.MaximizeWindow(this);
+#else
+            SystemCommands.MaximizeWindow(this);
+#endif
         }
 
         private void OnMinimizeWindow(object target, ExecutedRoutedEventArgs e)
         {
+#if NET4
             Microsoft.Windows.Shell.SystemCommands.MinimizeWindow(this);
+#else
+            SystemCommands.MinimizeWindow(this);
+#endif
         }
 
         private void OnRestoreWindow(object target, ExecutedRoutedEventArgs e)
         {
+#if NET4
             Microsoft.Windows.Shell.SystemCommands.RestoreWindow(this);
+#else
+            SystemCommands.RestoreWindow(this);
+#endif
         }
 
         /// <summary>

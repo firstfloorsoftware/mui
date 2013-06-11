@@ -301,11 +301,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\FirstFloor.ModernUI\Assets\ModernWindowEx.xaml">
-      <Link>Assets\ModernWindowEx.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\PasswordBox.xaml">
       <Link>Assets\PasswordBox.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -366,11 +361,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\FirstFloor.ModernUI\Themes\ModernDialog.xaml">
-      <Link>Themes\ModernDialog.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\FirstFloor.ModernUI\Themes\ModernFrame.xaml">
       <Link>Themes\ModernFrame.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -386,13 +376,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\FirstFloor.ModernUI\Themes\ModernWindow.xaml">
-      <Link>Themes\ModernWindow.xaml</Link>
+    <Page Include="..\FirstFloor.ModernUI\Themes\TransitioningContentControl.xaml">
+      <Link>Themes\TransitioningContentControl.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="..\FirstFloor.ModernUI\Themes\TransitioningContentControl.xaml">
-      <Link>Themes\TransitioningContentControl.xaml</Link>
+    <Page Include="Assets\ModernWindowEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ModernDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ModernWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
