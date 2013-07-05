@@ -16,6 +16,7 @@
 
                 <TextBlock Text="CHECKBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
                 <CheckBox Content="standard checkbox" Margin="0,0,0,4"  />
+                <CheckBox Content="three state checkbox" IsThreeState="True" Margin="0,0,0,4"  />
                 <CheckBox Content="disabled checkbox" IsEnabled="False" Margin="0,0,0,4" />
                 <CheckBox Content="disabled checked checkbox" IsChecked="True" IsEnabled="False" Margin="0,0,0,16" />
 
