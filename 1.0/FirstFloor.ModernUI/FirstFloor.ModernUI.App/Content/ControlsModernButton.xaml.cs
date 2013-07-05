@@ -46,7 +46,7 @@ namespace FirstFloor.ModernUI.App.Content
                         // create a modern button and add it to the button panel
                         ButtonPanel.Children.Add(new ModernButton {
                             IconData = PathGeometry.Parse(data),
-                            Margin = new Thickness(0, 0, 4, 8)
+                            Margin = new Thickness(0, 0, 8, 0)
                         });
                     }
                 }

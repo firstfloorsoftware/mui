@@ -21,10 +21,11 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <Grid Width="18" Height="18">
+                        <Grid Width="{TemplateBinding EllipseDiameter}"
+                              Height="{TemplateBinding EllipseDiameter}">
                             <Ellipse x:Name="ellipse"
                                      Stroke="{DynamicResource ModernButtonBorder}"
-                                     StrokeThickness="1"
+                                     StrokeThickness="{TemplateBinding EllipseStrokeThickness}"
                                      VerticalAlignment="Stretch" />
                             <Path x:Name="icon"
                                   Data="{TemplateBinding IconData}" 
@@ -36,6 +37,7 @@
                         </Grid>
                         <Grid Grid.Column="1" >
                             <TextBlock DataContext="{TemplateBinding Content}"
+                                       Visibility="{Binding Converter={StaticResource NullOrEmptyStringToVisibilityConverter}, ConverterParameter=inverse}"
                                        Text="{Binding Converter={StaticResource ToLowerConverter}}"
                                        TextTrimming="CharacterEllipsis"
                                        Foreground="{TemplateBinding Foreground}"

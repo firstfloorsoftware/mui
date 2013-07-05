@@ -101,6 +101,7 @@
     <Compile Include="Windows\Controls\TransitioningContentControl.cs" />
     <Compile Include="Windows\Converters\BooleanToFontWeightConverter.cs" />
     <Compile Include="Windows\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Windows\Converters\NullOrEmptyStringToVisibilityConverter.cs" />
     <Compile Include="Windows\Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Windows\Converters\ToLowerConverter.cs" />
     <Compile Include="Windows\Converters\ToUpperConverter.cs" />

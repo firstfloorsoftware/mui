@@ -18,7 +18,7 @@
                 <CheckBox Content="standard checkbox" Margin="0,0,0,4"  />
                 <CheckBox Content="three state checkbox" IsThreeState="True" Margin="0,0,0,4"  />
                 <CheckBox Content="disabled checkbox" IsEnabled="False" Margin="0,0,0,4" />
-                <CheckBox Content="disabled checked checkbox" IsChecked="True" IsEnabled="False" Margin="0,0,0,16" />
+                <CheckBox Content="disabled checked checkbox" IsChecked="True" IsEnabled="False" Margin="0,0,0,32" />
 
                 <TextBlock Text="RADIOBUTTON" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
                 <RadioButton Content="option 1" Margin="0,0,0,4"  />
