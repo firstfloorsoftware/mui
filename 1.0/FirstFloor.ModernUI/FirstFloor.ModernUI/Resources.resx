@@ -123,6 +123,12 @@
   <data name="Close" xml:space="preserve">
     <value>close</value>
   </data>
+  <data name="Maximize" xml:space="preserve">
+    <value>maximize</value>
+  </data>
+  <data name="Minimize" xml:space="preserve">
+    <value>minimize</value>
+  </data>
   <data name="NavigationFailed" xml:space="preserve">
     <value>Navigation failed</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>ok</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>restore</value>
   </data>
   <data name="UIThreadRequired" xml:space="preserve">
     <value>Operation requires the UI thread</value>
