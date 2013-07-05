@@ -9,16 +9,26 @@
         <ScrollViewer>
             <StackPanel HorizontalAlignment="Left">
                 <TextBlock Text="COMBOBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-                <ComboBox Margin="0,0,0,32" HorizontalAlignment="Left" MinWidth="100">
+                <ComboBox Margin="0,0,0,8" HorizontalAlignment="Left" MinWidth="100">
                     <ComboBoxItem Content="Item 1" />
                     <ComboBoxItem Content="Item 2" />
                     <ComboBoxItem Content="Item 3" />
                     <ComboBoxItem Content="Item 4" />
                     <ComboBoxItem Content="Item 5" />
                 </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox IsEditable="True" Margin="0,0,0,32" HorizontalAlignment="Left" MinWidth="100">
+                        <ComboBoxItem Content="Item 1" />
+                        <ComboBoxItem Content="Item 2" />
+                        <ComboBoxItem Content="Item 3" />
+                        <ComboBoxItem Content="Item 4" />
+                        <ComboBoxItem Content="Item 5" />
+                    </ComboBox>
+                    <TextBlock Text="(editable)" Margin="8,2,0,0" Foreground="{DynamicResource WindowTextReadOnly}" />
+                </StackPanel>
                 <TextBlock Text="CONTEXTMENU" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
                 <Button Content="show context menu" Click="ShowContextMenu_Click" Margin="0,0,0,32" HorizontalAlignment="Left"/>
-                
+
                 <TextBlock Text="LISTBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
                 <ListBox Margin="0,0,0,32">
                     <ListBoxItem Content="Item 1" />
@@ -43,7 +53,7 @@
                             <GridViewColumn Header="Column 3" />
                         </GridView>
                     </ListView.View>
-                    
+
                     <ListViewItem Content="Item 1" />
                     <ListViewItem Content="Item 2" />
                     <ListViewItem Content="Item 3" />
