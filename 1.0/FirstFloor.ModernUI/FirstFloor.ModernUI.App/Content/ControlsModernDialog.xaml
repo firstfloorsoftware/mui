@@ -8,8 +8,20 @@
     <StackPanel HorizontalAlignment="Left">
         <TextBlock Text="MODERNDIALOG" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
 
-        <Button Content="common dialog" Margin="0,0,0,8" Click="CommonDialog_Click"/>
-        <Button Content="message dialog" Click="MessageDialog_Click"/>
+        <Button Content="common dialog" Margin="0,0,0,32" Click="CommonDialog_Click"/>
+        <TextBlock Text="MESSAGEBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+        <StackPanel Margin="0,0,0,8">
+            <RadioButton x:Name="ok" Content="ok" IsChecked="True" Margin="0,0,0,2" />
+            <RadioButton x:Name="okcancel" Content="ok, cancel" Margin="0,0,0,2"/>
+            <RadioButton x:Name="yesno" Content="yes, no" Margin="0,0,0,2"/>
+            <RadioButton x:Name="yesnocancel" Content="yes, no, cancel" Margin="0,0,0,2"/>
+        </StackPanel>
+        
+        <Button Content="message dialog" Click="MessageDialog_Click" Margin="0,0,0,8"/>
+        <TextBlock>
+            <Run Text="Dialog result:" />
+            <Run x:Name="runResult" FontWeight="Bold" />
+        </TextBlock>
 
     </StackPanel>
 </UserControl>

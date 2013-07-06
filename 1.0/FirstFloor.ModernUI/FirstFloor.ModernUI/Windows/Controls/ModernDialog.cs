@@ -25,8 +25,6 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty ButtonsProperty = DependencyProperty.Register("Buttons", typeof(IEnumerable<Button>), typeof(ModernDialog));
 
-        private ICommand closeTrueCommand;
-        private ICommand closeFalseCommand;
         private ICommand closeCommand;
 
         private Button okButton;
@@ -34,6 +32,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
         private Button yesButton;
         private Button noButton;
         private Button closeButton;
+
+        private MessageBoxResult dialogResult = MessageBoxResult.None;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModernDialog"/> class.
@@ -43,15 +43,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
             this.DefaultStyleKey = typeof(ModernDialog);
             this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-            this.closeTrueCommand = new RelayCommand(o => {
-                this.DialogResult = true;
-                Close();
-            });
-            this.closeFalseCommand = new RelayCommand(o => {
-                this.DialogResult = false;
-                Close();
-            });
             this.closeCommand = new RelayCommand(o => {
+                var result = o as MessageBoxResult?;
+                if (result.HasValue) {
+                    this.dialogResult = result.Value;
+                }
                 Close();
             });
 
@@ -63,11 +59,12 @@ namespace FirstFloor.ModernUI.Windows.Controls
             }
         }
 
-        private Button CreateDialogButton(string content, bool isDefault, bool isCancel, ICommand command)
+        private Button CreateCloseDialogButton(string content, bool isDefault, bool isCancel, MessageBoxResult result)
         {
             return new Button {
                 Content = content,
-                Command = command,
+                Command = this.CloseCommand,
+                CommandParameter = result,
                 IsDefault = isDefault,
                 IsCancel = isCancel,
                 MinHeight = 21,
@@ -77,23 +74,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
         }
 
         /// <summary>
-        /// Gets the close window command that sets the dialog result to True.
-        /// </summary>
-        public ICommand CloseTrueCommand
-        {
-            get { return this.closeTrueCommand; }
-        }
-
-        /// <summary>
-        /// Gets the close window command that sets the dialog result to false.
-        /// </summary>
-        public ICommand CloseFalseCommand
-        {
-            get { return this.closeFalseCommand; }
-        }
-
-        /// <summary>
-        /// Gets the close window command that sets the dialog result to a null value.
+        /// Gets the close window command.
         /// </summary>
         public ICommand CloseCommand
         {
@@ -108,7 +89,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             get
             {
                 if (this.okButton == null) {
-                    this.okButton = CreateDialogButton(FirstFloor.ModernUI.Resources.Ok, true, false, this.closeTrueCommand);
+                    this.okButton = CreateCloseDialogButton(FirstFloor.ModernUI.Resources.Ok, true, false, MessageBoxResult.OK);
                 }
                 return this.okButton;
             }
@@ -122,7 +103,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             get
             {
                 if (this.cancelButton == null) {
-                    this.cancelButton = CreateDialogButton(FirstFloor.ModernUI.Resources.Cancel, false, true, this.closeCommand);
+                    this.cancelButton = CreateCloseDialogButton(FirstFloor.ModernUI.Resources.Cancel, false, true, MessageBoxResult.Cancel);
                 }
                 return this.cancelButton;
             }
@@ -136,7 +117,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             get
             {
                 if (this.yesButton == null) {
-                    this.yesButton = CreateDialogButton(FirstFloor.ModernUI.Resources.Yes, true, false, this.closeTrueCommand);
+                    this.yesButton = CreateCloseDialogButton(FirstFloor.ModernUI.Resources.Yes, true, false, MessageBoxResult.Yes);
                 }
                 return this.yesButton;
             }
@@ -150,7 +131,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             get
             {
                 if (this.noButton == null) {
-                    this.noButton = CreateDialogButton(FirstFloor.ModernUI.Resources.No, false, true, this.closeFalseCommand);
+                    this.noButton = CreateCloseDialogButton(FirstFloor.ModernUI.Resources.No, false, true, MessageBoxResult.No);
                 }
                 return this.noButton;
             }
@@ -164,7 +145,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
             get
             {
                 if (this.closeButton == null) {
-                    this.closeButton = CreateDialogButton(FirstFloor.ModernUI.Resources.Close, true, false, this.closeCommand);
+                    this.closeButton = CreateCloseDialogButton(FirstFloor.ModernUI.Resources.Close, true, false, MessageBoxResult.None);
                 }
                 return this.closeButton;
             }
@@ -195,7 +176,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// <param name="title">The title.</param>
         /// <param name="button">The button.</param>
         /// <returns></returns>
-        public static bool? ShowMessage(string text, string title, MessageBoxButton button)
+        public static MessageBoxResult ShowMessage(string text, string title, MessageBoxButton button)
         {
             var dlg = new ModernDialog {
                 Title = title,
@@ -207,8 +188,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
             };
 
             dlg.Buttons = GetButtons(dlg, button);
-
-            return dlg.ShowDialog();
+            dlg.ShowDialog();
+            return dlg.dialogResult;
         }
 
         private static IEnumerable<Button> GetButtons(ModernDialog owner, MessageBoxButton button)

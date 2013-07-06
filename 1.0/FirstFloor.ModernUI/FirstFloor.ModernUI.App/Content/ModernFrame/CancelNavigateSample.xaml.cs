@@ -58,7 +58,7 @@ namespace FirstFloor.ModernUI.App.Content.ModernFrame
             // modern message dialog supports BBCode tags
             var question = string.Format(CultureInfo.CurrentUICulture, "[b]{0}[/b] is about to navigate to new content. Do you want to allow this?", frameDescription);
 
-            if (false == ModernDialog.ShowMessage(question, "navigate", System.Windows.MessageBoxButton.YesNo)) {
+            if (MessageBoxResult.No == ModernDialog.ShowMessage(question, "navigate", System.Windows.MessageBoxButton.YesNo)) {
                 e.Cancel = true;
             }
         }

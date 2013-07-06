@@ -37,9 +37,15 @@ namespace FirstFloor.ModernUI.App.Content
 
         private void MessageDialog_Click(object sender, RoutedEventArgs e)
         {
-            var result = ModernDialog.ShowMessage("This is a simple Modern UI styled message dialog. Do you like it?", "Message Dialog", MessageBoxButton.YesNo);
+            MessageBoxButton btn = MessageBoxButton.OK;
+            if (true == ok.IsChecked) btn = MessageBoxButton.OK;
+            else if (true == okcancel.IsChecked) btn = MessageBoxButton.OKCancel;
+            else if (true == yesno.IsChecked) btn = MessageBoxButton.YesNo;
+            else if (true == yesnocancel.IsChecked) btn = MessageBoxButton.YesNoCancel;
 
-            Debug.WriteLine("Dialog result: {0}", result);
+            var result = ModernDialog.ShowMessage("This is a simple Modern UI styled message dialog. Do you like it?", "Message Dialog", btn);
+
+            this.runResult.Text = result.ToString();
         }
     }
 }
