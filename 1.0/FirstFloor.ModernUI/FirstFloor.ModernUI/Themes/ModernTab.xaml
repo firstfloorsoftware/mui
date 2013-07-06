@@ -83,7 +83,8 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- link list -->
-                                    <ListBox x:Name="LinkList" ItemsSource="{TemplateBinding Links}">
+                                    <ListBox x:Name="LinkList" ItemsSource="{TemplateBinding Links}"
+                                             ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" >
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding DisplayName, Converter={StaticResource ToUpperConverter}}" Margin="10,2,2,2" FontSize="{DynamicResource SmallFontSize}" TextTrimming="CharacterEllipsis" />
