@@ -178,6 +178,9 @@
     <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\BooleanToVisibilityConverter.cs">
       <Link>Windows\Converters\BooleanToVisibilityConverter.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\NullOrEmptyStringToVisibilityConverter.cs">
+      <Link>Windows\Converters\NullOrEmptyStringToVisibilityConverter.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Converters\NullToVisibilityConverter.cs">
       <Link>Windows\Converters\NullToVisibilityConverter.cs</Link>
     </Compile>
