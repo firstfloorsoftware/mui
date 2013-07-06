@@ -28,10 +28,10 @@ namespace FirstFloor.ModernUI.App.Content
         private MenuItem CreateSubMenu(string header)
         {
             var item = new MenuItem { Header = header };
-            item.Items.Add("Item 1");
+            item.Items.Add(new MenuItem { Header = "Item 1" });
             item.Items.Add("Item 2");
             item.Items.Add(new Separator());
-            item.Items.Add("item 3");
+            item.Items.Add("Item 3");
             return item;
         }
 

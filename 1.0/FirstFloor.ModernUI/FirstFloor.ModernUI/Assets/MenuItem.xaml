@@ -178,6 +178,8 @@
                 Value="{Binding Path=VerticalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Background"
                 Value="{DynamicResource PopupBackground}"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource WindowText}" />
         <Setter Property="ScrollViewer.PanningMode"
                 Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled"
