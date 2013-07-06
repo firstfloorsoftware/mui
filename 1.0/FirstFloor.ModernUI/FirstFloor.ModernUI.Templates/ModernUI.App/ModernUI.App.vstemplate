@@ -11,6 +11,7 @@
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>ModernUIApp</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
