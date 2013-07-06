@@ -16,18 +16,18 @@
 
             <!-- actual form starts here -->
             <StackPanel x:Name="Form" Orientation="Vertical">
-                
+
                 <!-- create viewmodel -->
                 <StackPanel.DataContext>
                     <app:SampleFormViewModel />
                 </StackPanel.DataContext>
-                
+
                 <StackPanel.Resources>
                     <Style TargetType="StackPanel">
                         <Setter Property="Orientation" Value="Horizontal" />
                         <Setter Property="Margin" Value="0,0,0,4" />
                     </Style>
-                    <Style TargetType="TextBlock">
+                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                         <Setter Property="Width" Value="100" />
                         <Setter Property="VerticalAlignment" Value="Center" />
                     </Style>
@@ -40,29 +40,29 @@
                 </StackPanel.Resources>
 
                 <StackPanel>
-                    <TextBlock Text="First name"/>
+                    <Label Content="First name" Target="{Binding ElementName=TextFirstName}"/>
                     <TextBox x:Name="TextFirstName" Width="150" Text="{Binding FirstName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Last name"/>
-                    <TextBox Width="150" Text="{Binding LastName, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                    <Label Content="Last name" Target="{Binding ElementName=TextLastName}"/>
+                    <TextBox x:Name="TextLastName" Width="150" Text="{Binding LastName, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Gender" />
-                    <RadioButton Content="Male" />
-                    <RadioButton Content="Female" Margin="8,0,0,0" />
+                    <Label Content="Gender" Target="{Binding ElementName=RadioGendeMale}"/>
+                        <RadioButton x:Name="RadioGendeMale" Content="Male" />
+                        <RadioButton Content="Female" Margin="8,0,0,0" />
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Address"/>
-                    <TextBox Width="150" />
+                    <Label Content="Address" Target="{Binding ElementName=TextAddress}"/>
+                    <TextBox x:Name="TextAddress" Width="150" />
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="City"/>
-                    <TextBox Width="150" />
+                    <Label Content="City" Target="{Binding ElementName=TextCity}"/>
+                    <TextBox x:Name="TextCity" Width="150" />
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="State"/>
-                    <ComboBox Width="150">
+                    <Label Content="State" Target="{Binding ElementName=ComboState}"/>
+                    <ComboBox x:Name="ComboState" Width="150">
                         <ComboBoxItem>Alabama</ComboBoxItem>
                         <ComboBoxItem>Alaska</ComboBoxItem>
                         <ComboBoxItem>Arizona</ComboBoxItem>
@@ -116,11 +116,11 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Zip code"/>
-                    <TextBox Width="150" />
+                    <Label Content="Zip code" Target="{Binding ElementName=TextZipCode}"/>
+                    <TextBox x:Name="TextZipCode" Width="150" />
                 </StackPanel>
                 <StackPanel >
-                    <TextBlock />
+                    <Label />
                     <CheckBox Content="I agree to the terms of use" />
                 </StackPanel>
 

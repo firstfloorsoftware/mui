@@ -274,6 +274,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\Label.xaml">
+      <Link>Assets\Label.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\ListBox.xaml">
       <Link>Assets\ListBox.xaml</Link>
       <Generator>MSBuild:Compile</Generator>

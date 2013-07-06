@@ -11,6 +11,7 @@
         <ResourceDictionary Source="DataGrid.xaml" />
         <ResourceDictionary Source="GridSplitter.xaml" />
         <ResourceDictionary Source="Hyperlink.xaml" />
+        <ResourceDictionary Source="Label.xaml" />
         <ResourceDictionary Source="ListBox.xaml" />
         <ResourceDictionary Source="ListView.xaml" />
         <ResourceDictionary Source="ModernWindowEx.xaml" />

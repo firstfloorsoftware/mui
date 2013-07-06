@@ -22,8 +22,11 @@
                 <TextBox Text="textbox" Margin="0,0,0,8"/>
                 <TextBox Text="readonly textbox" IsReadOnly="True" Margin="0,0,0,8"/>
                 <TextBox Text="disabled textbox" IsEnabled="False" Margin="0,0,0,8"/>
-                <PasswordBox Password="12345" />
+                <PasswordBox Password="12345" Margin="0,0,0,32"/>
 
+                <TextBlock Text="LABEL" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
+                <Label Content="label" Margin="0,0,0,8"/>
+                <Label Content="disabled label" IsEnabled="False" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
