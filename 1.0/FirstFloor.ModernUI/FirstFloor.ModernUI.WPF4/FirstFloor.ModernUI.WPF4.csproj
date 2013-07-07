@@ -239,6 +239,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\Calendar.xaml">
+      <Link>Assets\Calendar.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\CheckBox.xaml">
       <Link>Assets\CheckBox.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -261,6 +266,11 @@
     </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\DataGrid.xaml">
       <Link>Assets\DataGrid.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\DatePicker.xaml">
+      <Link>Assets\DatePicker.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

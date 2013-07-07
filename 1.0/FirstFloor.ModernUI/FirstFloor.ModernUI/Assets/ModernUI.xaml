@@ -5,10 +5,12 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Button.xaml" />
+        <ResourceDictionary Source="Calendar.xaml" />
         <ResourceDictionary Source="CheckBox.xaml" />
         <ResourceDictionary Source="ComboBox.xaml" />
         <ResourceDictionary Source="ContextMenu.xaml" />
         <ResourceDictionary Source="DataGrid.xaml" />
+        <ResourceDictionary Source="DatePicker.xaml" />
         <ResourceDictionary Source="GridSplitter.xaml" />
         <ResourceDictionary Source="Hyperlink.xaml" />
         <ResourceDictionary Source="Label.xaml" />

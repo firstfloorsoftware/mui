@@ -49,8 +49,12 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Gender" Target="{Binding ElementName=RadioGendeMale}"/>
-                        <RadioButton x:Name="RadioGendeMale" Content="Male" />
-                        <RadioButton Content="Female" Margin="8,0,0,0" />
+                    <RadioButton x:Name="RadioGendeMale" Content="Male" />
+                    <RadioButton Content="Female" Margin="8,0,0,0" />
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Birth date" Target="{Binding ElementName=DateBirth}" />
+                    <DatePicker x:Name="DateBirth" />
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Address" Target="{Binding ElementName=TextAddress}"/>
