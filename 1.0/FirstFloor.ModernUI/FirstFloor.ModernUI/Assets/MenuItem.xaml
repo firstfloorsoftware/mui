@@ -29,6 +29,9 @@
                                       SharedSizeGroup="MenuItemIconColumnGroup"/>
                     <ColumnDefinition Width="4"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="37"/>
+                    <ColumnDefinition Width="Auto"
+                                      SharedSizeGroup="MenuItemIGTColumnGroup"/>
                     <ColumnDefinition Width="17"/>
                 </Grid.ColumnDefinitions>
                 <ContentPresenter x:Name="Icon"
@@ -51,6 +54,9 @@
                                   Margin="0,2,8,2"
                                   RecognizesAccessKey="True"
                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                <TextBlock Grid.Column="4"
+                           Text="{TemplateBinding MenuItem.InputGestureText}"
+                           Margin="0,2"/>
             </Grid>
         </Grid>
         <ControlTemplate.Triggers>
@@ -83,6 +89,9 @@
                                       SharedSizeGroup="MenuItemIconColumnGroup"/>
                     <ColumnDefinition Width="4"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="37"/>
+                    <ColumnDefinition Width="Auto"
+                                      SharedSizeGroup="MenuItemIGTColumnGroup"/>
                     <ColumnDefinition Width="17"/>
                 </Grid.ColumnDefinitions>
                 <ContentPresenter x:Name="Icon"
@@ -106,7 +115,7 @@
                                   RecognizesAccessKey="True"
                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                 <Path x:Name="RightArrow"
-                      Grid.Column="3"
+                      Grid.Column="5"
                       VerticalAlignment="Center"
                       Margin="4,0,0,0"
                       Fill="{TemplateBinding MenuItem.Foreground}"

@@ -40,6 +40,7 @@ namespace FirstFloor.ModernUI.App.Content
             var contextMenu = new ContextMenu();
             
             contextMenu.Items.Add(new MenuItem { Header = "Item" });
+            contextMenu.Items.Add(new MenuItem { Header = "Item with gesture", InputGestureText="Ctrl+C" });
             contextMenu.Items.Add(new MenuItem { Header = "Item, disabled", IsEnabled = false });
             contextMenu.Items.Add(new MenuItem { Header = "Item, checked", IsChecked = true });
             contextMenu.Items.Add(new MenuItem { Header = "Item, checked and disabled", IsChecked = true, IsEnabled = false });
