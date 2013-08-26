@@ -51,15 +51,22 @@
     </Style>
 
     <Style TargetType="ListBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource FlatListBoxItem}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
-                    <ScrollViewer Padding="{TemplateBinding Padding}" Focusable="false" >
-                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                    </ScrollViewer>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Padding="{TemplateBinding Padding}">
+                        <ScrollViewer Padding="{TemplateBinding Padding}" Focusable="false"  >
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
