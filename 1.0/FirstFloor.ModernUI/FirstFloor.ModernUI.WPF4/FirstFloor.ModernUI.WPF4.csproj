@@ -154,6 +154,9 @@
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernMenu.cs">
       <Link>Windows\Controls\ModernMenu.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernProgressRing.cs">
+      <Link>Windows\Controls\ModernProgressRing.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernTab.cs">
       <Link>Windows\Controls\ModernTab.cs</Link>
     </Compile>
@@ -304,6 +307,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="..\FirstFloor.ModernUI\Assets\ModernProgressRing.xaml">
+      <Link>Assets\ModernProgressRing.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\FirstFloor.ModernUI\Assets\ModernUI.Dark.xaml">
       <Link>Assets\ModernUI.Dark.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -386,6 +394,11 @@
     </Page>
     <Page Include="..\FirstFloor.ModernUI\Themes\ModernMenu.xaml">
       <Link>Themes\ModernMenu.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\FirstFloor.ModernUI\Themes\ModernProgressRing.xaml">
+      <Link>Themes\ModernProgressRing.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

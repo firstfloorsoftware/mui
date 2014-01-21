@@ -81,6 +81,9 @@
     <Compile Include="Content\ControlsModernMenu.xaml.cs">
       <DependentUpon>ControlsModernMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Content\ControlsModernProgressRing.xaml.cs">
+      <DependentUpon>ControlsModernProgressRing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content\ControlsModernWindow.xaml.cs">
       <DependentUpon>ControlsModernWindow.xaml</DependentUpon>
     </Compile>
@@ -307,6 +310,10 @@
     <Page Include="Content\ControlsModernMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\ControlsModernProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Content\ControlsModernWindow.xaml">
       <SubType>Designer</SubType>

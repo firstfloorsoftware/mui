@@ -9,6 +9,7 @@
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernDialog.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernFrame.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernMenu.xaml" />
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernProgressRing.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernTab.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernWindow.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/TransitioningContentControl.xaml" />

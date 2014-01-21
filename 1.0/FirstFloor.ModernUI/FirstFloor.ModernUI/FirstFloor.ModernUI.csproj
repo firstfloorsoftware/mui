@@ -81,6 +81,7 @@
     <Compile Include="Windows\Controls\DataGridComboBoxColumn.cs" />
     <Compile Include="Windows\Controls\DataGridTextColumn.cs" />
     <Compile Include="Windows\Controls\DataGridCheckBoxColumn.cs" />
+    <Compile Include="Windows\Controls\ModernProgressRing.cs" />
     <Compile Include="Windows\Controls\SourceEventArgs.cs" />
     <Compile Include="Windows\Controls\ModernButton.cs" />
     <Compile Include="Windows\Controls\BBCodeBlock.cs" />
@@ -157,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Assets\ModernProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Assets\ModernWindowEx.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -228,6 +233,10 @@
     <Page Include="Assets\ModernUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ModernProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\BBCodeBlock.xaml">
       <Generator>MSBuild:Compile</Generator>

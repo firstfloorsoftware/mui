@@ -1,0 +1,254 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:FirstFloor.ModernUI.Windows.Controls">
+
+    <Style TargetType="controls:ModernProgressRing">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Accent}" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinWidth" Value="32" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ModernProgressRing">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Border.Resources>
+                            <Style x:Key="ProgressRingEllipseStyle" TargetType="Ellipse">
+                                <Setter Property="Opacity" Value="0" />
+                                <Setter Property="HorizontalAlignment" Value="Left" />
+                                <Setter Property="VerticalAlignment" Value="Top" />
+                            </Style>
+                        </Border.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="SizeStates">
+                                <VisualState x:Name="Large"/>
+                                <VisualState x:Name="Small" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ActiveStates">
+                                <VisualState x:Name="Inactive" />
+                                <VisualState x:Name="Active">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Ring" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement1">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement1">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.100" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement2">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.100" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement2">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.200" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement3">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.200" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement3">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement4">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement4">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.400" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement5">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.400" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement5">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.500" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement6">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.500" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement6">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.600" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement7">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.600" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement7">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.700" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="ProgressElement8">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" BeginTime="0:0:0.700" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="ProgressElement8">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.0"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.480" Value="1.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.960" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                            <SplineDoubleKeyFrame KeyTime="0:0:1.200" Value="0.0" KeySpline="0.42,0 0.58,1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="Ring"
+                              Margin="{TemplateBinding Padding}"
+                              Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="7*"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="0" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement1"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="45" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement2"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="90" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement3"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="135" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement4"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="180" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement5"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="225" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement6"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="270" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement7"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.5,4.0">
+                                <Border.RenderTransform>
+                                    <RotateTransform Angle="315" />
+                                </Border.RenderTransform>
+
+                                <Ellipse x:Name="ProgressElement8"  Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform />
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
