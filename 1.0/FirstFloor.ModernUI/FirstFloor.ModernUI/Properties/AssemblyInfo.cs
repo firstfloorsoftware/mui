@@ -18,7 +18,7 @@ using System;
 [assembly: AssemblyConfiguration("retail")]
 [assembly: AssemblyCompany("First Floor Software")]
 [assembly: AssemblyProduct("ModernUI")]
-[assembly: AssemblyCopyright("Copyright © First Floor Software 2013")]
+[assembly: AssemblyCopyright("Copyright © First Floor Software 2013, 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

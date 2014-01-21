@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FirstFloor.ModernUI.App")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FirstFloor.ModernUI.App")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyTitle("ModernUI Demo App")]
+[assembly: AssemblyDescription("Demonstrating the features of Modern UI for WPF")]
+[assembly: AssemblyConfiguration("retail")]
+[assembly: AssemblyCompany("First Floor Software")]
+[assembly: AssemblyProduct("ModernUI demo")]
+[assembly: AssemblyCopyright("Copyright © First Floor Software 2013, 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
