@@ -33,7 +33,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
         private Button noButton;
         private Button closeButton;
 
-        private MessageBoxResult dialogResult = MessageBoxResult.None;
+        private MessageBoxResult messageBoxResult = MessageBoxResult.None;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModernDialog"/> class.
@@ -46,7 +46,18 @@ namespace FirstFloor.ModernUI.Windows.Controls
             this.closeCommand = new RelayCommand(o => {
                 var result = o as MessageBoxResult?;
                 if (result.HasValue) {
-                    this.dialogResult = result.Value;
+                    this.messageBoxResult = result.Value;
+
+                    // sets the Window.DialogResult as well
+                    if (result.Value == MessageBoxResult.OK || result.Value == MessageBoxResult.Yes) {
+                        this.DialogResult = true;
+                    }
+                    else if (result.Value == MessageBoxResult.Cancel || result.Value == MessageBoxResult.No){
+                        this.DialogResult = false;
+                    }
+                    else{
+                        this.DialogResult = null;
+                    }
                 }
                 Close();
             });
@@ -170,13 +181,25 @@ namespace FirstFloor.ModernUI.Windows.Controls
         }
 
         /// <summary>
+        /// Gets the message box result.
+        /// </summary>
+        /// <value>
+        /// The message box result.
+        /// </value>
+        public MessageBoxResult MessageBoxResult
+        {
+            get { return this.messageBoxResult; }
+        }
+
+        /// <summary>
         /// Displays a messagebox.
         /// </summary>
         /// <param name="text">The text.</param>
         /// <param name="title">The title.</param>
         /// <param name="button">The button.</param>
+        /// <param name="owner">The window owning the messagebox. The messagebox will be located at the center of the owner.</param>
         /// <returns></returns>
-        public static MessageBoxResult ShowMessage(string text, string title, MessageBoxButton button)
+        public static MessageBoxResult ShowMessage(string text, string title, MessageBoxButton button, Window owner = null)
         {
             var dlg = new ModernDialog {
                 Title = title,
@@ -186,10 +209,13 @@ namespace FirstFloor.ModernUI.Windows.Controls
                 MaxHeight = 480,
                 MaxWidth = 640,
             };
+            if (owner != null) {
+                dlg.Owner = owner;
+            }
 
             dlg.Buttons = GetButtons(dlg, button);
             dlg.ShowDialog();
-            return dlg.dialogResult;
+            return dlg.messageBoxResult;
         }
 
         private static IEnumerable<Button> GetButtons(ModernDialog owner, MessageBoxButton button)

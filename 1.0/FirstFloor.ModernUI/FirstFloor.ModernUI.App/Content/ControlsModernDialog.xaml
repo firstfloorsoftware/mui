@@ -8,7 +8,16 @@
     <StackPanel HorizontalAlignment="Left">
         <TextBlock Text="MODERNDIALOG" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
 
-        <Button Content="common dialog" Margin="0,0,0,32" Click="CommonDialog_Click"/>
+        <Button Content="common dialog" Margin="0,0,0,8" HorizontalAlignment="Left" Click="CommonDialog_Click"/>
+        <TextBlock>
+            <Run Text="Dialog result:" />
+            <Run x:Name="dialogResult" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock Margin="0,0,0,32">
+            <Run Text="MessageBox result:" />
+            <Run x:Name="dialogMessageBoxResult" FontWeight="Bold" />
+        </TextBlock>
+
         <TextBlock Text="MESSAGEBOX" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
         <StackPanel Margin="0,0,0,8">
             <RadioButton x:Name="ok" Content="ok" IsChecked="True" Margin="0,0,0,2" />
@@ -19,9 +28,8 @@
         
         <Button Content="message dialog" Click="MessageDialog_Click" Margin="0,0,0,8"/>
         <TextBlock>
-            <Run Text="Dialog result:" />
-            <Run x:Name="runResult" FontWeight="Bold" />
+            <Run Text="MessageBox result:" />
+            <Run x:Name="msgboxResult" FontWeight="Bold" />
         </TextBlock>
-
     </StackPanel>
 </UserControl>
