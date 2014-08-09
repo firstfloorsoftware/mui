@@ -59,7 +59,7 @@
                                                                   Margin="{TemplateBinding Padding}" />
 
                             <!-- display progress bar while content is being loaded -->
-                            <ProgressBar IsIndeterminate="True"
+                            <ProgressBar IsIndeterminate="{TemplateBinding IsLoadingContent}"
                                          HorizontalAlignment="Stretch"
                                          VerticalAlignment="Top"
                                          Height="4"
