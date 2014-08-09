@@ -12,22 +12,25 @@ namespace FirstFloor.ModernUI.Presentation
     public class LinkGroup
         : Displayable
     {
-        private string groupName;
+        private string groupKey;
         private Link selectedLink;
         private LinkCollection links = new LinkCollection();
 
         /// <summary>
-        /// Gets or sets the name of the group.
+        /// Gets or sets the key of the group.
         /// </summary>
-        /// <value>The name of the group.</value>
-        public string GroupName
+        /// <value>The key of the group.</value>
+        /// <remarks>
+        /// The group key is used to group link groups in a <see cref="FirstFloor.ModernUI.Windows.Controls.ModernMenu"/>.
+        /// </remarks>
+        public string GroupKey
         {
-            get { return this.groupName; }
+            get { return this.groupKey; }
             set
             {
-                if (this.groupName != value) {
-                    this.groupName = value;
-                    OnPropertyChanged("GroupName");
+                if (this.groupKey != value) {
+                    this.groupKey = value;
+                    OnPropertyChanged("GroupKey");
                 }
             }
         }

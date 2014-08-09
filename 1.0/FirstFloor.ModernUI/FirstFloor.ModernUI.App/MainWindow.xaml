@@ -38,7 +38,7 @@
                 <mui:Link DisplayName="Content Loader" Source="/Pages/ContentLoader.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="Settings" GroupName="settings">
+        <mui:LinkGroup DisplayName="Settings" GroupKey="settings">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Software" Source="/Pages/Settings.xaml" />
             </mui:LinkGroup.Links>
