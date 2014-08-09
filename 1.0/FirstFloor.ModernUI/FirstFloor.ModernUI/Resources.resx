@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Back" xml:space="preserve">
+    <value>back</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>cancel</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="UnexpectedToken" xml:space="preserve">
     <value>Unexpected token</value>
+  </data>
+  <data name="UnknownOS" xml:space="preserve">
+    <value>Unknown operating system</value>
   </data>
   <data name="UnknownTokenType" xml:space="preserve">
     <value>Unknown token type</value>

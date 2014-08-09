@@ -6,6 +6,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/Button.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/TextBlock.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:ModernWindow">
@@ -13,6 +14,7 @@
         <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowText}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource WindowBorder}" />
         <Setter Property="Width" Value="800" />
         <Setter Property="Height" Value="640" />
         <Setter Property="MinWidth" Value="320" />
@@ -20,7 +22,7 @@
         <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:ModernWindow">
@@ -34,50 +36,68 @@
                             </Storyboard>
                         </Border.Resources>
 
-                        <Grid>
-                            <Border BorderBrush="{DynamicResource WindowBorder}" BorderThickness="1">
-                                <AdornerDecorator>
-                                    <Grid x:Name="LayoutRoot">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="36" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="15" />
-                                        </Grid.RowDefinitions>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <AdornerDecorator>
+                                <Grid x:Name="LayoutRoot">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="36" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
-                                        <!-- window background content -->
-                                        <ContentControl Grid.RowSpan="5" Content="{TemplateBinding BackgroundContent}" />
+                                    <!-- window background content -->
+                                    <ContentControl Grid.RowSpan="5" Content="{TemplateBinding BackgroundContent}" />
 
-                                        <!-- title blob -->
-                                        <Border Grid.RowSpan="5"
-                                                Background="{DynamicResource Accent}"
-                                                RenderTransform="1,0,0,1,0,32"
-                                                MinWidth="14" MinHeight="53"
-                                                HorizontalAlignment="Left"
-                                                VerticalAlignment="Top">
-                                            <TextBlock Text="{TemplateBinding Title, Converter={StaticResource ToUpperConverter}}"
-                                                       Foreground="White"
-                                                       Margin="0,8"
-                                                       Style="{DynamicResource ModernWindowTitle}"
-                                                       VerticalAlignment="Center"
-                                                       DataContext="{TemplateBinding IsTitleVisible}"
-                                                       Visibility="{Binding Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                <TextBlock.LayoutTransform>
-                                                    <RotateTransform Angle="-90" />
-                                                </TextBlock.LayoutTransform>
-                                            </TextBlock>
-                                        </Border>
+                                    <!-- title bar -->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="96" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- title -->
+                                        <TextBlock Text="{TemplateBinding Title}" Margin="8,0" VerticalAlignment="Center" Style="{StaticResource ModernWindowTitle}"
+                                                   DataContext="{TemplateBinding IsTitleVisible}"
+                                                   Visibility="{Binding Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                                        <!-- title links -->
+                                        <ItemsControl Grid.Column="1" ItemsSource="{TemplateBinding TitleLinks}" Margin="0,0,24,0" WindowChrome.IsHitTestVisibleInChrome="True">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Line x:Name="Separator" X1=".5" Y1="3" X2=".5" Y2="12" Margin="7,0,5,0" Stroke="{DynamicResource SeparatorBackground}" />
+
+                                                        <Button Content="{Binding DisplayName}"
+                                                                Command="NavigationCommands.GoToPage"
+                                                                CommandParameter="{Binding Source}"
+                                                                CommandTarget="{Binding ElementName=ContentFrame}"
+                                                                Style="{StaticResource SystemButtonLink}" />
+                                                    </StackPanel>
+                                                    <DataTemplate.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" TargetName="Separator" Value="Collapsed"/>
+                                                        </DataTrigger>
+                                                    </DataTemplate.Triggers>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
 
                                         <!-- logo (visible only when LogoData is not null) -->
-                                        <Border Background="{DynamicResource Accent}" Width="36" Height="36" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,76,0"
+                                        <Border Grid.Column="2" Background="{DynamicResource Accent}" Width="36" Height="36" Margin="8,0"
                                                 DataContext="{TemplateBinding LogoData}"
                                                 Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=inverse}">
                                             <Path Data="{Binding}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
 
                                         <!-- window system buttons-->
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,6,0" WindowChrome.IsHitTestVisibleInChrome="True">
+                                        <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True">
                                             <Button Command="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Minimize}" Style="{StaticResource SystemButton}">
                                                 <Button.Content>
                                                     <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
@@ -104,7 +124,7 @@
                                                     </Button.Content>
                                                 </Button>
                                             </Grid>
-                                            <Button Command="{Binding Source={x:Static SystemCommands.CloseWindowCommand}}" ToolTip="{x:Static modernui:Resources.Close}" Style="{StaticResource SystemButton}" >
+                                            <Button Command="{Binding Source={x:Static SystemCommands.CloseWindowCommand}}" ToolTip="{x:Static modernui:Resources.Close}" Style="{StaticResource SystemCloseButton}" >
                                                 <Button.Content>
                                                     <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
                                                         <Path Data="M0,0 L8,7 M8,0 L0,7 Z" Width="8" Height="7" VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -113,68 +133,49 @@
                                                 </Button.Content>
                                             </Button>
                                         </StackPanel>
+                                    </Grid>
 
-                                        <!-- title links -->
-                                        <ItemsControl ItemsSource="{TemplateBinding TitleLinks}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,180,0" WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Horizontal" />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Line x:Name="Separator" X1=".5" Y1="3" X2=".5" Y2="12" Margin="7,0,5,0" Stroke="{DynamicResource SeparatorBackground}" />
-
-                                                        <Button Content="{Binding DisplayName}"
-                                                                Command="NavigationCommands.GoToPage"
-                                                                CommandParameter="{Binding Source}"
-                                                                CommandTarget="{Binding ElementName=ContentFrame}"
-                                                                Style="{StaticResource SystemButtonLink}" />
-                                                    </StackPanel>
-                                                    <DataTemplate.Triggers>
-                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
-                                                            <Setter Property="Visibility" TargetName="Separator" Value="Collapsed"/>
-                                                        </DataTrigger>
-                                                    </DataTemplate.Triggers>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-
-                                        <!-- main menu -->
-                                        <controls:ModernMenu Grid.Row="1"
-                                                             Margin="36,0,0,0"
-                                                             SelectedSource="{Binding Source, ElementName=ContentFrame, Mode=TwoWay}"
-                                                             LinkGroups="{TemplateBinding MenuLinkGroups}"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="42" />
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
                                         <!-- back button -->
-                                        <controls:ModernButton IconData="F1 M 33,22L 33,26L 19.75,26L 27,33L 20.5,33L 11,24L 20.5,15L 27,15L 19.75,22L 33,22 Z"
+                                        <controls:ModernButton Margin="8,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                                               EllipseDiameter="24" IconWidth="12" IconHeight="12"
+                                                               IconData="F1 M 33,22L 33,26L 19.75,26L 27,33L 20.5,33L 11,24L 20.5,15L 27,15L 19.75,22L 33,22 Z"
                                                                Command="NavigationCommands.BrowseBack"
                                                                CommandTarget="{Binding ElementName=ContentFrame}" 
-                                                               ToolTip="back"
-                                                               Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,24,0,0"
-                                                               WindowChrome.IsHitTestVisibleInChrome="True" >
-                                        </controls:ModernButton>
+                                                               ToolTip="{x:Static modernui:Resources.Back}"
+                                                               WindowChrome.IsHitTestVisibleInChrome="True" />
 
-                                        <!-- content frame -->
-                                        <controls:ModernFrame x:Name="ContentFrame" Grid.Row="3" Grid.RowSpan="2" Margin="36,8,16,16" Source="{Binding ContentSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}"/>
-
-                                        <!-- resize grip -->
-                                        <Grid Grid.Row="4">
-                                            <Path x:Name="ResizeGrip" Visibility="Collapsed" Width="12" Height="12" Margin="1" HorizontalAlignment="Right" 
-                                                  Stroke="{DynamicResource WindowText}"
-                                                  StrokeThickness="1"
-                                                  Stretch="None"
-                                                  Data="F1 M1,10 L3,10 M5,10 L7,10 M9,10 L11,10 M2,9 L2,11 M6,9 L6,11 M10,9 L10,11 M5,6 L7,6 M9,6 L11,6 M6,5 L6,7 M10,5 L10,7 M9,2 L11,2 M10,1 L10,3" />
-                                        </Grid>
+                                        <!-- main menu -->
+                                        <controls:ModernMenu Grid.Column="1"
+                                                             SelectedSource="{Binding Source, ElementName=ContentFrame, Mode=TwoWay}"
+                                                             LinkGroups="{TemplateBinding MenuLinkGroups}" />
                                     </Grid>
-                                </AdornerDecorator>
-                            </Border>
-                            <Border BorderBrush="{DynamicResource WindowBorderActive}" BorderThickness="1" Visibility="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        </Grid>
+
+                                    <!-- content frame -->
+                                    <controls:ModernFrame x:Name="ContentFrame" Grid.Row="3" Grid.RowSpan="2" Margin="42,8,16,16" Source="{Binding ContentSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" ContentLoader="{TemplateBinding ContentLoader}"/>
+
+                                    <!-- resize grip -->
+                                    <Grid Grid.Row="2" x:Name="ResizeGrip" Background="Transparent" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" WindowChrome.ResizeGripDirection="BottomRight">
+                                        <Path Width="12" Height="12" Margin="1" 
+                                              Stroke="{DynamicResource WindowText}"
+                                              StrokeThickness="1"
+                                              Stretch="None"
+                                              Data="F1 M1,10 L3,10 M5,10 L7,10 M9,10 L11,10 M2,9 L2,11 M6,9 L6,11 M10,9 L10,11 M5,6 L7,6 M9,6 L11,6 M6,5 L6,7 M10,5 L10,7 M9,2 L11,2 M10,1 L10,3" />
+                                    </Grid>
+                                </Grid>
+                            </AdornerDecorator>
+                        </Border>
                     </Border>
 
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderActive}" />
+                        </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter TargetName="Maximize" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="Restore" Property="Visibility" Value="Visible" />

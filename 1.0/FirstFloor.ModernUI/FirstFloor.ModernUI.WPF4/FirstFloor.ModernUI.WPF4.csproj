@@ -100,8 +100,23 @@
     <Compile Include="..\FirstFloor.ModernUI\Presentation\RelayCommand.cs">
       <Link>Presentation\RelayCommand.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\ProcessDpiAwareness.cs">
+      <Link>ProcessDpiAwareness.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Win32\MonitorDpiType.cs">
+      <Link>Win32\MonitorDpiType.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Win32\NativeMethods.cs">
+      <Link>Win32\NativeMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Win32\OSVersionHelper.cs">
+      <Link>Win32\OSVersionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Win32\RECT.cs">
+      <Link>Win32\RECT.cs</Link>
     </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\CommandDictionary.cs">
       <Link>Windows\CommandDictionary.cs</Link>
@@ -141,6 +156,12 @@
     </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\DataGridTextColumn.cs">
       <Link>Windows\Controls\DataGridTextColumn.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\DpiAwareWindow.cs">
+      <Link>Windows\Controls\DpiAwareWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\DpiInformation.cs">
+      <Link>Windows\Controls\DpiInformation.cs</Link>
     </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Controls\ModernButton.cs">
       <Link>Windows\Controls\ModernButton.cs</Link>

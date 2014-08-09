@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
@@ -19,6 +20,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
     /// <summary>
     /// A lighweight control for displaying small amounts of rich formatted BBCode content.
     /// </summary>
+    [ContentProperty("BBCode")]
     public class BBCodeBlock
         : TextBlock
     {

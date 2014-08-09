@@ -108,6 +108,10 @@
     <Compile Include="Content\ModernFrame\Sample.xaml.cs">
       <DependentUpon>Sample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DpiAwareness.xaml.cs">
+      <DependentUpon>DpiAwareness.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DpiAwarenessViewModel.cs" />
     <Compile Include="SampleFormViewModel.cs" />
     <Compile Include="FlickrImageLoader.cs" />
     <Compile Include="LoremIpsumLoader.cs" />
@@ -356,6 +360,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ContentLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DpiAwareness.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

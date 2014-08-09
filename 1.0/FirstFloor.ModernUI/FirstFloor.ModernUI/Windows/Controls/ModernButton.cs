@@ -18,7 +18,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// <summary>
         /// Identifies the EllipseDiameter property.
         /// </summary>
-        public static readonly DependencyProperty EllipseDiameterProperty = DependencyProperty.Register("EllipseDiameter", typeof(double), typeof(ModernButton), new PropertyMetadata(18D));
+        public static readonly DependencyProperty EllipseDiameterProperty = DependencyProperty.Register("EllipseDiameter", typeof(double), typeof(ModernButton), new PropertyMetadata(22D));
         /// <summary>
         /// Identifies the EllipseStrokeThickness property.
         /// </summary>
@@ -30,11 +30,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// <summary>
         /// Identifies the IconHeight property.
         /// </summary>
-        public static readonly DependencyProperty IconHeightProperty = DependencyProperty.Register("IconHeight", typeof(double), typeof(ModernButton), new PropertyMetadata(10D));
+        public static readonly DependencyProperty IconHeightProperty = DependencyProperty.Register("IconHeight", typeof(double), typeof(ModernButton), new PropertyMetadata(12D));
         /// <summary>
         /// Identifies the IconWidth property.
         /// </summary>
-        public static readonly DependencyProperty IconWidthProperty = DependencyProperty.Register("IconWidth", typeof(double), typeof(ModernButton), new PropertyMetadata(10D));
+        public static readonly DependencyProperty IconWidthProperty = DependencyProperty.Register("IconWidth", typeof(double), typeof(ModernButton), new PropertyMetadata(12D));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModernButton"/> class.

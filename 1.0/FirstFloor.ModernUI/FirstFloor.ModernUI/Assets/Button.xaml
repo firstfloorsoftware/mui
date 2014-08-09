@@ -45,24 +45,46 @@
     </Style>
 
     <Style x:Key="SystemButton" TargetType="ButtonBase" BasedOn="{StaticResource SystemButtonBase}">
-        <Setter Property="Foreground" Value="{DynamicResource LinkButtonText}"/>
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonText}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource LinkButtonTextHover}"/>
+                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundHover}" />
+                <Setter Property="Foreground" Value="{DynamicResource ButtonTextHover}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource LinkButtonTextPressed}" />
+                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
+                <Setter Property="Foreground" Value="{DynamicResource ButtonTextPressed}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Foreground" Value="{DynamicResource LinkButtonTextDisabled}" />
+                <Setter Property="Foreground" Value="{DynamicResource ButtonTextDisabled}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="SystemButtonLink" TargetType="ButtonBase" BasedOn="{StaticResource SystemButton}" >
+    <Style x:Key="SystemCloseButton" TargetType="ButtonBase" BasedOn="{StaticResource SystemButton}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundHover}" />
+                <Setter Property="Foreground" Value="{DynamicResource ButtonTextHover}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#e51400" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{DynamicResource ButtonTextDisabled}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="SystemButtonLink" TargetType="ButtonBase" BasedOn="{StaticResource SystemButtonBase}" >
+        <Setter Property="Foreground" Value="{DynamicResource LinkButtonText}"/>
+        <Setter Property="Width" Value="NaN" />
+        <Setter Property="Height" Value="NaN" />
         <Setter Property="FontFamily" Value="Segoe UI" />
-        <Setter Property="FontSize" Value="9" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="11" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -81,8 +103,19 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource LinkButtonTextHover}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource LinkButtonTextPressed}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{DynamicResource LinkButtonTextDisabled}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
-
+    
     <Style x:Key="BaseButtonStyle"
            TargetType="{x:Type ButtonBase}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>

@@ -29,9 +29,9 @@
                             <Setter Property="BorderThickness" Value="2" />
                         </Style>
                     </StackPanel.Resources>
-                    <mui:ModernButton EllipseDiameter="16" IconWidth="8" IconHeight="8"/>
+                    <mui:ModernButton EllipseDiameter="20" IconWidth="12" IconHeight="8"/>
                     <mui:ModernButton />
-                    <mui:ModernButton EllipseDiameter="24" IconWidth="14" IconHeight="14" />
+                    <mui:ModernButton EllipseDiameter="26" IconWidth="14" IconHeight="14" />
                     <mui:ModernButton EllipseDiameter="32" IconWidth="20" IconHeight="20" />
                     <mui:ModernButton EllipseDiameter="48" EllipseStrokeThickness="2" IconWidth="30" IconHeight="30" />
                     <mui:ModernButton EllipseDiameter="64" EllipseStrokeThickness="2" IconWidth="42" IconHeight="42" />

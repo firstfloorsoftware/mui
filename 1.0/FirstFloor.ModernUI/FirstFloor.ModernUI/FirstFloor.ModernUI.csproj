@@ -71,16 +71,23 @@
     <Compile Include="Presentation\NotifyPropertyChanged.cs" />
     <Compile Include="Presentation\RelayCommand.cs" />
     <Compile Include="Presentation\AppearanceManager.cs" />
+    <Compile Include="ProcessDpiAwareness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Win32\MonitorDpiType.cs" />
+    <Compile Include="Win32\NativeMethods.cs" />
+    <Compile Include="Win32\OSVersionHelper.cs" />
+    <Compile Include="Win32\RECT.cs" />
     <Compile Include="Windows\CommandDictionary.cs" />
     <Compile Include="Windows\Controls\DataGridComboBoxColumn.cs" />
     <Compile Include="Windows\Controls\DataGridTextColumn.cs" />
     <Compile Include="Windows\Controls\DataGridCheckBoxColumn.cs" />
+    <Compile Include="Windows\Controls\DpiAwareWindow.cs" />
+    <Compile Include="Windows\Controls\DpiInformation.cs" />
     <Compile Include="Windows\Controls\ModernProgressRing.cs" />
     <Compile Include="Windows\Controls\SourceEventArgs.cs" />
     <Compile Include="Windows\Controls\ModernButton.cs" />

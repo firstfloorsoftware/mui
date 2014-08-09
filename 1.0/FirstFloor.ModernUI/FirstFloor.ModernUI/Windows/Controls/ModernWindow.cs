@@ -17,7 +17,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
     /// Represents a Modern UI styled window.
     /// </summary>
     public class ModernWindow
-        : Window
+        : DpiAwareWindow
     {
         /// <summary>
         /// Identifies the BackgroundContent dependency property.

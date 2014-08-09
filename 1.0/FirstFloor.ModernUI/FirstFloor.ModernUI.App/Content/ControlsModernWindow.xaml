@@ -10,6 +10,16 @@
         <TextBlock Text="MODERNWINDOW" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
         <mui:BBCodeBlock BBCode="Demonstrating the use of custom styles to adapt ModernWindow to your needs. Additional ModernWindow styles are defined in [b]Assets\ModernWindowEx.xaml[/b]" Margin="0,0,0,16" />
 
+        <CheckBox x:Name="title" Content="title" IsChecked="True" Margin="0,0,0,2" />
+        <CheckBox x:Name="logo" Content="logo" IsChecked="True" Margin="0,0,0,2"/>
+
+        <StackPanel Margin="0,0,0,8">
+            <RadioButton x:Name="noresize" Content="no resize" Margin="0,0,0,2" />
+            <RadioButton x:Name="canminimize" Content="can minimize" Margin="0,0,0,2"/>
+            <RadioButton x:Name="canresize" Content="can resize" Margin="0,0,0,2"/>
+            <RadioButton x:Name="canresizewithgrip" Content="can resize with grip" IsChecked="True" Margin="0,0,0,2"/>
+        </StackPanel>
+        
         <Button Content="empty window style" Margin="0,0,0,8" HorizontalAlignment="Left" Click="EmptyWindow_Click"/>
 
     </StackPanel>
