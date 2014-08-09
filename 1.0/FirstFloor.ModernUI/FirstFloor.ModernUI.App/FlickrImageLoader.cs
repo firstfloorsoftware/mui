@@ -30,13 +30,14 @@ namespace FirstFloor.ModernUI.App
         public async Task<LinkCollection> GetInterestingnessListAsync()
         {
             if (apiKey == null) {
-                throw new InvalidOperationException("You need to specify a Flickr API key. Unfortunately the key cannot be distributed with the source code. Get your own from http://www.flickr.com/services/api/misc.api_keys.html");
+                throw new InvalidOperationException("You need to specify a Flickr API key. Unfortunately the key cannot be distributed with the source code. Get your own from [url=http://www.flickr.com/services/api/misc.api_keys.html]http://www.flickr.com/services/api/misc.api_keys.html[/url].");
             }
 
             const int count = 50;       // limit the number of images to 50
-            var listUri = string.Format(CultureInfo.InvariantCulture, "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key={0}&per_page={1}", apiKey, count);
+            var listUri = string.Format(CultureInfo.InvariantCulture, "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key={0}&per_page={1}", apiKey, count);
             var client = new HttpClient();
             var result = await client.GetAsync(listUri);
+            result.EnsureSuccessStatusCode();
             using (var stream = await result.Content.ReadAsStreamAsync()) {
                 var doc = XDocument.Load(stream);
 

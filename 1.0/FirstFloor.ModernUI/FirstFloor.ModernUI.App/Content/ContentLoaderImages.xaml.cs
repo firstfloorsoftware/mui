@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,11 +32,16 @@ namespace FirstFloor.ModernUI.App.Content
         {
             var loader = (FlickrImageLoader)Tab.ContentLoader;
 
-            // load image links and assign to tab list
-            this.Tab.Links = await loader.GetInterestingnessListAsync();
+            try {
+                // load image links and assign to tab list
+                this.Tab.Links = await loader.GetInterestingnessListAsync();
 
-            // select first link
-            this.Tab.SelectedSource = this.Tab.Links.Select(l => l.Source).FirstOrDefault();
+                // select first link
+                this.Tab.SelectedSource = this.Tab.Links.Select(l => l.Source).FirstOrDefault();
+            }
+            catch (Exception e) {
+                ModernDialog.ShowMessage(e.Message, "Failure", MessageBoxButton.OK);
+            }
         }
     }
 }

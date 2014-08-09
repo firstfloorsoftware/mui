@@ -12,7 +12,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <mui:ModernTab x:Name="Tab" Layout="List">
+        <mui:ModernTab x:Name="Tab" Layout="List" ListWidth="200">
             <mui:ModernTab.ContentLoader>
                 <app:FlickrImageLoader />
             </mui:ModernTab.ContentLoader>
