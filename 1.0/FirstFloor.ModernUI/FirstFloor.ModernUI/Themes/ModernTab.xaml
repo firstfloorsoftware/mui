@@ -77,7 +77,7 @@
                             <ControlTemplate TargetType="controls:ModernTab">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="170"/>
+                                        <ColumnDefinition Width="{TemplateBinding ListWidth}"/>
                                         <ColumnDefinition Width="9" />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
