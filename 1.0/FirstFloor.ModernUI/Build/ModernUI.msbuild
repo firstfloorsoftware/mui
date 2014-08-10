@@ -38,7 +38,6 @@
     <!-- copy output to temp dir -->
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\FirstFloor.ModernUI.dll" DestinationFolder="$(TempDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\FirstFloor.ModernUI.xml" DestinationFolder="$(TempDir)" />
-    <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\Microsoft.Windows.Shell.dll" DestinationFolder="$(TempDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.App\Bin\Release\ModernUIDemo.exe" DestinationFolder="$(TempDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.WPF4\Bin\Release\FirstFloor.ModernUI.dll" DestinationFolder="$(TempDir)\net40" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.WPF4\Bin\Release\FirstFloor.ModernUI.xml" DestinationFolder="$(TempDir)\net40" />
