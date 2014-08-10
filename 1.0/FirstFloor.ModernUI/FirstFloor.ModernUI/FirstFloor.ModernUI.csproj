@@ -123,6 +123,7 @@
     <Compile Include="Windows\Controls\ModernFrame.cs" />
     <Compile Include="Windows\Navigation\NavigatingCancelEventArgs.cs" />
     <Compile Include="Windows\Navigation\NavigationBaseEventArgs.cs" />
+    <Compile Include="Windows\Navigation\LinkCommands.cs" />
     <Compile Include="Windows\Navigation\NavigationEventArgs.cs" />
     <Compile Include="Windows\Navigation\NavigationFailedEventArgs.cs" />
     <Compile Include="Windows\Navigation\NavigationHelper.cs" />

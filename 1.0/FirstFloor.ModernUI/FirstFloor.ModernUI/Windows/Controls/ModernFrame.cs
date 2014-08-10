@@ -435,18 +435,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnGoToPage(object target, ExecutedRoutedEventArgs e)
         {
-            var newValue = e.Parameter as Uri;
-            
-            if (newValue == null) {
-                var newValueStr = e.Parameter as string;
-                if (newValueStr != null) {
-                    newValue = new Uri(newValueStr, UriKind.RelativeOrAbsolute);
-                }
-                else {
-                    // no valid command parameter (not a uri or string), ignore
-                    return;
-                }
-            }
+            var newValue = NavigationHelper.ToUri(e.Parameter);
             SetCurrentValue(SourceProperty, newValue);
         }
 
@@ -465,7 +454,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            var parent = NavigationHelper.FindFrame(null, this);
+            var parent = NavigationHelper.FindFrame(NavigationHelper.FrameParent, this);
             if (parent != null) {
                 parent.RegisterChildFrame(this);
             }

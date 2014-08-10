@@ -235,6 +235,9 @@
     <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\ILinkNavigator.cs">
       <Link>Windows\Navigation\ILinkNavigator.cs</Link>
     </Compile>
+    <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\LinkCommands.cs">
+      <Link>Windows\Navigation\LinkCommands.cs</Link>
+    </Compile>
     <Compile Include="..\FirstFloor.ModernUI\Windows\Navigation\NavigatingCancelEventArgs.cs">
       <Link>Windows\Navigation\NavigatingCancelEventArgs.cs</Link>
     </Compile>

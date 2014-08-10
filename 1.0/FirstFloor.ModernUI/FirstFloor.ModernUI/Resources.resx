@@ -132,6 +132,9 @@
   <data name="Minimize" xml:space="preserve">
     <value>minimize</value>
   </data>
+  <data name="NavigateLink" xml:space="preserve">
+    <value>Navigate link</value>
+  </data>
   <data name="NavigationFailed" xml:space="preserve">
     <value>Navigation failed</value>
   </data>

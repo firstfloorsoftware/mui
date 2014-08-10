@@ -30,19 +30,41 @@
                 <mui:BBCodeBlock BBCode="Demonstrating the use of link navigators with support for loading frame content, external link navigation and command execution. A link navigator implements the [b]ILinkNavigator[/b] interface and is typically associated with a [b]BBCodeBlock[/b]. The links below are supported by the [b]FirstFloor.ModernUI.DefaultLinkNavigator[/b]." Margin="0,0,0,16" />
 
                 <TextBlock Text="CONTENT NAVIGATION" Style="{StaticResource Heading2}" />
-                <mui:BBCodeBlock BBCode="» navigate to the [url=/Pages/Introduction.xaml]introduction page[/url]" />
-                <mui:BBCodeBlock BBCode="» navigate to [url=http://www.google.com]http://www.google.com[/url] in the default browser" />
-                <mui:BBCodeBlock BBCode="» send an email to [url=mailto:foo@test.com?subject=This%20is%20the%20subject&amp;body=This%20is%20the%20body]foo@test.com[/url]" Margin="0,0,0,16"/>
+                <mui:BBCodeBlock xml:space="preserve">» navigate to the [url=/Pages/Introduction.xaml]introduction page[/url]
+» navigate to [url=http://www.google.com]http://www.google.com[/url] in the default browser
+» send an email to [url=mailto:foo@test.com?subject=This%20is%20the%20subject&amp;body=This%20is%20the%20body]foo@test.com[/url]
+                </mui:BBCodeBlock>
                 <TextBlock Text="BUILTIN COMMANDS" Style="{StaticResource Heading2}" />
-                <mui:BBCodeBlock BBCode="» set the theme to [url=cmd://darktheme]dark[/url], [url=cmd://lighttheme]light[/url] or use a [url=cmd://settheme|/ModernUIDemo;component/Assets/ModernUI.HelloKitty.xaml]custom theme[/url]" />
-                <mui:BBCodeBlock BBCode="» set the font size to [url=cmd://largefontsize]large[/url] or [url=cmd://smallfontsize]small[/url]" />
-                <mui:BBCodeBlock BBCode="» change the accent color to [url=cmd://accentcolor|#ff4500]orange[/url], [url=cmd://accentcolor|#339933]green[/url] or whatever [url=cmd://accentcolor|#9a0213]color you like[/url]" />
-                <mui:BBCodeBlock BBCode="» navigate to the previous page using the [url=cmd://browseback]browse back[/url] command" Margin="0,0,0,16"/>
+                <mui:BBCodeBlock xml:space="preserve">» set the theme to [url=cmd://darktheme]dark[/url], [url=cmd://lighttheme]light[/url] or use a [url=cmd://settheme|/ModernUIDemo;component/Assets/ModernUI.HelloKitty.xaml]custom theme[/url]
+» set the font size to [url=cmd://largefontsize]large[/url] or [url=cmd://smallfontsize]small[/url]
+» change the accent color to [url=cmd://accentcolor|#ff4500]orange[/url], [url=cmd://accentcolor|#339933]green[/url] or whatever [url=cmd://accentcolor|#9a0213]color you like[/url]
+» navigate to the previous page using the [url=cmd://browseback]browse back[/url] command
+                </mui:BBCodeBlock>
                 <TextBlock Text="CUSTOM COMMANDS" Style="{StaticResource Heading2}" />
-                <mui:BBCodeBlock BBCode="» show a [url=cmd://msgbox]message box[/url]" />
-                <mui:BBCodeBlock BBCode="» a command that cannot execute, resulting in a [url=cmd://disabled]disabled hyperlink[/url]" />
-                <mui:BBCodeBlock BBCode="» passing a parameter to a [url=cmd://parameter|my%20parameter]command[/url]" Margin="0,0,0,16" />
-                <mui:BBCodeBlock BBCode="Visit the [url=http://mui.codeplex.com/documentation]online documentation[/url] to learn more about [b]ILinkNavigator[/b]." Margin="0,0,0,16" />
+                <mui:BBCodeBlock xml:space="preserve">» show a [url=cmd://msgbox]message box[/url]
+» a command that cannot execute, resulting in a [url=cmd://disabled]disabled hyperlink[/url]
+» passing a parameter to a [url=cmd://parameter|my%20parameter]command[/url]
+                    
+Visit the [url=http://mui.codeplex.com/documentation]online documentation[/url] to learn more about [b]ILinkNavigator[/b].
+                </mui:BBCodeBlock>
+                <TextBlock Text="NAVIGATELINK ROUTED COMMAND" Style="{StaticResource Heading2}" />
+                <mui:BBCodeBlock xml:space="preserve">The [b]LinkCommands.NavigateLink[/b] routed command adds support for link navigation to any control that supports commanding, not just BBCodeBlock. The routed command is implemented by ModernWindow, which uses the ModernWindow.LinkNavigator to perform the actual navigation.
+                </mui:BBCodeBlock>
+                
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <Button Content="introduction" Margin="0,0,4,0"
+                            Command="mui:LinkCommands.NavigateLink"
+                            CommandParameter="/Pages/Introduction.xaml"/>
+                    <Button Content="google" Margin="0,0,4,0"
+                            Command="mui:LinkCommands.NavigateLink"
+                            CommandParameter="http://www.google.com"/>
+                    <Button Content="dark theme" Margin="0,0,4,0"
+                            Command="mui:LinkCommands.NavigateLink"
+                            CommandParameter="cmd://darktheme" />
+                    <Button Content="custom theme" Margin="0,0,4,0"
+                            Command="mui:LinkCommands.NavigateLink"
+                            CommandParameter="cmd://settheme|/ModernUIDemo;component/Assets/ModernUI.HelloKitty.xaml" />
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

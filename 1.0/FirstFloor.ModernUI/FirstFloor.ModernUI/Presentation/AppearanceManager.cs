@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Navigation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,17 +53,9 @@ namespace FirstFloor.ModernUI.Presentation
             DarkThemeCommand = new RelayCommand(o => ThemeSource = DarkThemeSource, o => !DarkThemeSource.Equals(ThemeSource));
             LightThemeCommand = new RelayCommand(o => ThemeSource = LightThemeSource, o => !LightThemeSource.Equals(ThemeSource));
             SetThemeCommand = new RelayCommand(o => {
-                if (o is Uri) {
-                    ThemeSource = (Uri)o;
-                }
-                else {
-                    var str = o as string;
-                    if (str != null) {
-                        Uri source;
-                        if (Uri.TryCreate(str, UriKind.RelativeOrAbsolute, out source)) {
-                            ThemeSource = source;
-                        }
-                    }
+                var uri = NavigationHelper.ToUri(o);
+                if (uri != null) {
+                    ThemeSource = uri;
                 }
             }, o => o is Uri || o is string);
             LargeFontSizeCommand = new RelayCommand(o => FontSize = FontSize.Large);

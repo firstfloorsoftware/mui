@@ -41,17 +41,17 @@ namespace FirstFloor.ModernUI.Windows.Navigation
             }
 
             // collect all ancestor frames
-            var frames = context.Ancestors().OfType<ModernFrame>().ToArray();
+            var frames = context.AncestorsAndSelf().OfType<ModernFrame>().ToArray();
 
-            if (name == null || name == "_self") {
+            if (name == null || name == FrameSelf) {
                 // find first ancestor frame
                 return frames.FirstOrDefault();
             }
-            if (name == "_parent") {
+            if (name == FrameParent) {
                 // find parent frame
                 return frames.Skip(1).FirstOrDefault();
             }
-            if (name == "_top") {
+            if (name == FrameTop) {
                 // find top-most frame
                 return frames.LastOrDefault();
             }
@@ -110,6 +110,79 @@ namespace FirstFloor.ModernUI.Windows.Navigation
             }
 
             return uri;
+        }
+
+        /// <summary>
+        /// Tries to cast specified value to a uri. Either a uri or string input is accepted.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Uri ToUri(object value)
+        {
+            var uri = value as Uri;
+            if (uri == null) {
+                var uriString = value as string;
+                if (uriString == null || !Uri.TryCreate(uriString, UriKind.RelativeOrAbsolute, out uri)) {
+                    return null; // no valid uri found
+                }
+            }
+            return uri;
+        }
+
+        /// <summary>
+        /// Tries to parse a uri with parameters from given value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="parameter">The parameter.</param>
+        /// <param name="targetName">Name of the target.</param>
+        /// <returns></returns>
+        public static bool TryParseUriWithParameters(object value, out Uri uri, out string parameter, out string targetName)
+        {
+            uri = value as Uri;
+            parameter = null;
+            targetName = null;
+
+            if (uri == null) {
+                var valueString = value as string;
+                return TryParseUriWithParameters(valueString, out uri, out parameter, out targetName);
+            }
+            
+            return true;
+        }
+
+        /// <summary>
+        /// Tries to parse a uri with parameters from given string value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="parameter">The parameter.</param>
+        /// <param name="targetName">Name of the target.</param>
+        /// <returns></returns>
+        public static bool TryParseUriWithParameters(string value, out Uri uri, out string parameter, out string targetName)
+        {
+            uri = null;
+            parameter = null;
+            targetName = null;
+
+            if (value == null) {
+                return false;
+            }
+
+            // parse uri value for optional parameter and/or target, eg 'cmd://foo|parameter|target'
+            string uriString = value;
+            var parts = uriString.Split(new char[] { '|' }, 3);
+            if (parts.Length == 3) {
+                uriString = parts[0];
+                parameter = Uri.UnescapeDataString(parts[1]);
+                targetName = Uri.UnescapeDataString(parts[2]);
+            }
+            else if (parts.Length == 2) {
+                uriString = parts[0];
+                parameter = Uri.UnescapeDataString(parts[1]);
+            }
+
+            return Uri.TryCreate(uriString, UriKind.RelativeOrAbsolute, out uri);
         }
     }
 }

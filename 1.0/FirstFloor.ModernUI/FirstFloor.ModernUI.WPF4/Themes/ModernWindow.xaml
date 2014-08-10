@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:modernui="clr-namespace:FirstFloor.ModernUI"
                     xmlns:controls="clr-namespace:FirstFloor.ModernUI.Windows.Controls"
+                    xmlns:navigation="clr-namespace:FirstFloor.ModernUI.Windows.Navigation"
                     xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell">
 
     <ResourceDictionary.MergedDictionaries>
@@ -76,7 +77,7 @@
                                                         <Line x:Name="Separator" X1=".5" Y1="3" X2=".5" Y2="12" Margin="5,0" VerticalAlignment="Center" Stroke="{DynamicResource SeparatorBackground}" />
 
                                                         <Button Content="{Binding DisplayName}"
-                                                                Command="NavigationCommands.GoToPage"
+                                                                Command="navigation:LinkCommands.NavigateLink"
                                                                 CommandParameter="{Binding Source}"
                                                                 CommandTarget="{Binding ElementName=ContentFrame}"
                                                                 Style="{StaticResource SystemButtonLink}" />

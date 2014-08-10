@@ -7,6 +7,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Input;
+using FirstFloor.ModernUI.Windows.Navigation;
 
 namespace FirstFloor.ModernUI.Windows.Controls.BBCode
 {
@@ -160,24 +161,12 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 }
                 else if (token.TokenType == BBCodeLexer.TokenText) {
                     var parent = span;
-                    if (context.NavigateUri != null) {
-                        // parse uri value for optional parameter and/or target, eg [url=cmd://foo|parameter|target]
-                        string uriStr = context.NavigateUri;
-                        string parameter = null;
-                        string targetName = null;
+                    Uri uri;
+                    string parameter = null;
+                    string targetName = null;
 
-                        var parts = uriStr.Split(new char[] { '|' }, 3);
-                        if (parts.Length == 3) {
-                            uriStr = parts[0];
-                            parameter = Uri.UnescapeDataString(parts[1]);
-                            targetName = Uri.UnescapeDataString(parts[2]);
-                        }
-                        else if (parts.Length == 2) {
-                            uriStr = parts[0];
-                            parameter = Uri.UnescapeDataString(parts[1]);
-                        }
-
-                        var uri = new Uri(uriStr, UriKind.RelativeOrAbsolute);
+                    // parse uri value for optional parameter and/or target, eg [url=cmd://foo|parameter|target]
+                    if (NavigationHelper.TryParseUriWithParameters(context.NavigateUri, out uri, out parameter, out targetName)) {
                         var link = new Hyperlink();
 
                         // assign ICommand instance if available, otherwise set NavigateUri

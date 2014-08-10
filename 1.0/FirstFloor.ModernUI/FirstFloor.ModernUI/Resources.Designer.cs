@@ -106,6 +106,15 @@ namespace FirstFloor.ModernUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Navigate link.
+        /// </summary>
+        public static string NavigateLink {
+            get {
+                return ResourceManager.GetString("NavigateLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Navigation failed.
         /// </summary>
         public static string NavigationFailed {
