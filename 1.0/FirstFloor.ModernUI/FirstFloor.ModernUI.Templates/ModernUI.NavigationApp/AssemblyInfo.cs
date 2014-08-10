@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows.Media;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -21,6 +22,10 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("$guid1$")]
+
+// required to support per-monitor DPI awareness in Windows 8.1+
+// see also https://mui.codeplex.com/wikipage?title=Per-monitor%20DPI%20awareness
+[assembly: DisableDpiAwareness]
 
 // Version information for an assembly consists of the following four values:
 //
