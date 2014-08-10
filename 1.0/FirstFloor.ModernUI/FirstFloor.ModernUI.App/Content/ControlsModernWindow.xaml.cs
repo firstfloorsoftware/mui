@@ -26,13 +26,13 @@ namespace FirstFloor.ModernUI.App.Content
             InitializeComponent();
         }
 
-        private void EmptyWindow_Click(object sender, RoutedEventArgs e)
+        private void BlankWindow_Click(object sender, RoutedEventArgs e)
         {
-            // create an empty modern window with lorem content
-            // the EmptyWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowEx.xaml
+            // create a blank modern window with lorem content
+            // the BlankWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowEx.xaml
 
             var wnd = new ModernWindow {
-                Style = (Style)App.Current.Resources["EmptyWindow"],
+                Style = (Style)App.Current.Resources["BlankWindow"],
                 Title = "ModernWindow",
                 IsTitleVisible = true == this.title.IsChecked,
                 Content = new LoremIpsum(),

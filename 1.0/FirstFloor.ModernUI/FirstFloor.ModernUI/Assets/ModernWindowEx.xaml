@@ -11,7 +11,9 @@
 
     <!-- additional ModernWindow styles -->
 
-    <!-- empty window style, no backbutton, menu and title links -->
+    <!-- Resource key 'EmptyWindow' is considered obsolete, use 'BlankWindow' instead (see below). EmptyWindow resource is kept here for backwards compatibility. -->
+    
+    <!-- blank window style, no backbutton, menu and title links -->
     <Style x:Key="EmptyWindow" TargetType="controls:ModernWindow" BasedOn="{StaticResource {x:Type controls:ModernWindow}}" >
         <Setter Property="Padding" Value="8" />
         <Setter Property="IsTitleVisible" Value="True" />
@@ -139,4 +141,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- Same as 'EmptyWindow', but a better resource name -->
+    <Style x:Key="BlankWindow" TargetType="controls:ModernWindow" BasedOn="{StaticResource EmptyWindow}" />
+        
 </ResourceDictionary>

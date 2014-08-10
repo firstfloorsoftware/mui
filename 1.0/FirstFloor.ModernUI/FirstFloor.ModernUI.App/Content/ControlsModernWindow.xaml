@@ -20,7 +20,7 @@
             <RadioButton x:Name="canresizewithgrip" Content="can resize with grip" IsChecked="True" Margin="0,0,0,2"/>
         </StackPanel>
         
-        <Button Content="empty window style" Margin="0,0,0,8" HorizontalAlignment="Left" Click="EmptyWindow_Click"/>
+        <Button Content="blank window style" Margin="0,0,0,8" HorizontalAlignment="Left" Click="BlankWindow_Click"/>
 
     </StackPanel>
 </UserControl>
