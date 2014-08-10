@@ -87,6 +87,27 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\ModernUI.ModernDialog\ModernUI.ModernDialog.csproj">
+      <Project>{d1eaceaa-cb0d-4db8-8370-20267435b213}</Project>
+      <Name>ModernUI.ModernDialog</Name>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+    </ProjectReference>
+    <ProjectReference Include="..\ModernUI.ModernWindow\ModernUI.ModernWindow.csproj">
+      <Project>{fc631cab-3425-42e6-9435-816c0f1a74ff}</Project>
+      <Name>ModernUI.ModernWindow</Name>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+    </ProjectReference>
+    <ProjectReference Include="..\ModernUI.NavigationApp\ModernUI.NavigationApp.csproj">
+      <Project>{b222e7a3-b131-42c9-9145-9d724c8e0509}</Project>
+      <Name>ModernUI.NavigationApp</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+    </ProjectReference>
     <ProjectReference Include="..\ModernUI.SplitPage\ModernUI.SplitPage.csproj">
       <Project>{6178D4C9-0C63-4E46-8FC3-E54EAECC54FD}</Project>
       <Name>ModernUI.SplitPage</Name>

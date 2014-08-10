@@ -15,9 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.TabPage", "ModernU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.Theme", "ModernUI.Theme\ModernUI.Theme.csproj", "{C21BF009-8B83-4782-9154-36C8F80A9978}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.NavigationApp", "ModernUI.NavigationApp\ModernUI.NavigationApp.csproj", "{B222E7A3-B131-42C9-9145-9D724C8E0509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.ModernWindow", "ModernUI.ModernWindow\ModernUI.ModernWindow.csproj", "{FC631CAB-3425-42E6-9435-816C0F1A74FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.ModernDialog", "ModernUI.ModernDialog\ModernUI.ModernDialog.csproj", "{D1EACEAA-CB0D-4DB8-8370-20267435B213}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
+		SccNumberOfProjects = 11
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
 		SccLocalPath0 = .
@@ -42,6 +48,15 @@ Global
 		SccProjectUniqueName7 = ModernUI.Theme\\ModernUI.Theme.csproj
 		SccProjectName7 = ModernUI.Theme
 		SccLocalPath7 = ModernUI.Theme
+		SccProjectUniqueName8 = ModernUI.NavigationApp\\ModernUI.NavigationApp.csproj
+		SccProjectName8 = ModernUI.NavigationApp
+		SccLocalPath8 = ModernUI.NavigationApp
+		SccProjectUniqueName9 = ModernUI.ModernWindow\\ModernUI.ModernWindow.csproj
+		SccProjectName9 = ModernUI.ModernWindow
+		SccLocalPath9 = ModernUI.ModernWindow
+		SccProjectUniqueName10 = ModernUI.ModernDialog\\ModernUI.ModernDialog.csproj
+		SccProjectName10 = ModernUI.ModernDialog
+		SccLocalPath10 = ModernUI.ModernDialog
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +91,18 @@ Global
 		{C21BF009-8B83-4782-9154-36C8F80A9978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21BF009-8B83-4782-9154-36C8F80A9978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C21BF009-8B83-4782-9154-36C8F80A9978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B222E7A3-B131-42C9-9145-9D724C8E0509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B222E7A3-B131-42C9-9145-9D724C8E0509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B222E7A3-B131-42C9-9145-9D724C8E0509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B222E7A3-B131-42C9-9145-9D724C8E0509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC631CAB-3425-42E6-9435-816C0F1A74FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC631CAB-3425-42E6-9435-816C0F1A74FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC631CAB-3425-42E6-9435-816C0F1A74FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC631CAB-3425-42E6-9435-816C0F1A74FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1EACEAA-CB0D-4DB8-8370-20267435B213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EACEAA-CB0D-4DB8-8370-20267435B213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EACEAA-CB0D-4DB8-8370-20267435B213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EACEAA-CB0D-4DB8-8370-20267435B213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

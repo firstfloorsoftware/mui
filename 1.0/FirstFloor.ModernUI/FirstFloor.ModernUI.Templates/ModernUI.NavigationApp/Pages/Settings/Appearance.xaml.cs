@@ -13,16 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace $safeprojectname$.Pages
+namespace $safeprojectname$.Pages.Settings
 {
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for Appearance.xaml
     /// </summary>
-    public partial class Settings : UserControl
+    public partial class Appearance : UserControl
     {
-        public Settings()
+        public Appearance()
         {
             InitializeComponent();
+
+            // create and assign the appearance view model
+            this.DataContext = new AppearanceViewModel();
         }
     }
 }
