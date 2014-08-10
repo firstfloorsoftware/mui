@@ -31,7 +31,7 @@
   </Target>
 
   <Target Name="Compile">
-    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+     <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
   </Target>
   
   <Target Name="CopyOutput">
@@ -113,6 +113,14 @@
       XmlFileName="$(TemplatesDir)\ModernUI.App\ModernUI.App.vstemplate"
       XPath="/vs:VSTemplate/vs:WizardData/vs:packages/vs:package/@version"
       Value="$(MuiVersion)" />
+
+    <!-- update NuGet version in ModernUI.NavigationApp.vstemplate-->
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/vstemplate/2005"
+      Prefix="vs"
+      XmlFileName="$(TemplatesDir)\ModernUI.NavigationApp\ModernUI.NavigationApp.vstemplate"
+      XPath="/vs:VSTemplate/vs:WizardData/vs:packages/vs:package/@version"
+      Value="$(MuiVersion)" />
     
     <!-- remove old NuGet package from project and remember file name -->
     <ItemGroup>
@@ -138,7 +146,5 @@
     <!-- copy vsix to output folder-->
     <Copy SourceFiles="$(TemplatesDir)\ModernUI.Templates\bin\Release\ModernUI.Templates.vsix" DestinationFolder="$(OutputDir)" />
 
-    <!-- NOTE: vsix signing is omitted from this msbuild file on purpose (key is secret) -->
-    
   </Target>
 </Project>

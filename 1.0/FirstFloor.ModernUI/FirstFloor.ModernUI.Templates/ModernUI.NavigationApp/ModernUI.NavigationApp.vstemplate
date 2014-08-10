@@ -43,7 +43,7 @@
   </WizardExtension>
   <WizardData>
     <packages repository="extension" repositoryId="ModernUI.Templates..f6db4f98-80c1-42cc-8f57-b9b52c916ce9">
-      <package id="ModernUI.WPF" version="1.0.5" />
+      <package id="ModernUI.WPF" version="1.0.6" />
     </packages>
   </WizardData>
 </VSTemplate>

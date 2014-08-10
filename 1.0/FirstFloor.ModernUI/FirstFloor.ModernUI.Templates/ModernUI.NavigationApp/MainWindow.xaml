@@ -12,7 +12,7 @@
                 <mui:Link DisplayName="home" Source="/Pages/Home.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="settings" GroupName="settings">
+        <mui:LinkGroup DisplayName="settings" GroupKey="settings">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="software" Source="/Pages/SettingsPage.xaml" />
             </mui:LinkGroup.Links>
