@@ -18,8 +18,11 @@ namespace FirstFloor.ModernUI.App.Content
         private const string FontSmall = "small";
         private const string FontLarge = "large";
 
+        private const string PaletteMetro = "metro";
+        private const string PaletteWP = "windows phone";
+
         // 9 accent colors from metro design principles
-        /*private Color[] accentColors = new Color[]{
+        private Color[] metroAccentColors = new Color[]{
             Color.FromRgb(0x33, 0x99, 0xff),   // blue
             Color.FromRgb(0x00, 0xab, 0xa9),   // teal
             Color.FromRgb(0x33, 0x99, 0x33),   // green
@@ -29,10 +32,10 @@ namespace FirstFloor.ModernUI.App.Content
             Color.FromRgb(0xe5, 0x14, 0x00),   // red
             Color.FromRgb(0xff, 0x00, 0x97),   // magenta
             Color.FromRgb(0xa2, 0x00, 0xff),   // purple            
-        };*/
+        };
 
         // 20 accent colors from Windows Phone 8
-        private Color[] accentColors = new Color[]{
+        private Color[] wpAccentColors = new Color[]{
             Color.FromRgb(0xa4, 0xc4, 0x00),   // lime
             Color.FromRgb(0x60, 0xa9, 0x17),   // green
             Color.FromRgb(0x00, 0x8a, 0x00),   // emerald
@@ -54,6 +57,8 @@ namespace FirstFloor.ModernUI.App.Content
             Color.FromRgb(0x76, 0x60, 0x8a),   // mauve
             Color.FromRgb(0x87, 0x79, 0x4e),   // taupe
         };
+
+        private string selectedPalette = PaletteWP;
 
         private Color selectedAccentColor;
         private LinkCollection themes = new LinkCollection();
@@ -104,9 +109,28 @@ namespace FirstFloor.ModernUI.App.Content
             get { return new string[] { FontSmall, FontLarge }; }
         }
 
+        public string[] Palettes
+        {
+            get { return new string[] { PaletteMetro, PaletteWP }; }
+        }
+
         public Color[] AccentColors
         {
-            get { return this.accentColors; }
+            get { return this.selectedPalette == PaletteMetro ? this.metroAccentColors : this.wpAccentColors; }
+        }
+
+        public string SelectedPalette
+        {
+            get { return this.selectedPalette; }
+            set
+            {
+                if (this.selectedPalette != value) {
+                    this.selectedPalette = value;
+                    OnPropertyChanged("AccentColors");
+
+                    this.SelectedAccentColor = this.AccentColors.FirstOrDefault();
+                }
+            }
         }
 
         public Link SelectedTheme
