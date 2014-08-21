@@ -126,6 +126,9 @@
             <Trigger Property="IsFocused" Value="true">
                 <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
             </Trigger>
+            <Trigger SourceName="PART_EditableTextBox" Property="IsFocused" Value="true">
+                <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+            </Trigger>
             <Trigger Property="IsGrouping" Value="true">
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
             </Trigger>
