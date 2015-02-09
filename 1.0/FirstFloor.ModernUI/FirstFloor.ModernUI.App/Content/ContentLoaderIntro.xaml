@@ -11,7 +11,7 @@
             <mui:BBCodeBlock BBCode="The [b]IContentLoader[/b] interface provides an abstraction layer for loading content pages in a [b]ModernFrame[/b]. The default implementation [b]DefaultContentLoader[/b] supports local XAML content only. Implement your own content loader and you can load content pages from any source." Margin="0,0,0,16" />
             <TextBlock Text="FLICKR IMAGES" Style="{StaticResource Heading2}" />
             <mui:BBCodeBlock BBCode="Demonstrating the flexibility of [b]IContentLoader[/b] by dynamically loading and displaying web images in a [b]ModernFrame[/b]. The images originate from the [url=http://www.flickr.com/explore/interesting/]Flickr interestingness list[/url]. A custom [b]FlickrImageLoader[/b] implements [b]IContentLoader[/b] and loads the image collection from the web using the REST protocol and ensures the image results are properly loaded in a ModernFrame instance. See the [url=/Content/ContentLoaderImages.xaml]demo in action[/url]." Margin="0,0,0,16"/>
-            <mui:BBCodeBlock BBCode="Visit the [url=http://mui.codeplex.com/documentation]online documentation[/url] to learn more about [b]IContentLoader[/b]." Margin="0,0,0,16" />
+            <mui:BBCodeBlock BBCode="Visit the [url=https://github.com/firstfloorsoftware/mui/wiki]online documentation[/url] to learn more about [b]IContentLoader[/b]." Margin="0,0,0,16" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

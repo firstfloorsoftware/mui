@@ -10,7 +10,7 @@
     
     <mui:ModernWindow.TitleLinks>
         <mui:Link DisplayName="Settings" Source="/Pages/Settings.xaml" />
-        <mui:Link DisplayName="Help" Source="http://mui.codeplex.com" />
+        <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
     </mui:ModernWindow.TitleLinks>
 
     <mui:ModernWindow.MenuLinkGroups>

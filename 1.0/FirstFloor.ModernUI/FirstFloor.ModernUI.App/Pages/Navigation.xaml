@@ -45,7 +45,7 @@
 » a command that cannot execute, resulting in a [url=cmd://disabled]disabled hyperlink[/url]
 » passing a parameter to a [url=cmd://parameter|my%20parameter]command[/url]
                     
-Visit the [url=http://mui.codeplex.com/documentation]online documentation[/url] to learn more about [b]ILinkNavigator[/b].
+Visit the [url=https://github.com/firstfloorsoftware/mui/wiki]online documentation[/url] to learn more about [b]ILinkNavigator[/b].
                 </mui:BBCodeBlock>
                 <TextBlock Text="NAVIGATELINK ROUTED COMMAND" Style="{StaticResource Heading2}" />
                 <mui:BBCodeBlock xml:space="preserve">The [b]LinkCommands.NavigateLink[/b] routed command adds support for link navigation to any control that supports commanding, not just BBCodeBlock. The routed command is implemented by ModernWindow, which uses the ModernWindow.LinkNavigator to perform the actual navigation.

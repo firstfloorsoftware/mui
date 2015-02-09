@@ -6,13 +6,13 @@
     <title>ModernUI for WPF</title>
     <authors>First Floor Software</authors>
     <owners>First Floor Software</owners>
-    <licenseUrl>http://mui.codeplex.com/license</licenseUrl>
-    <iconUrl>http://i3.codeplex.com/Download?ProjectName=mui&amp;DownloadId=648952</iconUrl>
-    <projectUrl>http://mui.codeplex.com</projectUrl>
+    <licenseUrl>https://github.com/firstfloorsoftware/mui/blob/master/LICENSE.md</licenseUrl>
+    <iconUrl>http://firstfloorsoftware.com/media/github/mui/mui-icon.png</iconUrl>
+    <projectUrl>https://github.com/firstfloorsoftware/mui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A set of controls and styles converting your WPF application into a great looking Modern UI app.</description>
     <summary />
-    <copyright>Copyright 2013 First Floor Software</copyright>
+    <copyright>Copyright 2013-2015 First Floor Software</copyright>
     <tags>modern ui, metro, wpf</tags>
   </metadata>
   <files>
