@@ -2,8 +2,9 @@
 A set of controls and styles converting your WPF application into a great looking Modern UI app. This open source project is a spin-off of [XAML Spy](http://xamlspy.com), the visual runtime inspector for Silverlight, Windows Phone, Windows Store and WPF. Read the [official announcement](http://xamlspy.com/news/open-sourcing-the-xaml-spy-ui)
 
 ## Demo
-Check out the **MUI demo app** included in the [MUI release](https://github.com/firstfloorsoftware/mui/releases). The app demonstrates most features of the MUI framework. The full source of the demo app is included in the source code of this project (in project FirstFloor.ModernUI.App).
+Check out the **MUI demo app** included in the [MUI release](https://github.com/firstfloorsoftware/mui/releases). The app demonstrates most features of the MUI framework. The [full source](https://github.com/firstfloorsoftware/mui/tree/master/1.0/FirstFloor.ModernUI/FirstFloor.ModernUI.App) of the demo app is included in the source code of this project.
 
+## Documentation
 See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshots) to get an idea of what Modern UI for WPF is all about. And visit the [wiki](https://github.com/firstfloorsoftware/mui/wiki) to learn how to incorporate Modern UI for WPF into your application.
 
 ![](http://firstfloorsoftware.com/media/github/mui/mui.intro.png)
