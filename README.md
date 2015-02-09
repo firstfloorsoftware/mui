@@ -44,7 +44,3 @@ See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshot
 * ModernProgressRing styles taken from https://github.com/nigel-sampson/spinkit-xaml
 * Modern button icons in sample app taken from http://modernuiicons.com/
 
-## MahApp.Metro
-[MahApps.Metro](http://mahapps.com/) is an existing open source library for creating Modern (or Metro) UI styled WPF apps. XAML Spy was initially inspired by MahApp.Metro, but the controls and styles used in XAML Spy (and Modern UI for WPF) are entirely custom-build. If you compare the two projects you'll notice that Modern UI for WPF takes a different approach on building Modern UI styled apps. 
-
-If you haven't done so already, take a look at [MahApps.Metro](http://mahapps.com/), it's a great library.
