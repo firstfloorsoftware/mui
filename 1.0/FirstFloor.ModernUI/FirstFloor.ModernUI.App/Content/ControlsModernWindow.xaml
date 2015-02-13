@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel HorizontalAlignment="Left">
         <TextBlock Text="MODERNWINDOW" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-        <mui:BBCodeBlock BBCode="Demonstrating the use of custom styles to adapt ModernWindow to your needs. Additional ModernWindow styles are defined in [b]Assets\ModernWindowEx.xaml[/b]" Margin="0,0,0,16" />
+        <mui:BBCodeBlock BBCode="Demonstrating the use of custom styles to adapt ModernWindow to your needs. Additional ModernWindow styles are defined in [b]Assets\ModernWindowStyles.xaml[/b]" Margin="0,0,0,16" />
 
         <CheckBox x:Name="title" Content="title" IsChecked="True" Margin="0,0,0,2" />
         <CheckBox x:Name="logo" Content="logo" IsChecked="True" Margin="0,0,0,2"/>

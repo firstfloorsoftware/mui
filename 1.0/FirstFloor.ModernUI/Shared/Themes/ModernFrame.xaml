@@ -1,0 +1,76 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:controls="clr-namespace:FirstFloor.ModernUI.Windows.Controls"
+                    xmlns:nav="clr-namespace:FirstFloor.ModernUI.Windows.Navigation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/TextBlock.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="controls:ModernFrame">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ModernFrame">
+                    <ControlTemplate.Resources>
+                        <!-- render a nicely formatted error page when content is an exception -->
+                        <DataTemplate DataType="{x:Type sys:Exception}">
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <TextBlock Text="NAVIGATION FAILED" Style="{StaticResource Heading1}" />
+                                    <TextBlock Text="{Binding Message}" FontWeight="Bold" Foreground="#e51400" Margin="0,0,0,8" />
+                                    <TextBlock Text="Source" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Source, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:ModernFrame}}" Margin="0,0,0,8"/>
+                                    <TextBlock Text="Stack Trace" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding}" Style="{StaticResource Fixed}" Margin="0,0,0,16" />
+                                    <TextBlock Text="Suggestions" FontWeight="Bold" />
+                                    <controls:BBCodeBlock BBCode="[url=cmd://copy]Copy[/url] the error details to the clipboard. Try to [url=cmd://refresh]refresh[/url] this page or go [url=cmd://browseback]back[/url].">
+                                        <controls:BBCodeBlock.LinkNavigator>
+                                            <nav:DefaultLinkNavigator />
+                                        </controls:BBCodeBlock.LinkNavigator>
+                                    </controls:BBCodeBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </DataTemplate>
+                    </ControlTemplate.Resources>
+
+                    <Border HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Margin="{TemplateBinding Padding}">
+                            <controls:TransitioningContentControl Content="{TemplateBinding Content}"
+                                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                  ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                                                  Margin="{TemplateBinding Padding}" />
+
+                            <!-- display progress bar while content is being loaded -->
+                            <ProgressBar IsIndeterminate="{TemplateBinding IsLoadingContent}"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Top"
+                                         Height="4"
+                                         Margin="0,-4,0,0"
+                                         Visibility="{TemplateBinding IsLoadingContent, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        </Grid>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

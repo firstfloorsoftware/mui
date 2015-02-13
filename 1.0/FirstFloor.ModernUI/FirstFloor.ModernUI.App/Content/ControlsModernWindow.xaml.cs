@@ -29,7 +29,7 @@ namespace FirstFloor.ModernUI.App.Content
         private void BlankWindow_Click(object sender, RoutedEventArgs e)
         {
             // create a blank modern window with lorem content
-            // the BlankWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowEx.xaml
+            // the BlankWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowStyles.xaml
 
             var wnd = new ModernWindow {
                 Style = (Style)App.Current.Resources["BlankWindow"],

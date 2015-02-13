@@ -1,0 +1,148 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:FirstFloor.ModernUI.Windows.Controls"
+                    xmlns:modernui="clr-namespace:FirstFloor.ModernUI"
+                    xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/Button.xaml" />
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/TextBlock.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- additional ModernWindow styles -->
+
+    <!-- Resource key 'EmptyWindow' is considered obsolete, use 'BlankWindow' instead (see below). EmptyWindow resource is kept here for backwards compatibility. -->
+
+    <!-- empty window style, no backbutton, menu and title links -->
+    <Style x:Key="EmptyWindow" TargetType="controls:ModernWindow" BasedOn="{StaticResource {x:Type controls:ModernWindow}}" >
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="IsTitleVisible" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ModernWindow">
+                    <Border x:Name="WindowBorder" Margin="{Binding Source={x:Static shell:SystemParameters2.Current}, Path=WindowNonClientFrameThickness}">
+                        <Border.Background>
+                            <SolidColorBrush x:Name="WindowBorderBackground" Color="{DynamicResource WindowBackgroundColor}" />
+                        </Border.Background>
+                        <Border.Resources>
+                            <Storyboard x:Key="BackgroundAnimation">
+                                <ColorAnimation Storyboard.TargetName="WindowBorderBackground" Storyboard.TargetProperty="Color" To="{DynamicResource WindowBackgroundColor}" Duration="0:0:.6" />
+                            </Storyboard>
+                        </Border.Resources>
+
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <AdornerDecorator>
+                                <Grid x:Name="LayoutRoot">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="36" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- window background content -->
+                                    <ContentControl Grid.RowSpan="2" Content="{TemplateBinding BackgroundContent}" />
+
+                                    <!-- window content -->
+                                    <ContentPresenter Grid.Row="1" Margin="{TemplateBinding Padding}" />
+
+                                    <!-- title bar -->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="96" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- title -->
+                                        <TextBlock Text="{TemplateBinding Title}" Margin="8,0" VerticalAlignment="Center" Style="{StaticResource ModernWindowTitle}"
+                                                   DataContext="{TemplateBinding IsTitleVisible}"
+                                                   Visibility="{Binding Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                                        <!-- logo (visible only when LogoData is not null) -->
+                                        <Border Grid.Column="1" Background="{DynamicResource Accent}" Width="36" Height="36" Margin="8,0"
+                                                DataContext="{TemplateBinding LogoData}"
+                                                Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=inverse}">
+                                            <Path Data="{Binding}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+
+                                        <!-- window system buttons-->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top" shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                                            <Button Command="{Binding Source={x:Static shell:SystemCommands.MinimizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Minimize}" Style="{StaticResource SystemButton}">
+                                                <Button.Content>
+                                                    <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
+                                                        <Path Data="M0,6 L8,6 Z" Width="8" Height="7" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                              Stroke="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" StrokeThickness="2"  />
+                                                    </Grid>
+                                                </Button.Content>
+                                            </Button>
+                                            <Grid Margin="1,0,1,0">
+                                                <Button x:Name="Restore" Command="{Binding Source={x:Static shell:SystemCommands.RestoreWindowCommand}}" ToolTip="{x:Static modernui:Resources.Restore}" Style="{StaticResource SystemButton}" Visibility="Hidden" >
+                                                    <Button.Content>
+                                                        <Grid Width="13" Height="12" UseLayoutRounding="True" RenderTransform="1,0,0,1,.5,.5">
+                                                            <Path Data="M2,0 L8,0 L8,6 M0,3 L6,3 M0,2 L6,2 L6,8 L0,8 Z" Width="8" Height="8" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                                  Stroke="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" StrokeThickness="1"  />
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                                <Button x:Name="Maximize" Command="{Binding Source={x:Static shell:SystemCommands.MaximizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Maximize}" Style="{StaticResource SystemButton}" >
+                                                    <Button.Content>
+                                                        <Grid Width="13" Height="12">
+                                                            <Path Data="M0,1 L9,1 L9,8 L0,8 Z" Width="9" Height="8" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                                  Stroke="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" StrokeThickness="2"  />
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                            </Grid>
+                                            <Button Command="{Binding Source={x:Static shell:SystemCommands.CloseWindowCommand}}" ToolTip="{x:Static modernui:Resources.Close}" Style="{StaticResource SystemCloseButton}" >
+                                                <Button.Content>
+                                                    <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
+                                                        <Path Data="M0,0 L8,7 M8,0 L0,7 Z" Width="8" Height="7" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                              Stroke="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" StrokeThickness="1.5"  />
+                                                    </Grid>
+                                                </Button.Content>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!-- resize grip -->
+                                    <Grid Grid.Row="1" x:Name="ResizeGrip" Background="Transparent" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Bottom" shell:WindowChrome.ResizeGripDirection="BottomRight">
+                                        <Path Width="12" Height="12" Margin="1" 
+                                              Stroke="{DynamicResource WindowText}"
+                                              StrokeThickness="1"
+                                              Stretch="None"
+                                              Data="F1 M1,10 L3,10 M5,10 L7,10 M9,10 L11,10 M2,9 L2,11 M6,9 L6,11 M10,9 L10,11 M5,6 L7,6 M9,6 L11,6 M6,5 L6,7 M10,5 L10,7 M9,2 L11,2 M10,1 L10,3" />
+                                    </Grid>
+                                </Grid>
+                            </AdornerDecorator>
+                        </Border>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource WindowBorderActive}" />
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="Maximize" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Restore" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="LayoutRoot" Property="Margin" Value="7" />
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter TargetName="Maximize" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="Restore" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ResizeMode" Value="CanResizeWithGrip" />
+                                <Condition Property="WindowState" Value="Normal" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Same as 'EmptyWindow', but a better resource name -->
+    <Style x:Key="BlankWindow" TargetType="controls:ModernWindow" BasedOn="{StaticResource EmptyWindow}" />
+</ResourceDictionary>

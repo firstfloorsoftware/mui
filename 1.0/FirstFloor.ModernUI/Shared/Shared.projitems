@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{EEDA74FC-CA5A-4C06-9654-2600B74E2D1D}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>FirstFloor.ModernUI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\GridSplitter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\Hyperlink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ModernProgressRingStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ModernUI.Dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ModernUI.Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ModernUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ScrollBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\Slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\ToolTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Assets\TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\BBCodeBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\ModernButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\ModernFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\ModernMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\ModernProgressRing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\ModernTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\TransitioningContentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ModernUIHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\AppearanceManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\CommandBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\Displayable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\FontSize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\Link.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\LinkCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\LinkGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\LinkGroupCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\NotifyPropertyChanged.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ReadOnlyLinkGroupCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProcessDpiAwareness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\MonitorDpiType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\NativeMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\OSVersionHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\RECT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\CommandDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCodeBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\BBCodeLexer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\BBCodeParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\CharBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\Lexer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\ParseException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\Parser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\Token.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\BBCode\TokenBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\DataGridCheckBoxColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\DataGridComboBoxColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\DataGridTextColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\DpiAwareWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\DpiInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernDialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernProgressRing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernTab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\RelativeAnimatingContentControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\SourceEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\TabLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\TransitioningContentControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Converters\BooleanToFontWeightConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Converters\NullOrEmptyStringToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Converters\ToLowerConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Converters\ToUpperConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\DefaultContentLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\IContent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\IContentLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Media\VisualTreeHelperEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\DefaultLinkNavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\FragmentNavigationEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\ILinkNavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\LinkCommands.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigatingCancelEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationBaseEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationFailedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
