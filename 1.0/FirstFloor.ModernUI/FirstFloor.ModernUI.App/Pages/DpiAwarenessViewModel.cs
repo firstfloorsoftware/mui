@@ -39,7 +39,7 @@ namespace FirstFloor.ModernUI.App.Pages
         {
             get
             {
-                return string.Format(CultureInfo.InvariantCulture, "The DPI awareness of this process is [b]{0}[/b]", ModernUIHelper.GetDpiAwereness());
+                return string.Format(CultureInfo.InvariantCulture, "The DPI awareness of this process is [b]{0}[/b]", ModernUIHelper.GetDpiAwareness());
             }
         }
 

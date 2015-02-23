@@ -10,7 +10,7 @@
         <ScrollViewer>
             <StackPanel >
                 <TextBlock Text="DPI AWARENESS" Style="{StaticResource Heading1}" Margin="0,0,0,8"/>
-                <mui:BBCodeBlock Margin="0,0,0,32" xml:space="preserve">Windows 8.1 gives developers new functionality to create desktop applications that are per-monitor DPI-aware. MUI automatically enables per-monitor DPI awereness when supported by the host OS. When enabled a window is scaled across monitors of different DPIs.
+                <mui:BBCodeBlock Margin="0,0,0,32" xml:space="preserve">Windows 8.1 gives developers new functionality to create desktop applications that are per-monitor DPI-aware. MUI automatically enables per-monitor DPI awareness when supported by the host OS. When enabled a window is scaled across monitors of different DPIs.
                     
 MUI's implementation of per-monitor DPI awareness is largely based on the MSDN article [url=http://msdn.microsoft.com/en-us/library/windows/desktop/ee308410(v=vs.85).aspx]Developing a Per-Monitor DPI-Aware WPF Application[/url].</mui:BBCodeBlock>
 

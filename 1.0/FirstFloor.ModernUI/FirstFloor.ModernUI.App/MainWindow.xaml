@@ -36,7 +36,7 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="Advanced">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="DPI awereness" Source="/Pages/DpiAwareness.xaml" />
+                <mui:Link DisplayName="DPI awareness" Source="/Pages/DpiAwareness.xaml" />
                 <mui:Link DisplayName="Navigation" Source="/Pages/Navigation.xaml" />
                 <mui:Link DisplayName="Content Loader" Source="/Pages/ContentLoader.xaml" />
             </mui:LinkGroup.Links>

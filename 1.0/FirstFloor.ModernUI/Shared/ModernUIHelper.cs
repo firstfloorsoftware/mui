@@ -31,13 +31,13 @@ namespace FirstFloor.ModernUI
         }
 
         /// <summary>
-        /// Gets the DPI awereness of the current process.
+        /// Gets the DPI awareness of the current process.
         /// </summary>
         /// <returns>
         /// The DPI awareness of the current process
         /// </returns>
         /// <exception cref="System.ComponentModel.Win32Exception"></exception>
-        public static ProcessDpiAwareness GetDpiAwereness()
+        public static ProcessDpiAwareness GetDpiAwareness()
         {
             if (OSVersionHelper.IsWindows8Point1OrGreater) {
                 ProcessDpiAwareness value;
@@ -49,7 +49,7 @@ namespace FirstFloor.ModernUI
                 return value;
             }
             if (OSVersionHelper.IsWindowsVistaOrGreater) {
-                // use older Win32 API to query system DPI awereness
+                // use older Win32 API to query system DPI awareness
                 return NativeMethods.IsProcessDPIAware() ? ProcessDpiAwareness.SystemDpiAware : ProcessDpiAwareness.DpiUnaware;
             }
 
@@ -73,7 +73,7 @@ namespace FirstFloor.ModernUI
         /// </remarks>
         public static bool TrySetPerMonitorDpiAware()
         {
-            var awareness = GetDpiAwereness();
+            var awareness = GetDpiAwareness();
 
             // initial awareness must be DpiUnaware
             if (awareness == ProcessDpiAwareness.DpiUnaware) {
@@ -81,7 +81,7 @@ namespace FirstFloor.ModernUI
                     return NativeMethods.SetProcessDpiAwareness(ProcessDpiAwareness.PerMonitorDpiAware) == NativeMethods.S_OK;
                 }
 
-                // use older Win32 API to set the awereness to SystemDpiAware
+                // use older Win32 API to set the awareness to SystemDpiAware
                 return NativeMethods.SetProcessDPIAware() == NativeMethods.S_OK;
             }
 
