@@ -45,17 +45,17 @@
     </Style>
 
     <Style x:Key="SystemButton" TargetType="ButtonBase" BasedOn="{StaticResource SystemButtonBase}">
-        <Setter Property="Width" Value="32" />
-        <Setter Property="Height" Value="24" />
+        <Setter Property="Width" Value="{DynamicResource SystemButtonWidth}" />
+        <Setter Property="Height" Value="{DynamicResource SystemButtonHeight}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonText}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundHover}" />
-                <Setter Property="Foreground" Value="{DynamicResource ButtonTextHover}"/>
+                <Setter Property="Background" Value="{DynamicResource SystemButtonBackgroundOnMoseOver}" />
+                <Setter Property="Foreground" Value="{DynamicResource SystemButtonForegroundOnMoseOver}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
-                <Setter Property="Foreground" Value="{DynamicResource ButtonTextPressed}" />
+                <Setter Property="Background" Value="{DynamicResource SystemButtonBackgroundIsPressed}" />
+                <Setter Property="Foreground" Value="{DynamicResource SystemButtonForegroundIsPressed}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonTextDisabled}" />
@@ -64,14 +64,16 @@
     </Style>
 
     <Style x:Key="SystemCloseButton" TargetType="ButtonBase" BasedOn="{StaticResource SystemButton}">
+        <Setter Property="Width" Value="{DynamicResource CloseButtonWidth}" />
+        <Setter Property="Background" Value="{DynamicResource CloseButtonBackground}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ButtonBackgroundHover}" />
-                <Setter Property="Foreground" Value="{DynamicResource ButtonTextHover}"/>
+                <Setter Property="Background" Value="{DynamicResource CloseButtonBackgroundOnMoseOver}" />
+                <Setter Property="Foreground" Value="{DynamicResource CloseButtonForegroundOnMoseOver}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="#e51400" />
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="{DynamicResource CloseButtonBackgroundIsPressed}" />
+                <Setter Property="Foreground" Value="{DynamicResource CloseButtonForegroundIsPressed}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonTextDisabled}" />
