@@ -60,13 +60,7 @@
     <!--System Button-->
     <sys:Double x:Key="SystemButtonHeight">24</sys:Double>
     <sys:Double x:Key="SystemButtonWidth">32</sys:Double>
-    <SolidColorBrush x:Key="SystemButtonBackground" Color="{DynamicResource WindowBackgroundColor}"  Opacity="0" />
-    <SolidColorBrush x:Key="SystemButtonBackgroundOnMoseOver" Color="{DynamicResource ButtonBackgroundHover}" />
-    <SolidColorBrush x:Key="SystemButtonForegroundOnMoseOver" Color="{DynamicResource ButtonTextHover}" />
-    <SolidColorBrush x:Key="SystemButtonBackgroundIsPressed" Color="{DynamicResource ButtonBackgroundPressed}" />
-    <SolidColorBrush x:Key="SystemButtonForegroundIsPressed" Color="{DynamicResource ButtonTextPressed}" />
-    
-    
+        
     <Style x:Key="ContentRoot" TargetType="FrameworkElement">
         <Setter Property="Margin" Value="{StaticResource ContentMargin}" />
     </Style>
