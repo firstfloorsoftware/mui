@@ -220,8 +220,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationFailedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Navigation\NavigationType.cs" />
+	<Compile Include="$(MSBuildThisFileDirectory)Resources.pl.Designer.cs">
+		<DependentUpon>Resources.pl.resx</DependentUpon>
+		<DesignTime>True</DesignTime>
+		<AutoGen>True</AutoGen>
+	</Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.pl.resx">
+      <LastGenOutput>Resources.pl.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.resx">
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
