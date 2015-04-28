@@ -1,15 +1,6 @@
 # Modern UI for WPF (MUI)
 A set of controls and styles converting your WPF application into a great looking Modern UI app. This open source project is a spin-off of [XAML Spy](http://xamlspy.com), the visual runtime inspector for Silverlight, Windows Phone, Windows Store and WPF. Read the [official announcement](http://xamlspy.com/news/open-sourcing-the-xaml-spy-ui)
 
-[![Build status](https://img.shields.io/appveyor/ci/kozw/mui.svg)](https://ci.appveyor.com/project/kozw/mui)
-[![Release](https://img.shields.io/github/release/firstfloorsoftware/mui.svg)](https://github.com/firstfloorsoftware/mui/releases/latest)
-[![NuGet](https://img.shields.io/nuget/dt/ModernUI.WPF.svg)](http://nuget.org/packages/ModernUI.WPF)
-[![Stars](https://img.shields.io/github/stars/firstfloorsoftware/mui.svg)](https://github.com/firstfloorsoftware/mui/stargazers)
-
-## Demo
-Check out the **MUI demo app** included in the [MUI release](https://github.com/firstfloorsoftware/mui/releases). The app demonstrates most features of the MUI framework. The [full source](https://github.com/firstfloorsoftware/mui/tree/master/1.0/FirstFloor.ModernUI/FirstFloor.ModernUI.App) of the demo app is included in the source code of this project.
-
-## Documentation
 See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshots) to get an idea of what Modern UI for WPF is all about. And visit the [wiki](https://github.com/firstfloorsoftware/mui/wiki) to learn how to incorporate Modern UI for WPF into your application.
 
 ![](http://firstfloorsoftware.com/media/github/mui/mui.intro.png)
@@ -49,3 +40,7 @@ See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshot
 * ModernProgressRing styles taken from https://github.com/nigel-sampson/spinkit-xaml
 * Modern button icons in sample app taken from http://modernuiicons.com/
 
+## MahApp.Metro
+[MahApps.Metro](http://mahapps.com/) is an existing open source library for creating Modern (or Metro) UI styled WPF apps. XAML Spy was initially inspired by MahApp.Metro, but the controls and styles used in XAML Spy (and Modern UI for WPF) are entirely custom-build. If you compare the two projects you'll notice that Modern UI for WPF takes a different approach on building Modern UI styled apps. 
+
+If you haven't done so already, take a look at [MahApps.Metro](http://mahapps.com/), it's a great library.

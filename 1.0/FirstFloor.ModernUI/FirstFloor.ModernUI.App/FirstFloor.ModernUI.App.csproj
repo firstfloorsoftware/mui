@@ -112,6 +112,9 @@
       <DependentUpon>DpiAwareness.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DpiAwarenessViewModel.cs" />
+    <Compile Include="Pages\VideoPlayerLayoutWireframe.xaml.cs">
+      <DependentUpon>VideoPlayerLayoutWireframe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleFormViewModel.cs" />
     <Compile Include="FlickrImageLoader.cs" />
     <Compile Include="LoremIpsumLoader.cs" />
@@ -168,8 +171,8 @@
     <Compile Include="Pages\LayoutSplit.xaml.cs">
       <DependentUpon>LayoutSplit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\VideoPlayerLayoutWireframe.xaml.cs">
-      <DependentUpon>VideoPlayerLayoutWireframe.xaml</DependentUpon>
+    <Compile Include="Pages\LayoutWireframe.xaml.cs">
+      <DependentUpon>LayoutWireframe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LayoutTab.xaml.cs">
       <DependentUpon>LayoutTab.xaml</DependentUpon>
@@ -419,7 +422,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\VideoPlayerLayoutWireframe.xaml">
+    <Page Include="Pages\LayoutWireframe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -446,6 +449,10 @@
     <Page Include="Pages\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\VideoPlayerLayoutWireframe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
