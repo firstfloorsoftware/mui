@@ -168,8 +168,8 @@
     <Compile Include="Pages\LayoutSplit.xaml.cs">
       <DependentUpon>LayoutSplit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LayoutWireframe.xaml.cs">
-      <DependentUpon>LayoutWireframe.xaml</DependentUpon>
+    <Compile Include="Pages\VideoPlayerLayoutWireframe.xaml.cs">
+      <DependentUpon>VideoPlayerLayoutWireframe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LayoutTab.xaml.cs">
       <DependentUpon>LayoutTab.xaml</DependentUpon>
@@ -419,7 +419,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\LayoutWireframe.xaml">
+    <Page Include="Pages\VideoPlayerLayoutWireframe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

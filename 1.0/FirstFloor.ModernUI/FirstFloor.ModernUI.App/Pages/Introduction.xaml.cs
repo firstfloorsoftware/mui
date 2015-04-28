@@ -24,5 +24,10 @@ namespace FirstFloor.ModernUI.App.Pages
         {
             InitializeComponent();
         }
+
+        private void addFilesToIndexingQueue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
