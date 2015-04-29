@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TechniciseShabdoKhojModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_File_Tags">
+          <Key>
+            <PropertyRef Name="file_id_fk" />
+          </Key>
+          <Property Name="file_id_fk" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="tag" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_time" Type="datetime" Nullable="false" />
+          <Property Name="end_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_File_Twt">
+          <Key>
+            <PropertyRef Name="file_id_fk" />
+          </Key>
+          <Property Name="file_id_fk" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="file_twt" Type="xml" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Indexing_Queue">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="file_name" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="file_path" Type="nchar" MaxLength="512" Nullable="false" />
+          <Property Name="index_status" Type="int" />
+          <Property Name="time_added" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="TechniciseShabdoKhojModelStoreContainer">
+          <EntitySet Name="T_File_Tags" EntityType="Self.T_File_Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_File_Twt" EntityType="Self.T_File_Twt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Indexing_Queue" EntityType="Self.T_Indexing_Queue" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TechniciseShabdoKhojModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TechniciseShabdoKhojEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_File_Tags" EntityType="TechniciseShabdoKhojModel.T_File_Tags" />
+          <EntitySet Name="T_File_Twt" EntityType="TechniciseShabdoKhojModel.T_File_Twt" />
+          <EntitySet Name="T_Indexing_Queue" EntityType="TechniciseShabdoKhojModel.T_Indexing_Queue" />
+        </EntityContainer>
+        <EntityType Name="T_File_Tags">
+          <Key>
+            <PropertyRef Name="file_id_fk" />
+          </Key>
+          <Property Name="file_id_fk" Type="Guid" Nullable="false" />
+          <Property Name="tag" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_File_Twt">
+          <Key>
+            <PropertyRef Name="file_id_fk" />
+          </Key>
+          <Property Name="file_id_fk" Type="Guid" Nullable="false" />
+          <Property Name="file_twt" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Indexing_Queue">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="Guid" Nullable="false" />
+          <Property Name="file_name" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="file_path" Type="String" Nullable="false" MaxLength="512" FixedLength="true" Unicode="true" />
+          <Property Name="index_status" Type="Int32" />
+          <Property Name="time_added" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TechniciseShabdoKhojModelStoreContainer" CdmEntityContainer="TechniciseShabdoKhojEntities">
+          <EntitySetMapping Name="T_File_Tags">
+            <EntityTypeMapping TypeName="TechniciseShabdoKhojModel.T_File_Tags">
+              <MappingFragment StoreEntitySet="T_File_Tags">
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="file_id_fk" ColumnName="file_id_fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_File_Twt">
+            <EntityTypeMapping TypeName="TechniciseShabdoKhojModel.T_File_Twt">
+              <MappingFragment StoreEntitySet="T_File_Twt">
+                <ScalarProperty Name="file_twt" ColumnName="file_twt" />
+                <ScalarProperty Name="file_id_fk" ColumnName="file_id_fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Indexing_Queue">
+            <EntityTypeMapping TypeName="TechniciseShabdoKhojModel.T_Indexing_Queue">
+              <MappingFragment StoreEntitySet="T_Indexing_Queue">
+                <ScalarProperty Name="time_added" ColumnName="time_added" />
+                <ScalarProperty Name="index_status" ColumnName="index_status" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

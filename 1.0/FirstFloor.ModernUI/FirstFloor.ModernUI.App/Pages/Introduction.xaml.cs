@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Technicise.ShabdoKhoj.DbInteract;
 
 namespace FirstFloor.ModernUI.App.Pages
 {
@@ -46,7 +47,11 @@ namespace FirstFloor.ModernUI.App.Pages
             {
                 // Open document 
                 string filename = dlg.FileName;
-                MessageBox.Show(filename);
+                //MessageBox.Show(filename);
+               string returnMsg = DbHelper.AddFileInIndexQueue(filename, filename);
+
+               if (returnMsg != null)
+                   MessageBox.Show(returnMsg);
             }
         }
     }

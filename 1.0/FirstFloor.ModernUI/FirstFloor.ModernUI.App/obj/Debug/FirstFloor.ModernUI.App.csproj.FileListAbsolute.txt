@@ -194,3 +194,9 @@ D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Firs
 D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\obj\Debug\ModernUIDemo.g.resources
 D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\obj\Debug\FirstFloor.ModernUI.App.Properties.Resources.resources
 D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\obj\Debug\FirstFloor.ModernUI.App.csproj.GenerateResource.Cache
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\Technicise.ShabdoKhoj.DbInteract.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\Technicise.ShabdoKhoj.DbInteract.pdb
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.xml
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.SqlServer.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.SqlServer.xml
