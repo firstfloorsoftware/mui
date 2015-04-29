@@ -200,3 +200,5 @@ D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Firs
 D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.xml
 D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.SqlServer.dll
 D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\bin\Debug\EntityFramework.SqlServer.xml
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\obj\Debug\Content\IndexingQueueControlsStylesDataGrid.g.cs
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\FirstFloor.ModernUI.App\obj\Debug\Content\IndexingQueueControlsStylesDataGrid.baml

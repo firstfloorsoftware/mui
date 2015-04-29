@@ -34,8 +34,8 @@ namespace FirstFloor.ModernUI.App.Pages
 
 
             // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".png";
-            dlg.Filter = "MP4 Files (*.mp4)|*.mp4|MOV Files (*.mov)|*.mov|WMV Files (*.wmv)|*.wmv|All Files (*.*)|*.*|JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            dlg.DefaultExt = "*.*";
+            dlg.Filter = "All Files (*.*)|*.*|MP4 Files (*.mp4)|*.mp4|MOV Files (*.mov)|*.mov|WMV Files (*.wmv)|*.wmv|JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
 
 
             // Display OpenFileDialog by calling ShowDialog method 

@@ -21,7 +21,7 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="Indexing Queue">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="File Queue" Source="/Content/ControlsStylesDataGrid.xaml" />
+                <mui:Link DisplayName="File Queue" Source="/Content/IndexingQueueControlsStylesDataGrid.xaml" />
                 <mui:Link DisplayName="Indexing Logs" Source="/Content/ControlsModernFrame.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
