@@ -64,6 +64,7 @@
     <Content Include="ignor.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TagWithTimestamp.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extractTags.pl" />
@@ -73,6 +74,7 @@
     <None Include="mergeOCR.pl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TagWithTimestamp.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
