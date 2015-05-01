@@ -20,13 +20,14 @@
         
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" Text="Files Added For Indexing" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-            <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+            <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" MouseRightButtonDown="DG1_MouseRightButtonDown" SelectionMode="Single">
                 <DataGrid.Columns>
                     <mui:DataGridTextColumn Header="File Name"  Binding="{Binding FileName}"/>
                     <mui:DataGridTextColumn Header="File Path" Binding="{Binding FilePath}" />
                     <mui:DataGridTextColumn Header="File Id" Binding="{Binding FileId}"/>
                     <mui:DataGridTextColumn Header="Time Added" Binding="{Binding TimeAdded}" />
                     <mui:DataGridComboBoxColumn Header="Indexing Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                    
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

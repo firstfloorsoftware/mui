@@ -1,0 +1,9 @@
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\Technicise.ShabdoKhoj.DbInteract.dll.config
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\Technicise.ShabdoKhoj.DbInteract.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\Technicise.ShabdoKhoj.DbInteract.pdb
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\EntityFramework.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\EntityFramework.SqlServer.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\EntityFramework.xml
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\bin\x64\Debug\EntityFramework.SqlServer.xml
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\obj\x64\Debug\Technicise.ShabdoKhoj.DbInteract.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\Technicise.ShabdoKhoj.DbInteract\obj\x64\Debug\Technicise.ShabdoKhoj.DbInteract.pdb

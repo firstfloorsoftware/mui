@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CefSharp.OffScreen</name>
+    </assembly>
+    <members>
+        <member name="T:CefSharp.OffScreen.ChromiumWebBrowser">
+            <summary>
+            An offscreen instance of Chromium that you can use to take
+            snapshots or evaluate JavaScript.
+            </summary>
+        </member>
+        <member name="F:CefSharp.OffScreen.ChromiumWebBrowser.bitmap">
+            <summary>
+            Contains the last rendering from Chromium.
+            </summary>
+        </member>
+        <member name="F:CefSharp.OffScreen.ChromiumWebBrowser.bitmapLock">
+            <summary>
+            Need a lock because the caller may be asking for the bitmap
+            while Chromium async rendering has returned on another thread.
+            </summary>
+        </member>
+        <member name="F:CefSharp.OffScreen.ChromiumWebBrowser.size">
+            <summary>
+            Size of the Chromium viewport.
+            This must be set to something other than 0x0 otherwise Chromium will not render,
+            and the ScreenshotAsync task will deadlock.
+            </summary>
+        </member>
+        <member name="M:CefSharp.OffScreen.ChromiumWebBrowser.#ctor(System.String,CefSharp.BrowserSettings)">
+            <summary>
+            Create a new OffScreen Chromium Browser
+            </summary>
+            <param name="address">Initial address (url) to load</param>
+            <param name="browserSettings">The browser settings to use. If null, the default settings are used.</param>
+        </member>
+        <member name="M:CefSharp.OffScreen.ChromiumWebBrowser.ScreenshotOrNull">
+             <summary>
+             Immediately returns a copy of the last rendering from Chrome,
+             or null if no rendering has occurred yet.
+             
+             Chrome also renders the page loading, so if you want to see a complete rendering,
+             only start this task once your page is loaded (which you can detect via FrameLoadEnd
+             or your own heuristics based on evaluating JavaScript).
+            
+             It is your responsibility to dispose the returned Bitmap.
+             
+             The bitmap size is determined by the Size property set earlier.
+             </summary>
+        </member>
+        <member name="M:CefSharp.OffScreen.ChromiumWebBrowser.ScreenshotAsync">
+            <summary>
+            Starts a task that waits for the next rendering from Chrome.
+            
+            Chrome also renders the page loading, so if you want to see a complete rendering,
+            only start this task once your page is loaded (which you can detect via FrameLoadEnd
+            or your own heuristics based on evaluating JavaScript).
+            
+            It is your responsibility to dispose the returned Bitmap.
+            
+            The bitmap size is determined by the Size property set earlier.
+            </summary>
+        </member>
+        <member name="M:CefSharp.OffScreen.ChromiumWebBrowser.CefSharp#IWebBrowser#Focus">
+            <summary>
+            Has Focus - Always False
+            </summary>
+            <returns>returns false</returns>
+        </member>
+        <member name="E:CefSharp.OffScreen.ChromiumWebBrowser.NewScreenshot">
+            <summary>
+            Fired by a separate thread when Chrome has re-rendered.
+            This means that a Bitmap will be returned by ScreenshotOrNull().
+            </summary>
+        </member>
+        <member name="P:CefSharp.OffScreen.ChromiumWebBrowser.Size">
+            <summary>
+            Get/set the size of the Chromium viewport, in pixels.
+            
+            This also changes the size of the next screenshot.
+            </summary>
+        </member>
+    </members>
+</doc>

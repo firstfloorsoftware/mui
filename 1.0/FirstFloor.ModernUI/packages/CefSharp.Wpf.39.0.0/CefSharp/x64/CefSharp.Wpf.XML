@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CefSharp.Wpf</name>
+    </assembly>
+    <members>
+        <member name="M:CefSharp.Wpf.IWpfWebBrowser.Invalidate(CefSharp.PaintElementType)">
+            <summary>
+            Invalidate the view. The browser will call CefRenderHandler::OnPaint asynchronously.
+            </summary>
+            <param name="type">indicates which surface to re-paint either View or Popup.</param>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.BackCommand">
+            <summary>
+            Navigates to the previous page in the browser history. Will automatically be enabled/disabled depending on the
+            browser state.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.ForwardCommand">
+            <summary>
+            Navigates to the next page in the browser history. Will automatically be enabled/disabled depending on the
+            browser state.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.ReloadCommand">
+            <summary>
+            Reloads the content of the current page. Will automatically be enabled/disabled depending on the browser state.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.PrintCommand">
+            <summary>
+            Prints the current browser contents.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.ZoomInCommand">
+            <summary>
+            Increases the zoom level.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.ZoomOutCommand">
+            <summary>
+            Decreases the zoom level.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.ZoomResetCommand">
+            <summary>
+            Resets the zoom level to the default. (100%)
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.ViewSourceCommand">
+            <summary>
+            Opens up a new program window (using the default text editor) where the source code of the currently displayed web
+            page is shown.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.CleanupCommand">
+            <summary>
+            Command which cleans up the Resources used by the ChromiumWebBrowser
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.StopCommand">
+            <summary>
+            Stops loading the current page.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.CutCommand">
+            <summary>
+            Cut selected text to the clipboard.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.CopyCommand">
+            <summary>
+            Copy selected text to the clipboard.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.PasteCommand">
+            <summary>
+            Paste text from the clipboard.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.SelectAllCommand">
+            <summary>
+            Select all text.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.UndoCommand">
+            <summary>
+            Undo last action.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.RedoCommand">
+            <summary>
+            Redo last action.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.IWpfWebBrowser.Dispatcher">
+            <summary>
+            Gets the <see cref="P:CefSharp.Wpf.IWpfWebBrowser.Dispatcher"/> associated with this instance.
+            </summary>
+        </member>
+        <member name="M:CefSharp.Wpf.ChromiumWebBrowser.GetDragOperationsMask(System.Windows.DragDropEffects)">
+            <summary>
+            Converts .NET drag drop effects to CEF Drag Operations
+            </summary>s
+        </member>
+        <member name="M:CefSharp.Wpf.ChromiumWebBrowser.ReadUrlFromDragDropData(System.Windows.IDataObject,System.String,System.Text.Encoding)">
+            <summary>Reads a URL using a particular text encoding from drag-and-drop data.</summary>
+            <param name="data">The drag-and-drop data.</param>
+            <param name="urlDataFormatName">The data format name of the URL type.</param>
+            <param name="urlEncoding">The text encoding of the URL type.</param>
+            <returns>A URL, or <see langword="null"/> if <paramref name="data"/> does not contain a URL
+            of the correct type.</returns>
+        </member>
+        <member name="M:CefSharp.Wpf.ChromiumWebBrowser.GetMouseEvent(System.Windows.DragEventArgs)">
+            <summary>
+            Converts a .NET Drag event to a CefSharp MouseEvent
+            </summary>
+        </member>
+        <member name="M:CefSharp.Wpf.ChromiumWebBrowser.OnRendering(System.Object,CefSharp.Wpf.Rendering.WpfBitmapInfo)">
+            <summary>
+            Raises Rendering event
+            </summary>
+        </member>
+        <member name="M:CefSharp.Wpf.ChromiumWebBrowser.Invalidate(CefSharp.PaintElementType)">
+            <summary>
+            Invalidate the view. The browser will call CefRenderHandler::OnPaint asynchronously.
+            </summary>
+            <param name="type">indicates which surface to re-paint either View or Popup.</param>
+        </member>
+        <member name="M:CefSharp.Wpf.ChromiumWebBrowser.SetZoomLevel(System.Double)">
+            <summary>
+            Change the zoom level to the specified value. Specify 0.0 to reset the zoom level.
+            </summary>
+            <param name="zoomLevel">zoom level</param>
+        </member>
+        <member name="E:CefSharp.Wpf.ChromiumWebBrowser.Rendering">
+            <summary>
+            Raised before each render cycle, and allows you to adjust the bitmap before it's rendered/applied
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.ChromiumWebBrowser.ZoomLevelIncrement">
+            <summary>
+            Specifies the amount used to increase/decrease to ZoomLevel by
+            By Default this value is 0.10
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.ChromiumWebBrowser.CleanupElement">
+            <summary>
+            The CleanupElement Controls when the BrowserResources will be cleand up.
+            The ChromiumWebBrowser will register on Unloaded of the provided Element and dispose all resources when that handler is called.
+            By default the cleanup element is the Window that contains the ChromiumWebBrowser.
+            if you want cleanup to happen earlier provide another FrameworkElement.
+            Be aware that this Control is not usable anymore after cleanup is done.
+            </summary>
+            <value>
+            The cleanup element.
+            </value>
+        </member>
+        <member name="T:CefSharp.Wpf.RenderingEventArgs">
+            <summary>
+            Event arguments to the Rendering event handler set up in IWebBrowser.
+            </summary>
+        </member>
+        <member name="P:CefSharp.Wpf.RenderingEventArgs.BitmapInfo">
+            <summary>
+            The bitmap info being rendered.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.KEYDOWN">
+            <summary>
+            The WM_KEYDOWN message is posted to the window with the keyboard focus when a nonsystem key is pressed. A nonsystem
+            key is a key that is pressed when the ALT key is not pressed.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.KEYUP">
+            <summary>
+            The WM_KEYUP message is posted to the window with the keyboard focus when a nonsystem key is released. A nonsystem
+            key is a key that is pressed when the ALT key is not pressed, or a keyboard key that is pressed when a window has the
+            keyboard focus.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.CHAR">
+            <summary>
+            The WM_CHAR message is posted to the window with the keyboard focus when a WM_KEYDOWN message is translated by the
+            TranslateMessage function. The WM_CHAR message contains the character code of the key that was pressed.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.SYSKEYDOWN">
+            <summary>
+            The WM_SYSKEYDOWN message is posted to the window with the keyboard focus when the user presses the F10 key (which
+            activates the menu bar) or holds down the ALT key and then presses another key. It also occurs when no window
+            currently has the keyboard focus; in this case, the WM_SYSKEYDOWN message is sent to the active window. The window
+            that receives the message can distinguish between these two contexts by checking the context code in the lParam
+            parameter.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.SYSKEYUP">
+            <summary>
+            The WM_SYSKEYUP message is posted to the window with the keyboard focus when the user releases a key that was pressed
+            while the ALT key was held down. It also occurs when no window currently has the keyboard focus; in this case, the
+            WM_SYSKEYUP message is sent to the active window. The window that receives the message can distinguish between these
+            two contexts by checking the context code in the lParam parameter.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.SYSCHAR">
+            <summary>
+            The WM_SYSCHAR message is posted to the window with the keyboard focus when a WM_SYSKEYDOWN message is translated by
+            the TranslateMessage function. It specifies the character code of a system character key — that is, a character key
+            that is pressed while the ALT key is down.
+            </summary>
+        </member>
+        <member name="F:CefSharp.Wpf.WM.IME_CHAR">
+            <summary>
+            Sent to an application when the IME gets a character of the conversion result. A window receives this message through
+            its WindowProc function. 
+            </summary>
+        </member>
+    </members>
+</doc>

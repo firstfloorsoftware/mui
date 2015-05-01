@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -21,10 +22,24 @@
 
         <!-- use the root margin if you want to use the entire available space -->
         <Grid Margin="{StaticResource RootMargin}">
-            <Rectangle  />
-            <TextBlock Text="root" />
+            <Rectangle  />        
         </Grid>
-        <WebBrowser></WebBrowser>
+        <DockPanel LastChildFill="True">
+            <UniformGrid Columns="2" DockPanel.Dock="Top">
+                <Button Name="selectVideoFile" Click="selectVideoFile_Click">Select Video File</Button>
+                <TextBlock Name="videoFilePathTB"/>
+                <Button Name="selectTwtFile" Click="selectTwtFile_Click">Select TWT File</Button>
+                <TextBlock Name="twtFilePathTB"/>
+                <Button Name="selectVideoPlayerServerPath" Click="selectVideoPlayerServerPath_Click">Select Video Player Server Path</Button>
+                <TextBlock Name="videoPlayerServerPathTB"/>
+            </UniformGrid>
+            <Button DockPanel.Dock="Left" Height="100" Name="playSelectedVideo" Click="playSelectedVideo_Click"> Play Video File with Tags &amp; Timestamp</Button>
+        <cefSharp:ChromiumWebBrowser x:Name="browser"                                  
+                                  Address="http://localhost:8080/shodhkhojPlayer/demo.html"
+                                  Title="CEF Browser"
+                                  AllowDrop="True"  DockPanel.Dock="Bottom"></cefSharp:ChromiumWebBrowser>
+        </DockPanel>
+        <!--<WebBrowser Name="videoPlayerWebView" Loaded="Play_Click" Source="http://localhost:8080/shodhkhojPlayer/demo.html"></WebBrowser>-->
         <!-- the default page root, no margin settings required -->
         <!--<Grid>
             <Rectangle Grid.RowSpan="2" />

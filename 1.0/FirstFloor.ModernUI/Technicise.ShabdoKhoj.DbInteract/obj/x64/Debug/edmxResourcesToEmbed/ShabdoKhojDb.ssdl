@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechniciseShabdoKhojModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_File_Tags">
+    <Key>
+      <PropertyRef Name="file_id_fk" />
+    </Key>
+    <Property Name="file_id_fk" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="tag" Type="nchar" MaxLength="128" Nullable="false" />
+    <Property Name="start_time" Type="datetime" Nullable="false" />
+    <Property Name="end_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_File_Twt">
+    <Key>
+      <PropertyRef Name="file_id_fk" />
+    </Key>
+    <Property Name="file_id_fk" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="file_twt" Type="xml" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Indexing_Queue">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="file_name" Type="nchar" MaxLength="128" Nullable="false" />
+    <Property Name="file_path" Type="nchar" MaxLength="512" Nullable="false" />
+    <Property Name="index_status" Type="int" />
+    <Property Name="time_added" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="TechniciseShabdoKhojModelStoreContainer">
+    <EntitySet Name="T_File_Tags" EntityType="Self.T_File_Tags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_File_Twt" EntityType="Self.T_File_Twt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Indexing_Queue" EntityType="Self.T_Indexing_Queue" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
