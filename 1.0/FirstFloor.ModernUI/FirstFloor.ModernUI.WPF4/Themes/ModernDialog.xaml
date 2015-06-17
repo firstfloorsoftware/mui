@@ -29,45 +29,43 @@
                     <Border Background="{DynamicResource WindowBackground}" Margin="{Binding Source={x:Static shell:SystemParameters2.Current}, Path=WindowNonClientFrameThickness}">
                         <Grid>
                             <Border BorderBrush="{DynamicResource WindowBorder}" BorderThickness="1">
-                                <AdornerDecorator>
-                                    <Grid>
-                                        <!-- window background content -->
-                                        <ContentControl Content="{TemplateBinding BackgroundContent}" />
+                                <Grid>
+                                    <!-- window background content -->
+                                    <ContentControl Content="{TemplateBinding BackgroundContent}" />
 
-                                        <!-- top blob -->
-                                        <Canvas>
-                                            <Rectangle Fill="{DynamicResource Accent}" Canvas.Top="18" Canvas.Left="24" Width="100" Height="6" />
-                                        </Canvas>
+                                    <!-- top blob -->
+                                    <Canvas>
+                                        <Rectangle Fill="{DynamicResource Accent}" Canvas.Top="18" Canvas.Left="24" Width="100" Height="6" />
+                                    </Canvas>
 
-                                        <Grid Margin="24">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
+                                    <Grid Margin="24">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
 
-                                            <!-- title -->
-                                            <TextBlock DataContext="{TemplateBinding Title}" Text="{Binding Converter={StaticResource ToUpperConverter}}" 
+                                        <!-- title -->
+                                        <TextBlock DataContext="{TemplateBinding Title}" Text="{Binding Converter={StaticResource ToUpperConverter}}" 
                                                    FontFamily="Segoe UI"
                                                    FontSize="24"
                                                    TextOptions.TextFormattingMode="Ideal"
                                                    TextTrimming="CharacterEllipsis" />
 
-                                            <!-- content -->
-                                            <controls:TransitioningContentControl Grid.Row="1" Margin="0,20" Content="{TemplateBinding Content}" />
+                                        <!-- content -->
+                                        <controls:TransitioningContentControl Grid.Row="1" Margin="0,20" Content="{TemplateBinding Content}" />
 
-                                            <!-- buttons -->
-                                            <ItemsControl Grid.Row="2" ItemsSource="{TemplateBinding Buttons}" HorizontalAlignment="Right">
-                                                <ItemsControl.ItemsPanel>
-                                                    <ItemsPanelTemplate>
-                                                        <StackPanel Orientation="Horizontal" />
-                                                    </ItemsPanelTemplate>
-                                                </ItemsControl.ItemsPanel>
-                                            </ItemsControl>
+                                        <!-- buttons -->
+                                        <ItemsControl Grid.Row="2" ItemsSource="{TemplateBinding Buttons}" HorizontalAlignment="Right">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        </ItemsControl>
 
-                                        </Grid>
                                     </Grid>
-                                </AdornerDecorator>
+                                </Grid>
                             </Border>
                             <Border BorderBrush="{DynamicResource WindowBorderActive}" BorderThickness="1" Visibility="{Binding IsActive, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         </Grid>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechniciseShabdoKhojModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TechniciseShabdoKhojEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_File_Tags" EntityType="TechniciseShabdoKhojModel.T_File_Tags" />
+    <EntitySet Name="T_File_Twt" EntityType="TechniciseShabdoKhojModel.T_File_Twt" />
+    <EntitySet Name="T_Indexing_Queue" EntityType="TechniciseShabdoKhojModel.T_Indexing_Queue" />
+  </EntityContainer>
+  <EntityType Name="T_File_Tags">
+    <Key>
+      <PropertyRef Name="file_id_fk" />
+    </Key>
+    <Property Name="file_id_fk" Type="Guid" Nullable="false" />
+    <Property Name="tag" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="end_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_File_Twt">
+    <Key>
+      <PropertyRef Name="file_id_fk" />
+    </Key>
+    <Property Name="file_id_fk" Type="Guid" Nullable="false" />
+    <Property Name="file_twt" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Indexing_Queue">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Guid" Nullable="false" />
+    <Property Name="file_name" Type="String" Nullable="false" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="file_path" Type="String" Nullable="false" MaxLength="512" FixedLength="true" Unicode="true" />
+    <Property Name="index_status" Type="Int32" />
+    <Property Name="time_added" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

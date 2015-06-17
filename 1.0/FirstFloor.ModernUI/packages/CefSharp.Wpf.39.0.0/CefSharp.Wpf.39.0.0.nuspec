@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CefSharp.Wpf</id>
+    <version>39.0.0</version>
+    <authors>The CefSharp Authors</authors>
+    <owners>The CefSharp Authors</owners>
+    <licenseUrl>https://raw.github.com/cefsharp/CefSharp/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/cefsharp/cefsharp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The CefSharp Chromium-based browser component (WPF control).</description>
+    <copyright>Copyright © 2010-2014 The CefSharp Authors</copyright>
+    <tags>wpf chrome browser</tags>
+    <dependencies>
+      <dependency id="CefSharp.Common" version="[39.0.0]" />
+    </dependencies>
+  </metadata>
+</package>

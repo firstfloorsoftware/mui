@@ -1,0 +1,8 @@
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\bin\x64\Debug\ignor.txt
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\bin\x64\Debug\mergeOCR.pl
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\bin\x64\Debug\ShabdoKhojIndexingLib.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\bin\x64\Debug\ShabdoKhojIndexingLib.pdb
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\obj\x64\Debug\ShabdoKhojIndexingLib.dll
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\obj\x64\Debug\ShabdoKhojIndexingLib.pdb
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\bin\x64\Debug\generateFilePlayer.pl
+D:\ChandraPersonal\Mtech\shabdokhoj\gui\mui-desktop\1.0\FirstFloor.ModernUI\ShabdoKhojIndexingLib\obj\x64\Debug\ShabdoKhojIndexingLib.csprojResolveAssemblyReference.cache
