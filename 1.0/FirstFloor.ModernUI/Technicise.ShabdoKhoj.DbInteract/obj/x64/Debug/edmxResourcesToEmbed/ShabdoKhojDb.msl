@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TechniciseShabdoKhojModelStoreContainer" CdmEntityContainer="TechniciseShabdoKhojEntities">
+    <EntitySetMapping Name="T_File_Tags">
+      <EntityTypeMapping TypeName="TechniciseShabdoKhojModel.T_File_Tags">
+        <MappingFragment StoreEntitySet="T_File_Tags">
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="file_id_fk" ColumnName="file_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_File_Twt">
+      <EntityTypeMapping TypeName="TechniciseShabdoKhojModel.T_File_Twt">
+        <MappingFragment StoreEntitySet="T_File_Twt">
+          <ScalarProperty Name="file_twt" ColumnName="file_twt" />
+          <ScalarProperty Name="file_id_fk" ColumnName="file_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Indexing_Queue">
+      <EntityTypeMapping TypeName="TechniciseShabdoKhojModel.T_Indexing_Queue">
+        <MappingFragment StoreEntitySet="T_Indexing_Queue">
+          <ScalarProperty Name="time_added" ColumnName="time_added" />
+          <ScalarProperty Name="index_status" ColumnName="index_status" />
+          <ScalarProperty Name="file_path" ColumnName="file_path" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

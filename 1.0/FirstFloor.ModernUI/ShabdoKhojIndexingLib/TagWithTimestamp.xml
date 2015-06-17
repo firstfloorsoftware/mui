@@ -1,0 +1,37 @@
+
+<avir>
+	<twts>
+		<twt>
+			<start>00:04.500</start>
+			<end>00:04.900</end>
+			<tags>animal,wild,forest</tags>
+		</twt>
+		<twt>
+			<start>00:05.100</start>
+			<end>00:05.500</end>
+			<tags>mammal,green,Bird</tags>
+		</twt>
+		<twt>
+			<start>00:06.500</start>
+			<end>00:08.700</end>
+			<tags>India</tags>
+		</twt>		
+	</twts>
+	<gts>
+		<gt>
+			<tag>bird</tag>
+			<occurance>51</occurance>
+		</gt>
+		<gt>
+			<tag>animal</tag>
+			<occurance>30</occurance>
+		</gt>		
+	</gts>
+	<speaker/>
+	<lang/>
+	<acoustic/>
+	<location/>
+	<bg/>
+	<noise/>
+	<device/>
+</avir>

@@ -9,10 +9,12 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel >
-                <TextBlock Text="MODERN UI FOR WPF" Style="{StaticResource Heading1}" Margin="0,0,0,8"/>
-                <mui:BBCodeBlock BBCode="[b]Modern UI for WPF[/b], a set of controls and styles converting your WPF application into a great looking Modern UI app.&#13;&#10;&#13;&#10;This open source project is a spin-off of [url=http://xamlspy.com]XAML Spy[/url], the visual runtime inspector for Silverlight, Windows Phone, Windows Store and WPF.&#13;&#10;&#13;&#10;See the [url=https://github.com/firstfloorsoftware/mui/wiki]online documentation[/url] to learn more about how to incorporate [b]Modern UI for WPF[/b] into your applications." Margin="0,0,0,32" />
-                <TextBlock Text="APPEARANCE" Style="{StaticResource Heading2}" />
-                <mui:BBCodeBlock BBCode="The appearance of Modern UI styled windows can be changed on the fly. Make sure you visit the [url=/Pages/Settings.xaml]settings[/url] to adapt the appearance to your preference." Margin="0,0,0,32"/>
+                <TextBlock Text="ShabdoKhoj - Audio/Video Indexing &amp; Retrieval" Style="{StaticResource Heading1}" Margin="0,0,0,8"/>
+                <mui:BBCodeBlock BBCode="[b]ShabdoKhoj [/b] is an audio, video [b]indexing technique[/b] which incorporates unique &amp; searchable index keys for each audio, video file along with the manually entered metadata.  Index keys will be determined from various aspects of the input file and most relevant tags will be chosen to index the file.." Margin="0,0,0,32" />
+                <mui:BBCodeBlock BBCode="It provides a suitable [b]retrieval technique[/b] of the exact video/audio content with respect to specific Tag with Timestamp." Margin="0,0,0,32" />
+                <mui:BBCodeBlock BBCode="It enables indexing &amp; retrieving of existing videos/audios available in the web by offering a platform that can co-exist &amp; support existing ones.." Margin="0,0,0,32" />
+                <TextBlock Text="Add Files to Indexing Queue" Style="{StaticResource Heading2}" />
+                <Button Content="Browse File" Width="200" Name="addFilesToIndexingQueue" Margin="20" HorizontalAlignment="Left" Click="addFilesToIndexingQueue_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

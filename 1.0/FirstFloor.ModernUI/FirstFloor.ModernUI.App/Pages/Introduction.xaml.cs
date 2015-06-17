@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Technicise.ShabdoKhoj.DbInteract;
 
 namespace FirstFloor.ModernUI.App.Pages
 {
@@ -23,6 +24,35 @@ namespace FirstFloor.ModernUI.App.Pages
         public Introduction()
         {
             InitializeComponent();
+        }
+
+        private void addFilesToIndexingQueue_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = "*.*";
+            dlg.Filter = "All Files (*.*)|*.*|MP4 Files (*.mp4)|*.mp4|MOV Files (*.mov)|*.mov|WMV Files (*.wmv)|*.wmv|JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                //MessageBox.Show(filename);
+               string returnMsg = DbHelper.AddFileInIndexQueue(filename, filename);
+
+               if (returnMsg != null)
+                   MessageBox.Show(returnMsg);
+            }
         }
     }
 }

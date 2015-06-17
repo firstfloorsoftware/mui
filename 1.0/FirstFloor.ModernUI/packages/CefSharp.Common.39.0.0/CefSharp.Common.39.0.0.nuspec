@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CefSharp.Common</id>
+    <version>39.0.0</version>
+    <authors>The CefSharp Authors</authors>
+    <owners>The CefSharp Authors</owners>
+    <licenseUrl>https://raw.github.com/cefsharp/CefSharp/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/cefsharp/CefSharp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The CefSharp Chromium-based browser component ('Core' and common 'Element' components, needed by both WPF and WinForms).</description>
+    <copyright>Copyright © 2010-2014 The CefSharp Authors</copyright>
+    <tags>chrome browser</tags>
+    <dependencies>
+      <dependency id="cef.redist.x86" version="[3.2171.2069]" />
+      <dependency id="cef.redist.x64" version="[3.2171.2069]" />
+    </dependencies>
+  </metadata>
+</package>

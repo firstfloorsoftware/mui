@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>cef.redist.x64</id>
+    <version>3.2171.2069</version>
+    <authors>The Chromium Embedded Framework Authors</authors>
+    <owners>The Chromium Embedded Framework Authors</owners>
+    <licenseUrl>https://raw.github.com/cefsharp/cef-binary/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/cefsharp/cef-binary</projectUrl>
+    <iconUrl>https://raw.github.com/cefsharp/cef-binary/master/NuGet/cef128x128.gif</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>CEF - the Chromium Embedded Framework.
+    NOTE: This package is maintained on behalf of the CEF authors by the CefSharp project at http://github.com/cefsharp/cef-binary</description>
+    <copyright>Copyright © 2008-2015</copyright>
+    <tags>chrome chromium native embedded browser CEF nativepackage</tags>
+  </metadata>
+</package>
