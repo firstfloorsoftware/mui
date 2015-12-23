@@ -49,7 +49,9 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Gender" Target="{Binding ElementName=RadioGendeMale}"/>
-                    <RadioButton x:Name="RadioGendeMale" Content="Male" />
+                    <RadioButton x:Name="RadioGendeMale">
+                        <TextBlock>Male</TextBlock>
+                    </RadioButton>
                     <RadioButton Content="Female" Margin="8,0,0,0" />
                 </StackPanel>
                 <StackPanel>
@@ -125,7 +127,9 @@
                 </StackPanel>
                 <StackPanel >
                     <Label />
-                    <CheckBox Content="I agree to the terms of use" />
+                    <CheckBox>
+                        <TextBlock FontWeight="Bold">I agree to the terms of use</TextBlock>
+                    </CheckBox>
                 </StackPanel>
 
                 <Button Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left" />
