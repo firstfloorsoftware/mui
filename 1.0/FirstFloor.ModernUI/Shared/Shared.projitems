@@ -145,6 +145,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\ModernToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\TransitioningContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +199,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernProgressRing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernTab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernToggleButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\ModernWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\RelativeAnimatingContentControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Controls\SourceEventArgs.cs" />

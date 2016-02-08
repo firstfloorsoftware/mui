@@ -6,6 +6,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/BBCodeBlock.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernButton.xaml" />
+        <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernToggleButton.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernDialog.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernFrame.xaml" />
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Themes/ModernMenu.xaml" />
