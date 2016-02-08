@@ -13,7 +13,7 @@ using System.Windows.Media;
 [assembly: AssemblyConfiguration("retail")]
 [assembly: AssemblyCompany("First Floor Software")]
 [assembly: AssemblyProduct("ModernUI demo")]
-[assembly: AssemblyCopyright("Copyright © First Floor Software 2013, 2014")]
+[assembly: AssemblyCopyright("Copyright © First Floor Software 2013-2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

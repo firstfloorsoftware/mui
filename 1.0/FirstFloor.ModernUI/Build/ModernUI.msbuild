@@ -11,13 +11,19 @@
     <Platform>Any CPU</Platform>
 
     <MSBuildExtensions>$(BinariesDir)\MSBuild.Community.Tasks.dll</MSBuildExtensions>
-    <NuGetApp>$(BinariesDir)\NuGet.exe</NuGetApp>
-    <SignVsixApp>$(BinariesDir)\signvsix.exe</SignVsixApp>
+    <NuGetApp>NuGet.exe</NuGetApp>
     
     <NuSpecFile>$(MSBuildProjectDirectory)\ModernUI.WPF.nuspec</NuSpecFile>
     <SolutionFile>$(BaseDir)\FirstFloor.ModernUI.sln</SolutionFile>
     <VsixSolutionFile>$(TemplatesDir)\ModernUI.Templates.sln</VsixSolutionFile>
     <VsixManifestFile>$(TemplatesDir)\ModernUI.Templates\source.extension.vsixmanifest</VsixManifestFile>
+    <VsixOutputFile>$(TemplatesDir)\ModernUI.Templates\bin\Release\ModernUI.Templates.vsix</VsixOutputFile>
+
+    <!-- signing variables (private) -->
+    <CertificateFilePath></CertificateFilePath>
+    <CertificatePassword></CertificatePassword>
+    <CertificateSha1></CertificateSha1>
+    <VsixSignToolPath></VsixSignToolPath>
   </PropertyGroup>
   
   <UsingTask AssemblyFile="$(MSBuildExtensions)" TaskName="MSBuild.Community.Tasks.XmlUpdate" />
@@ -31,7 +37,59 @@
   </Target>
 
   <Target Name="Compile">
-     <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+    <!-- enable signing -->
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:SignAssembly"
+      Value="true" />
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:AssemblyOriginatorKeyFile"
+      Value="$(CertificateFilePath)" />
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:SignAssembly"
+      Value="true" />
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:AssemblyOriginatorKeyFile"
+      Value="$(CertificateFilePath)" />
+    
+    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+
+    <!-- disable signing -->
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:SignAssembly"
+      Value="false" />
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:AssemblyOriginatorKeyFile"
+      Value="" />
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:SignAssembly"
+      Value="false" />
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+      Prefix="ms"
+      XmlFileName="$(BaseDir)\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj"
+      XPath="/ms:Project/ms:PropertyGroup/ms:AssemblyOriginatorKeyFile"
+      Value="" />
   </Target>
   
   <Target Name="CopyOutput">
@@ -143,8 +201,11 @@
     <!-- compile template solution -->
     <MSBuild Projects="$(VsixSolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
 
+    <!-- sign vsix -->
+    <Exec Command='"$(VsixSignToolPath)" sign /f "$(CertificateFilePath)" /p $(CertificatePassword) /fd SHA1 /sha1 $(CertificateSha1) "$(VsixOutputFile)"' />
+    
     <!-- copy vsix to output folder-->
-    <Copy SourceFiles="$(TemplatesDir)\ModernUI.Templates\bin\Release\ModernUI.Templates.vsix" DestinationFolder="$(OutputDir)" />
+    <Copy SourceFiles="$(VsixOutputFile)" DestinationFolder="$(OutputDir)" />
 
   </Target>
 </Project>
