@@ -118,5 +118,17 @@
     <SolidColorBrush x:Key="WindowText" Color="#333333" />
     <SolidColorBrush x:Key="WindowTextReadOnly" Color="#919191" />
 
+    <SolidColorBrush x:Key="CloseButtonBackground" Color="{StaticResource WindowBackgroundColor}"  Opacity="0" />
+    <SolidColorBrush x:Key="CloseButtonBackgroundOnMoseOver" Color="#dddddd" />
+    <SolidColorBrush x:Key="CloseButtonForegroundOnMoseOver" Color="#333333" />
+    <SolidColorBrush x:Key="CloseButtonBackgroundIsPressed" Color="#e51400" />
+    <SolidColorBrush x:Key="CloseButtonForegroundIsPressed" Color="White" />
+
+    <SolidColorBrush x:Key="SystemButtonBackground" Color="{StaticResource WindowBackgroundColor}"  Opacity="0" />
+    <SolidColorBrush x:Key="SystemButtonBackgroundOnMoseOver" Color="#dddddd" />
+    <SolidColorBrush x:Key="SystemButtonForegroundOnMoseOver" Color="#333333" />
+    <SolidColorBrush x:Key="SystemButtonBackgroundIsPressed" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="SystemButtonForegroundIsPressed" Color="#919191" />
+
     <Rectangle x:Key="WindowBackgroundContent" x:Shared="false" Height="96" Fill="{StaticResource WindowHeaderGradient}" VerticalAlignment="Top"/>
 </ResourceDictionary>

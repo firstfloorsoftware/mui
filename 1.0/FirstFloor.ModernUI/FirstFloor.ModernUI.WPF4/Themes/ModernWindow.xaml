@@ -42,7 +42,7 @@
                             <AdornerDecorator>
                                 <Grid x:Name="LayoutRoot">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="36" />
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
@@ -56,7 +56,7 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="96" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
 
                                         <!-- title -->
