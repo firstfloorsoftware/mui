@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.Templates", "ModernUI.Templates\ModernUI.Templates.csproj", "{4756B8AA-6CB0-4121-9E89-9A46ABFCFD9B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.App", "ModernUI.App\ModernUI.App.csproj", "{D5E3C846-3416-4A6D-9ED9-B5C545589566}"
@@ -22,42 +24,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI.ModernDialog", "ModernUI.ModernDialog\ModernUI.ModernDialog.csproj", "{D1EACEAA-CB0D-4DB8-8370-20267435B213}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs02
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ModernUI.App\\ModernUI.App.csproj
-		SccProjectName1 = ModernUI.App
-		SccLocalPath1 = ModernUI.App
-		SccProjectUniqueName2 = ModernUI.BasicPage\\ModernUI.BasicPage.csproj
-		SccProjectName2 = ModernUI.BasicPage
-		SccLocalPath2 = ModernUI.BasicPage
-		SccProjectUniqueName3 = ModernUI.ListPage\\ModernUI.ListPage.csproj
-		SccProjectName3 = ModernUI.ListPage
-		SccLocalPath3 = ModernUI.ListPage
-		SccProjectUniqueName4 = ModernUI.SplitPage\\ModernUI.SplitPage.csproj
-		SccProjectName4 = ModernUI.SplitPage
-		SccLocalPath4 = ModernUI.SplitPage
-		SccProjectUniqueName5 = ModernUI.TabPage\\ModernUI.TabPage.csproj
-		SccProjectName5 = ModernUI.TabPage
-		SccLocalPath5 = ModernUI.TabPage
-		SccProjectUniqueName6 = ModernUI.Templates\\ModernUI.Templates.csproj
-		SccProjectName6 = ModernUI.Templates
-		SccLocalPath6 = ModernUI.Templates
-		SccProjectUniqueName7 = ModernUI.Theme\\ModernUI.Theme.csproj
-		SccProjectName7 = ModernUI.Theme
-		SccLocalPath7 = ModernUI.Theme
-		SccProjectUniqueName8 = ModernUI.NavigationApp\\ModernUI.NavigationApp.csproj
-		SccProjectName8 = ModernUI.NavigationApp
-		SccLocalPath8 = ModernUI.NavigationApp
-		SccProjectUniqueName9 = ModernUI.ModernWindow\\ModernUI.ModernWindow.csproj
-		SccProjectName9 = ModernUI.ModernWindow
-		SccLocalPath9 = ModernUI.ModernWindow
-		SccProjectUniqueName10 = ModernUI.ModernDialog\\ModernUI.ModernDialog.csproj
-		SccProjectName10 = ModernUI.ModernDialog
-		SccLocalPath10 = ModernUI.ModernDialog
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
