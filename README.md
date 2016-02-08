@@ -27,6 +27,7 @@ See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshot
   * ModernMenu
   * ModernProgressRing (with 8 built-in styles)
   * ModernTab
+  * ModernToggleButton
   * ModernWindow
   * RelativeAnimatingContentControl
   * TransitioningContentControl
@@ -39,7 +40,7 @@ See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshot
   * ILinkNavigator and IContentLoader interfaces for maximum flexibility
   * Content loader exception templates in ModernFrame
 * Project and item templates
-  * Visual Studio 2012 and 2013 project and item templates for creating ModernUI apps as fast and smooth as possible
+  * Visual Studio 2012, 2013 and 2015 project and item templates for creating ModernUI apps as fast and smooth as possible
   * Read more and download the extension containing the templates from the [Visual Studio Gallery](http://visualstudiogallery.msdn.microsoft.com/7a4362a7-fe5d-4f9d-bc7b-0c0dc272fe31)
 
 ## Acknowledgements
