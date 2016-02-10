@@ -36,8 +36,7 @@
     <RemoveDir Directories="$(OutputDir)" />
   </Target>
 
-  <Target Name="Compile">
-    <!-- enable signing -->
+  <Target Name="EnableSignAssembly" Condition="$(CertificateFilePath) != ''">
     <XmlUpdate
       Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
       Prefix="ms"
@@ -62,16 +61,15 @@
       XmlFileName="$(BaseDir)\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj"
       XPath="/ms:Project/ms:PropertyGroup/ms:AssemblyOriginatorKeyFile"
       Value="$(CertificateFilePath)" />
-    
-    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+  </Target>
 
-    <!-- disable signing -->
+  <Target Name="DisableSignAssembly" Condition="$(CertificateFilePath) != ''">
     <XmlUpdate
-      Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
-      Prefix="ms"
-      XmlFileName="$(BaseDir)\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj"
-      XPath="/ms:Project/ms:PropertyGroup/ms:SignAssembly"
-      Value="false" />
+          Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+          Prefix="ms"
+          XmlFileName="$(BaseDir)\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj"
+          XPath="/ms:Project/ms:PropertyGroup/ms:SignAssembly"
+          Value="false" />
     <XmlUpdate
       Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
       Prefix="ms"
@@ -92,7 +90,11 @@
       Value="" />
   </Target>
   
-  <Target Name="CopyOutput">
+  <Target Name="Compile" DependsOnTargets="EnableSignAssembly">
+    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+  </Target>
+  
+  <Target Name="CopyOutput" DependsOnTargets="DisableSignAssembly">
     <!-- copy output to temp dir -->
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\FirstFloor.ModernUI.dll" DestinationFolder="$(TempDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\FirstFloor.ModernUI.xml" DestinationFolder="$(TempDir)" />
@@ -201,8 +203,8 @@
     <!-- compile template solution -->
     <MSBuild Projects="$(VsixSolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform)" />
 
-    <!-- sign vsix -->
-    <Exec Command='"$(VsixSignToolPath)" sign /f "$(CertificateFilePath)" /p $(CertificatePassword) /fd SHA1 /sha1 $(CertificateSha1) "$(VsixOutputFile)"' />
+    <!-- sign vsix (optional) -->
+    <Exec Command='"$(VsixSignToolPath)" sign /f "$(CertificateFilePath)" /p $(CertificatePassword) /fd SHA1 /sha1 $(CertificateSha1) "$(VsixOutputFile)"' Condition="$(CertificateFilePath) != ''" />
     
     <!-- copy vsix to output folder-->
     <Copy SourceFiles="$(VsixOutputFile)" DestinationFolder="$(OutputDir)" />
