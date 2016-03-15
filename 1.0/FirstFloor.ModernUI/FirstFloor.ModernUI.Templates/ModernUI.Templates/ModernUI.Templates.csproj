@@ -63,7 +63,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\ModernUI.WPF.1.0.8.nupkg">
+    <Content Include="Packages\ModernUI.WPF.1.0.9.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">
