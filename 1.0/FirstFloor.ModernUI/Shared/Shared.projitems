@@ -230,12 +230,21 @@
 		<DesignTime>True</DesignTime>
 		<AutoGen>True</AutoGen>
 	</Compile>
+	<Compile Include="$(MSBuildThisFileDirectory)Resources.ru.Designer.cs">
+		<DependentUpon>Resources.ru.resx</DependentUpon>
+		<DesignTime>True</DesignTime>
+		<AutoGen>True</AutoGen>
+	</Compile>    
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.pl.resx">
       <LastGenOutput>Resources.pl.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.ru.resx">
+      <LastGenOutput>Resources.ru.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>    
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.resx">
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
