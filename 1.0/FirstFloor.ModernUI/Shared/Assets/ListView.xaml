@@ -165,6 +165,7 @@
                                       Content="{TemplateBinding ContentControl.Content}"
                                       Visibility="Collapsed"
                                       ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+									  ContentTemplateSelector="{TemplateBinding ContentControl.ContentTemplateSelector}"
                                       ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
                                       HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
