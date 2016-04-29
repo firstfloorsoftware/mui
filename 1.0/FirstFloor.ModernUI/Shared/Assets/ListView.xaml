@@ -162,14 +162,14 @@
                         <!-- This is used for ListView that does not use GridView -->
                         <ContentPresenter x:Name="contentPresenter"
                                           Margin="{TemplateBinding Padding}"
-                                      Content="{TemplateBinding ContentControl.Content}"
-                                      Visibility="Collapsed"
-                                      ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
-									  ContentTemplateSelector="{TemplateBinding ContentControl.ContentTemplateSelector}"
-                                      ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
-                                      HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
-                                      SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"/>
+                                          Content="{TemplateBinding ContentControl.Content}"
+                                          Visibility="Collapsed"
+                                          ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ContentControl.ContentTemplateSelector}"
+                                          ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                          HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="GridView.ColumnCollection" Value="{x:Null}">
