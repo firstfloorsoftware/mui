@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back" xml:space="preserve">
-    <value>wróć</value>
+    <value>Wróć</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>anuluj</value>
+    <value>Anuluj</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>zamknij</value>
+    <value>Zamknij</value>
   </data>
   <data name="Maximize" xml:space="preserve">
-    <value>powiększ</value>
+    <value>Powiększ</value>
   </data>
   <data name="Minimize" xml:space="preserve">
-    <value>zmniejsz</value>
+    <value>Zmniejsz</value>
   </data>
   <data name="NavigateLink" xml:space="preserve">
     <value>Link nawigacyjny</value>
@@ -145,10 +145,10 @@
     <value>Nie mogę przenieść się do {0}, nie padło źródło!</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>nie</value>
+    <value>Nie</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>ok</value>
+    <value>OK</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Przywróć</value>
@@ -166,6 +166,6 @@
     <value>Nieznany typ tokena</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>tak</value>
+    <value>Tak</value>
   </data>
 </root>
