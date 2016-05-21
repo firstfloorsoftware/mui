@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back" xml:space="preserve">
-    <value>назад</value>
+    <value>Назад</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>отмена</value>
+    <value>Отмена</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>закрыть</value>
+    <value>Закрыть</value>
   </data>
   <data name="Maximize" xml:space="preserve">
-    <value>развернуть</value>
+    <value>Развернуть</value>
   </data>
   <data name="Minimize" xml:space="preserve">
-    <value>свернуть</value>
+    <value>Свернуть</value>
   </data>
   <data name="NavigateLink" xml:space="preserve">
     <value>Навигационная ссылка</value>
@@ -145,13 +145,13 @@
     <value>Невозможно перейти к {0}, источник не указан</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>нет</value>
+    <value>Нет</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>ok</value>
+    <value>ОК</value>
   </data>
   <data name="Restore" xml:space="preserve">
-    <value>восстановить</value>
+    <value>Восстановить</value>
   </data>
   <data name="UIThreadRequired" xml:space="preserve">
     <value>Операция требует выполнения в потоке интерфейса пользователя</value>
@@ -166,6 +166,6 @@
     <value>Неизвестный тип токена</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>да</value>
+    <value>Да</value>
   </data>
 </root>

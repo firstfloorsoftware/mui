@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back" xml:space="preserve">
-    <value>back</value>
+    <value>Back</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>cancel</value>
+    <value>Cancel</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>close</value>
+    <value>Close</value>
   </data>
   <data name="Maximize" xml:space="preserve">
-    <value>maximize</value>
+    <value>Maximize</value>
   </data>
   <data name="Minimize" xml:space="preserve">
-    <value>minimize</value>
+    <value>Minimize</value>
   </data>
   <data name="NavigateLink" xml:space="preserve">
     <value>Navigate link</value>
@@ -145,13 +145,13 @@
     <value>Unable to navigate to {0}, no source specified</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>no</value>
+    <value>No</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>ok</value>
+    <value>OK</value>
   </data>
   <data name="Restore" xml:space="preserve">
-    <value>restore</value>
+    <value>Restore</value>
   </data>
   <data name="UIThreadRequired" xml:space="preserve">
     <value>Operation requires the UI thread</value>
@@ -166,6 +166,6 @@
     <value>Unknown token type</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>yes</value>
+    <value>Yes</value>
   </data>
 </root>
