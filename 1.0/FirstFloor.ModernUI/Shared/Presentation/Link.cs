@@ -1,33 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 
 namespace FirstFloor.ModernUI.Presentation
 {
     /// <summary>
-    /// Represents a displayable link.
+    ///     Represents a displayable link.
     /// </summary>
     public class Link
         : Displayable
     {
-        private Uri source;
+        /// <summary>
+        ///     DependencyProperty for Source to be able to bind the value
+        /// </summary>
+        public static readonly DependencyProperty SourceProperty = DependencyProperty.Register("Source", typeof(Uri), typeof(Link), new PropertyMetadata(null));
 
         /// <summary>
-        /// Gets or sets the source uri.
+        ///     Gets or sets the source uri.
         /// </summary>
         /// <value>The source.</value>
         public Uri Source
         {
-            get { return this.source; }
-            set
-            {
-                if (this.source != value) {
-                    this.source = value;
-                    OnPropertyChanged("Source");
-                }
-            }
+            get { return (Uri) GetValue(SourceProperty); }
+            set { SetValue(SourceProperty, value); }
         }
     }
 }
