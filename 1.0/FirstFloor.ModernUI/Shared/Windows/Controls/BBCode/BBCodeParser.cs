@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
@@ -24,6 +24,8 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
         private const string TagSize = "size";
         private const string TagUnderline = "u";
         private const string TagUrl = "url";
+        private const string TagList = "list";
+        private const string TagListItem = "*";
 
         class ParseContext
         {
@@ -38,6 +40,8 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
             public Brush Foreground { get; set; }
             public TextDecorationCollection TextDecorations { get; set; }
             public string NavigateUri { get; set; }
+            public bool IsList { get; set; }
+            public bool IsListItem { get; set; }
 
             /// <summary>
             /// Creates a run reflecting the current context settings.
@@ -143,6 +147,15 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                     context.NavigateUri = null;
                 }
             }
+            else if (tag == TagList) {
+                context.IsList = start;
+                if (!start) {
+                    context.IsListItem = false;
+                }
+            }
+            else if (tag == TagListItem) {
+                context.IsListItem = true;
+            }
         }
 
         private void Parse(Span span)
@@ -184,6 +197,20 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                         }
                         parent = link;
                         span.Inlines.Add(parent);
+                    }
+                    
+                    var text = token.Value;
+                    if (context.IsList && context.IsListItem)
+                    {
+                        text = "\u25CF" + "text";
+                    }
+                    
+                    var run = context.CreateRun(text);
+                    parent.Inlines.Add(run);
+                    
+                    if (context.IsList)
+                    {
+                        parent.Inlines.Add(new LineBreak());
                     }
                     var run = context.CreateRun(token.Value);
                     parent.Inlines.Add(run);
