@@ -95,13 +95,19 @@
   </Target>
   
   <Target Name="CopyOutput" DependsOnTargets="DisableSignAssembly">
+   <ItemGroup>
+        <Resources Include="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\**\FirstFloor.ModernUI.resources.dll" />
+        <Resources4 Include="$(BaseDir)\FirstFloor.ModernUI.WPF4\Bin\Release\**\FirstFloor.ModernUI.resources.dll" />
+    </ItemGroup>
     <!-- copy output to temp dir -->
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\FirstFloor.ModernUI.dll" DestinationFolder="$(TempDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI\Bin\Release\FirstFloor.ModernUI.xml" DestinationFolder="$(TempDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.App\Bin\Release\ModernUIDemo.exe" DestinationFolder="$(TempDir)" />
+	<Copy SourceFiles="@(Resources)" DestinationFolder="$(TempDir)\%(RecursiveDir)" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.WPF4\Bin\Release\FirstFloor.ModernUI.dll" DestinationFolder="$(TempDir)\net40" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.WPF4\Bin\Release\FirstFloor.ModernUI.xml" DestinationFolder="$(TempDir)\net40" />
     <Copy SourceFiles="$(BaseDir)\FirstFloor.ModernUI.WPF4\Bin\Release\Microsoft.Windows.Shell.dll" DestinationFolder="$(TempDir)\net40" />
+	<Copy SourceFiles="@(Resources4)" DestinationFolder="$(TempDir)\net40\%(RecursiveDir)" />
     
     <!-- include license files -->
     <Copy SourceFiles="$(BaseDir)\License.Icons.txt" DestinationFolder="$(TempDir)\License" />
