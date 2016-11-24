@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FirstFloor.ModernUI.Presentation
 {
@@ -12,9 +13,13 @@ namespace FirstFloor.ModernUI.Presentation
     public class LinkGroup
         : Displayable
     {
-        private string groupKey;
-        private Link selectedLink;
         private LinkCollection links = new LinkCollection();
+
+        /// <summary>
+        /// The group key property
+        /// </summary>
+        public static readonly DependencyProperty GroupKeyProperty = DependencyProperty.Register(
+            "GroupKey", typeof (string), typeof (LinkGroup), new PropertyMetadata(default(string)));
 
         /// <summary>
         /// Gets or sets the key of the group.
@@ -25,15 +30,15 @@ namespace FirstFloor.ModernUI.Presentation
         /// </remarks>
         public string GroupKey
         {
-            get { return this.groupKey; }
-            set
-            {
-                if (this.groupKey != value) {
-                    this.groupKey = value;
-                    OnPropertyChanged("GroupKey");
-                }
-            }
+            get { return (string) GetValue(GroupKeyProperty); }
+            set { SetValue(GroupKeyProperty, value); }
         }
+
+        /// <summary>
+        /// The selected link property
+        /// </summary>
+        public static readonly DependencyProperty SelectedLinkProperty = DependencyProperty.Register(
+            "SelectedLink", typeof (Link), typeof (LinkGroup), new PropertyMetadata(default(Link)));
 
         /// <summary>
         /// Gets or sets the selected link in this group.
@@ -41,14 +46,8 @@ namespace FirstFloor.ModernUI.Presentation
         /// <value>The selected link.</value>
         internal Link SelectedLink
         {
-            get { return this.selectedLink; }
-            set
-            {
-                if (this.selectedLink != value) {
-                    this.selectedLink = value;
-                    OnPropertyChanged("SelectedLink");
-                }
-            }
+            get { return (Link) GetValue(SelectedLinkProperty); }
+            set { SetValue(SelectedLinkProperty, value); }
         }
 
         /// <summary>
