@@ -164,7 +164,7 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
 
             if (State == StateNormal) {
                 if (LA(1) == '[') {
-                    if (LA(2) == '*') {
+                    if (LA(2) == '\\') {
                         return EscapedTag();
                     }
                     if (LA(2) == '/') {
