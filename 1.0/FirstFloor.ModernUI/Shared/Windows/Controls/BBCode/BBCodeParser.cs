@@ -24,6 +24,8 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
         private const string TagSize = "size";
         private const string TagUnderline = "u";
         private const string TagUrl = "url";
+        private const string TagStrikethrough = "s";
+        private const string TagQuote = "quote";
 
         class ParseContext
         {
@@ -36,6 +38,7 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
             public FontWeight? FontWeight { get; set; }
             public FontStyle? FontStyle { get; set; }
             public Brush Foreground { get; set; }
+            public Brush Background { get; set; }
             public TextDecorationCollection TextDecorations { get; set; }
             public string NavigateUri { get; set; }
 
@@ -58,6 +61,10 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 if (this.Foreground != null) {
                     run.Foreground = this.Foreground;
                 }
+                if (this.Background != null)
+                {
+                    run.Background = this.Background;
+                }
                 run.TextDecorations = this.TextDecorations;
 
                 return run;
@@ -65,19 +72,22 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
         }
 
         private FrameworkElement source;
+        private Brush quoteBrush;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BBCodeParser"/> class.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="source">The framework source element this parser operates in.</param>
-        public BBCodeParser(string value, FrameworkElement source)
+        /// <param name="quoteBrush">The Brush used for quoting</param>
+        public BBCodeParser(string value, FrameworkElement source, Brush quoteBrush = null)
             : base(new BBCodeLexer(value))
         {
             if (source == null) {
                 throw new ArgumentNullException("source");
             }
             this.source = source;
+            this.quoteBrush = quoteBrush;
         }
 
         /// <summary>
@@ -131,6 +141,10 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
             else if (tag == TagUnderline) {
                 context.TextDecorations = start ? TextDecorations.Underline : null;
             }
+            else if (tag == TagStrikethrough)
+            {
+                context.TextDecorations = start ? TextDecorations.Strikethrough : null;
+            }
             else if (tag == TagUrl) {
                 if (start) {
                     Token token = LA(1);
@@ -143,12 +157,23 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                     context.NavigateUri = null;
                 }
             }
+            else if (tag == TagQuote)
+            {
+                if (start)
+                {
+                    context.Background = quoteBrush;
+                }
+                else
+                {
+                    context.Background = null;
+                }
+            }
         }
 
         private void Parse(Span span)
         {
             var context = new ParseContext(span);
-
+            
             while (true) {
                 Token token = LA(1);
                 Consume();
@@ -183,6 +208,9 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                             link.TargetName = parameter;
                         }
                         parent = link;
+                        if (context.Foreground != null) {
+                            link.Foreground = context.Foreground;
+                        }
                         span.Inlines.Add(parent);
                     }
                     var run = context.CreateRun(token.Value);
