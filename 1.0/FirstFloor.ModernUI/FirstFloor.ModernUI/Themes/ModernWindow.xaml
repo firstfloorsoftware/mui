@@ -59,9 +59,40 @@
                                         </Grid.ColumnDefinitions>
 
                                         <!-- title -->
-                                        <TextBlock Text="{TemplateBinding Title}" Margin="8,0" VerticalAlignment="Center" Style="{StaticResource ModernWindowTitle}"
-                                                   DataContext="{TemplateBinding IsTitleVisible}"
-                                                   Visibility="{Binding Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                        <controls:BBCodeBlock BBCode="{TemplateBinding BBCodeTitle}" Margin="8,0" VerticalAlignment="Center">
+                                            <controls:BBCodeBlock.Style>
+                                                <Style TargetType="{x:Type controls:BBCodeBlock}">
+                                                    <Setter Property="TextWrapping" Value="NoWrap"></Setter>
+                                                    <Setter Property="Visibility" Value="{Binding IsTitleVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" ></Setter>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding BBCodeTitle, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                            <DataTrigger.Setters>
+                                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                            </DataTrigger.Setters>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </controls:BBCodeBlock.Style>
+                                        </controls:BBCodeBlock>
+
+                                        <TextBlock Grid.Column="0" Text="{TemplateBinding Title}" Margin="8,0" VerticalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ModernWindowTitle}">
+                                                    <Setter Property="Visibility" Value="Collapsed" ></Setter>
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsTitleVisible, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                                <Condition Binding="{Binding BBCodeTitle, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <MultiDataTrigger.Setters>
+                                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                                            </MultiDataTrigger.Setters>
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
 
                                         <!-- title links -->
                                         <ItemsControl Grid.Column="1" ItemsSource="{TemplateBinding TitleLinks}" Margin="0,0,24,0" WindowChrome.IsHitTestVisibleInChrome="True">

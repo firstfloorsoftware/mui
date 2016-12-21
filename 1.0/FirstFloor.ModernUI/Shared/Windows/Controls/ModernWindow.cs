@@ -53,6 +53,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static DependencyProperty LinkNavigatorProperty = DependencyProperty.Register("LinkNavigator", typeof(ILinkNavigator), typeof(ModernWindow), new PropertyMetadata(new DefaultLinkNavigator()));
 
+        /// <summary>
+        /// Identifies the BBCodeTitle dependency property.
+        /// </summary>
+        public static DependencyProperty BBCodeTitleProperty = DependencyProperty.Register("BBCodeTitle", typeof(string), typeof(ModernWindow), new PropertyMetadata(null));
+
         private Storyboard backgroundAnimation;
 
         /// <summary>
@@ -274,6 +279,16 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             get { return (ILinkNavigator)GetValue(LinkNavigatorProperty); }
             set { SetValue(LinkNavigatorProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the BBCode Title.
+        /// </summary>
+        /// <value>The link navigator.</value>
+        public string BBCodeTitle
+        {
+            get { return (string)GetValue(BBCodeTitleProperty); }
+            set { SetValue(BBCodeTitleProperty, value); }
         }
     }
 }
