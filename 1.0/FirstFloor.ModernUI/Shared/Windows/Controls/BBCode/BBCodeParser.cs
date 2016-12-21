@@ -250,15 +250,9 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                         span.Inlines.Add(parent);
                     }
 
-                    if (/*(context.IsList || context.IsOrderedList) &&*/ context.IsListItem) {
-                        
-                            parent.Inlines.Add(context.CreateRun(token.Value));
-                        
+                    if (context.IsListItem) {
+                        parent.Inlines.Add(context.CreateRun(token.Value));
                     }
-                    //else if (context.EndListItem)
-                    //{
-                    //    parent.Inlines.Add(new LineBreak());
-                    //}
                     else {
                         var run = context.CreateRun(token.Value);
                         parent.Inlines.Add(run);
