@@ -28,7 +28,7 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
         private const string TagQuote = "quote";
         private const string TagList = "list";
         private const string TagOrderedList = "ol";
-        private const string TagListItem = "*";
+        private const string TagListItem = "li";
 
         class ParseContext
         {
@@ -183,7 +183,7 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 context.IsFirstListItem = true;
             }
             else if (tag == TagListItem) {
-                context.IsListItem = context.IsList || context.IsOrderedList;
+                context.IsListItem = start;
             }
         }
 
@@ -196,9 +196,28 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                 Consume();
 
                 if (token.TokenType == BBCodeLexer.TokenStartTag) {
+                    var parent = span;
+                    if (token.Value == TagListItem)
+                    {
+                        if (context.IsFirstListItem)
+                        {
+                            context.IsFirstListItem = false;
+                            parent.Inlines.Add(new LineBreak());
+                        }
+
+                        parent.Inlines.Add(
+                            new Run(string.Format("\u0020\u0020{0}\u0020\u0020",
+                                context.IsOrderedList ? string.Format("{0}.", ++context.ListCounter) : "\u2022")));
+                    }
+
                     ParseTag(token.Value, true, context);
                 }
                 else if (token.TokenType == BBCodeLexer.TokenEndTag) {
+                    var parent = span;
+                    if (context.IsListItem && token.Value == TagListItem)
+                    {
+                        parent.Inlines.Add(new LineBreak());
+                    }
                     ParseTag(token.Value, false, context);
                 }
                 else if (token.TokenType == BBCodeLexer.TokenText) {
@@ -231,24 +250,15 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
                         span.Inlines.Add(parent);
                     }
 
-                    if ((context.IsList || context.IsOrderedList) && context.IsListItem) {
-                        if (context.IsFirstListItem) {
-                            context.IsFirstListItem = false;
-                            parent.Inlines.Add(new LineBreak());
-                        }
-
-                        if (context.IsOrderedList) {
-                            parent.Inlines.Add(context.CreateRun(string.Format("\u0020\u0020{1}.\u0020\u0020{0}", token.Value, ++context.ListCounter)));
-                        }
-                        else {
-                            parent.Inlines.Add(context.CreateRun(string.Format("\u0020\u0020\u2022\u0020\u0020{0}", token.Value)));
-                        }
+                    if (/*(context.IsList || context.IsOrderedList) &&*/ context.IsListItem) {
                         
-
-                        if (context.IsListItem) {
-                            parent.Inlines.Add(new LineBreak());
-                        }
+                            parent.Inlines.Add(context.CreateRun(token.Value));
+                        
                     }
+                    //else if (context.EndListItem)
+                    //{
+                    //    parent.Inlines.Add(new LineBreak());
+                    //}
                     else {
                         var run = context.CreateRun(token.Value);
                         parent.Inlines.Add(run);
