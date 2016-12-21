@@ -41,6 +41,14 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty LogoDataProperty = DependencyProperty.Register("LogoData", typeof(Geometry), typeof(ModernWindow));
         /// <summary>
+        /// Identifies the LogoCommand dependency property.
+        /// </summary>
+        public static readonly DependencyProperty LogoCommandProperty = DependencyProperty.Register("LogoCommand", typeof(ICommand), typeof(ModernWindow));
+        /// <summary>
+        /// Identifies the LogoCommandParameter dependency property.
+        /// </summary>
+        public static readonly DependencyProperty LogoCommandParameterProperty = DependencyProperty.Register("LogoCommandParameter", typeof(object), typeof(ModernWindow));
+        /// <summary>
         /// Defines the ContentSource dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentSourceProperty = DependencyProperty.Register("ContentSource", typeof(Uri), typeof(ModernWindow));
@@ -251,6 +259,24 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             get { return (Geometry)GetValue(LogoDataProperty); }
             set { SetValue(LogoDataProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the command for the logo.
+        /// </summary>
+        public ICommand LogoCommand
+        {
+            get { return (ICommand)GetValue(LogoCommandProperty); }
+            set { SetValue(LogoCommandProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the command parameter for the logo.
+        /// </summary>
+        public object LogoCommandParameter
+        {
+            get { return (object)GetValue(LogoCommandParameterProperty); }
+            set { SetValue(LogoCommandParameterProperty, value); }
         }
 
         /// <summary>

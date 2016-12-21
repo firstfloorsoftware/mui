@@ -105,11 +105,33 @@
                                         </ItemsControl>
 
                                         <!-- logo (visible only when LogoData is not null) -->
-                                        <Border Grid.Column="2" Background="{DynamicResource Accent}" Width="36" Height="36" Margin="8,0"
+                                        <Button Grid.Column="2" WindowChrome.IsHitTestVisibleInChrome="True" Width="36" Height="36" Margin="8,0"
                                                 DataContext="{TemplateBinding LogoData}"
+                                                Command="{Binding LogoCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                                CommandParameter="{Binding LogoCommandParameter, RelativeSource={RelativeSource TemplatedParent}}"
                                                 Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=inverse}">
-                                            <Path Data="{Binding}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
+                                            <Button.Style>
+                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                                                    <Setter Property="Cursor" Value="Hand"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                                <Border Background="{DynamicResource Accent}">
+                                                                    <Path Data="{Binding}" Stretch="Fill" Fill="White" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding LogoCommand, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                            <Setter Property="IsEnabled" Value="False"/>
+                                                            <Setter Property="Cursor" Value="{x:Null}"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            
+                                        </Button>
 
                                         <!-- window system buttons-->
                                         <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True">
