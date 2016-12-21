@@ -10,7 +10,7 @@
         <ScrollViewer>
             <StackPanel>
                 <TextBlock Text="BBCODEBLOCK" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-                <mui:BBCodeBlock BBCode="Simple rich text formatting using BBCode. Supporting [b]bold[/b], [i]italic[/i], [b][i]bold italic[/i][/b], [u]underline[/u], [color=#ff4500]colors[/color], [size=10]different[/size] [size=16]sizes[/size] and support for [url=http://xamlspy.com]navigable urls[/url].&#13;&#10;&#13;&#10;BBCode formatted text works great with MVVM.&#13;&#10;&#13;&#10;To learn more about link navigation see the [url=/Pages/Navigation.xaml|_top]navigation page[/url]." />
+                <mui:BBCodeBlock BBCodeQuoteBackground="{DynamicResource WindowBorder}"  BBCode="Simple rich text formatting using BBCode. Supporting [b]bold[/b], [i]italic[/i], [b][i]bold italic[/i][/b], [u]underline[/u], [s]strikethrough[/s], [quote][b]John Muir:[/b] The power of imagination makes us infinite.[/quote], [\escaped], [color=#ff4500]colors[/color], [size=10]different[/size] [size=16]sizes[/size] and support for [url=http://xamlspy.com]navigable urls[/url].&#13;&#10;&#13;&#10;Ordered list:[ol][li]Item [b]one[/b][/li][li]Item [i]two[/i][/li][li]Item [color=#ff0045]three[/color][/li][/ol]&#13;&#10;Unordered list:[list][li]Item one[/li][li]Item two[/li][/list]&#13;&#10;BBCode formatted text works great with MVVM.&#13;&#10;&#13;&#10;To learn more about link navigation see the [url=/Pages/Navigation.xaml|_top]navigation page[/url]." />
             </StackPanel>
         </ScrollViewer>
     </Grid>

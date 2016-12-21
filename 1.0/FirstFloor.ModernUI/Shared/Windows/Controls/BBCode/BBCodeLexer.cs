@@ -99,6 +99,17 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
             return new Token(GetMark(), TokenText);
         }
 
+        private Token EscapedTag()
+        {
+            Mark();
+            Consume();
+            while (LA(1) != '[' && LA(1) != char.MaxValue && !IsInRange(NewlineChars)) {
+                Consume();
+            }
+            var result = GetMark();
+            return new Token(result.Substring(0, 1) + result.Substring(2), TokenText);
+        }
+
         private Token Attribute()
         {
             Match('=');
@@ -153,6 +164,9 @@ namespace FirstFloor.ModernUI.Windows.Controls.BBCode
 
             if (State == StateNormal) {
                 if (LA(1) == '[') {
+                    if (LA(2) == '\\') {
+                        return EscapedTag();
+                    }
                     if (LA(2) == '/') {
                         return CloseTag();
                     }

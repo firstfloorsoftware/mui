@@ -41,6 +41,14 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty LogoDataProperty = DependencyProperty.Register("LogoData", typeof(Geometry), typeof(ModernWindow));
         /// <summary>
+        /// Identifies the LogoCommand dependency property.
+        /// </summary>
+        public static readonly DependencyProperty LogoCommandProperty = DependencyProperty.Register("LogoCommand", typeof(ICommand), typeof(ModernWindow));
+        /// <summary>
+        /// Identifies the LogoCommandParameter dependency property.
+        /// </summary>
+        public static readonly DependencyProperty LogoCommandParameterProperty = DependencyProperty.Register("LogoCommandParameter", typeof(object), typeof(ModernWindow));
+        /// <summary>
         /// Defines the ContentSource dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentSourceProperty = DependencyProperty.Register("ContentSource", typeof(Uri), typeof(ModernWindow));
@@ -52,6 +60,11 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// Identifies the LinkNavigator dependency property.
         /// </summary>
         public static DependencyProperty LinkNavigatorProperty = DependencyProperty.Register("LinkNavigator", typeof(ILinkNavigator), typeof(ModernWindow), new PropertyMetadata(new DefaultLinkNavigator()));
+
+        /// <summary>
+        /// Identifies the BBCodeTitle dependency property.
+        /// </summary>
+        public static DependencyProperty BBCodeTitleProperty = DependencyProperty.Register("BBCodeTitle", typeof(string), typeof(ModernWindow), new PropertyMetadata(null));
 
         private Storyboard backgroundAnimation;
 
@@ -249,6 +262,24 @@ namespace FirstFloor.ModernUI.Windows.Controls
         }
 
         /// <summary>
+        /// Gets or sets the command for the logo.
+        /// </summary>
+        public ICommand LogoCommand
+        {
+            get { return (ICommand)GetValue(LogoCommandProperty); }
+            set { SetValue(LogoCommandProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the command parameter for the logo.
+        /// </summary>
+        public object LogoCommandParameter
+        {
+            get { return (object)GetValue(LogoCommandParameterProperty); }
+            set { SetValue(LogoCommandParameterProperty, value); }
+        }
+
+        /// <summary>
         /// Gets or sets the source uri of the current content.
         /// </summary>
         public Uri ContentSource
@@ -274,6 +305,16 @@ namespace FirstFloor.ModernUI.Windows.Controls
         {
             get { return (ILinkNavigator)GetValue(LinkNavigatorProperty); }
             set { SetValue(LinkNavigatorProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the BBCode Title.
+        /// </summary>
+        /// <value>The link navigator.</value>
+        public string BBCodeTitle
+        {
+            get { return (string)GetValue(BBCodeTitleProperty); }
+            set { SetValue(BBCodeTitleProperty, value); }
         }
     }
 }
