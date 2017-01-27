@@ -67,7 +67,7 @@
 
                                         <!-- window system buttons-->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top" shell:WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <Button Command="{Binding Source={x:Static shell:SystemCommands.MinimizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Minimize}" Style="{StaticResource SystemButton}">
+                                            <Button x:Name="Minimize" Command="{Binding Source={x:Static shell:SystemCommands.MinimizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Minimize}" Style="{StaticResource SystemButton}">
                                                 <Button.Content>
                                                     <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
                                                         <Path Data="M0,6 L8,6 Z" Width="8" Height="7" VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -128,6 +128,11 @@
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
                             <Setter TargetName="Maximize" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="Restore" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter TargetName="Maximize" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Minimize" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="Restore" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <MultiTrigger>

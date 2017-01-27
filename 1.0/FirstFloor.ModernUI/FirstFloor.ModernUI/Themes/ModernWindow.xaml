@@ -99,7 +99,7 @@
 
                                         <!-- window system buttons-->
                                         <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <Button Command="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Minimize}" Style="{StaticResource SystemButton}">
+                                            <Button x:Name="Minimize" Command="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}" ToolTip="{x:Static modernui:Resources.Minimize}" Style="{StaticResource SystemButton}">
                                                 <Button.Content>
                                                     <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
                                                         <Path Data="M0,6 L8,6 Z" Width="8" Height="7" VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -186,6 +186,11 @@
                             <Setter TargetName="Maximize" Property="Visibility" Value="Visible" />
                             <Setter TargetName="Restore" Property="Visibility" Value="Collapsed" />
                         </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter TargetName="Maximize" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Minimize" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Restore" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="ResizeMode" Value="CanResizeWithGrip" />
@@ -203,6 +208,17 @@
                 <WindowChrome CornerRadius="0" GlassFrameThickness="1" UseAeroCaptionButtons="False" NonClientFrameEdges="None" />
             </Setter.Value>
         </Setter>
+
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="False" />
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ResizeMode" Value="NoResize" />
+                    <Condition Property="WindowState" Value="Maximized" />
+                </MultiTrigger.Conditions>
+                <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+            </MultiTrigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
