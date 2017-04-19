@@ -306,7 +306,7 @@ namespace FirstFloor.ModernUI.Windows.Controls
                 if (r.TryGetTarget(out frame)) {
 #endif
                     // check if frame is still an actual child (not the case when child is removed, but not yet garbage collected)
-                    if (NavigationHelper.FindFrame(null, frame) == this) {
+                    if (NavigationHelper.FindFrame("_parent", frame) == this) {
                         valid = true;
                         yield return frame;
                     }
