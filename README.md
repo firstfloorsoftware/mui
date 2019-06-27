@@ -44,7 +44,7 @@ See some [screenshots](https://github.com/firstfloorsoftware/mui/wiki/Screenshot
   * Read more and download the extension containing the templates from the [Visual Studio Gallery](http://visualstudiogallery.msdn.microsoft.com/7a4362a7-fe5d-4f9d-bc7b-0c0dc272fe31)
 
 ## Acknowledgements
-* [WPF Shell Integration Library](http://archive.msdn.microsoft.com/WPFShell)
+* [WPF Shell Integration Library](https://web.archive.org/web/20140330041944/https://archive.msdn.microsoft.com/WPFShell)
 * Adapted the TransitioningContentControl from [WPF Toolkit](http://wpf.codeplex.com/)
 * Adapted the Windows Phone [RelativeAnimatingContentControl](http://msdn.microsoft.com/en-us/library/gg442303(v=vs.92).aspx) for custom indeterminate ProgressBar styling
 * ModernProgressRing styles taken from https://github.com/nigel-sampson/spinkit-xaml
