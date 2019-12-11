@@ -5,10 +5,10 @@ CONTENTS
 
 FirstFloor.ModernUI.dll
 FirstFloor.ModernUI.xml
-  The ModernUI binary and XML documentation for .NET 4.5
+  The ModernUI binary and XML documentation for .NET 4.5 and .NET Core 3 and above.
 
 ModernUIDemo.exe 
-  A .NET 4.5 application demonstrating most features of Modern UI for WPF
+  A .NET Core 3.1 application demonstrating most features of Modern UI for WPF
 
 License\
   License files
