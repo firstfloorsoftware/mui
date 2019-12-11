@@ -190,3 +190,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 .nuget/nuget.exe.old
 *.DotSettings
+/1.0/FirstFloor.ModernUI/Build/Output
