@@ -18,10 +18,13 @@ namespace FirstFloor.ModernUI.Windows.Controls
     public abstract class DpiAwareWindow
         : Window
     {
+#if !NETCOREAPP
         /// <summary>
         /// Occurs when the system or monitor DPI for this window has changed.
         /// </summary>
         public event EventHandler DpiChanged;
+#endif
+
 
         private HwndSource source;
         private DpiInformation dpiInfo;
@@ -66,7 +69,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private void OnSystemEventsDisplaySettingsChanged(object sender, EventArgs e)
         {
-            if (this.source != null && this.WindowState == WindowState.Minimized) {
+            if (this.source != null && this.WindowState == WindowState.Minimized)
+            {
                 RefreshMonitorDpi();
             }
         }
@@ -80,7 +84,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
             this.dpiInfo = new DpiInformation(96D * matrix.M11, 96D * matrix.M22);
 
-            if (this.isPerMonitorDpiAware) {
+            if (this.isPerMonitorDpiAware)
+            {
                 this.source.AddHook(WndProc);
 
                 RefreshMonitorDpi();
@@ -89,7 +94,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
-            if (msg == NativeMethods.WM_DPICHANGED) {
+            if (msg == NativeMethods.WM_DPICHANGED)
+            {
                 // Marshal the value in the lParam into a Rect.
                 var newDisplayRect = (RECT)Marshal.PtrToStructure(lParam, typeof(RECT));
 
@@ -109,30 +115,39 @@ namespace FirstFloor.ModernUI.Windows.Controls
                 var dpiX = (double)(wParam.ToInt32() >> 16);
                 var dpiY = (double)(wParam.ToInt32() & 0x0000FFFF);
 
-                if (oldDpiX != dpiX || oldDpiY != dpiY) {
+                if (oldDpiX != dpiX || oldDpiY != dpiY)
+                {
                     this.dpiInfo.UpdateMonitorDpi(dpiX, dpiY);
 
                     // update layout scale
                     UpdateLayoutTransform();
 
                     // raise DpiChanged event
+#if NETCOREAPP
+                    OnDpiChanged(new DpiScale(oldDpiX.GetValueOrDefault(), oldDpiY.GetValueOrDefault()), new DpiScale(dpiX, dpiY));
+#else
                     OnDpiChanged(EventArgs.Empty);
+#endif
                 }
 
                 handled = true;
             }
             return IntPtr.Zero;
         }
-        
+
         private void UpdateLayoutTransform()
         {
-            if (this.isPerMonitorDpiAware) {
+            if (this.isPerMonitorDpiAware)
+            {
                 var root = (FrameworkElement)this.GetVisualChild(0);
-                if (root != null) {
-                    if (this.dpiInfo.ScaleX != 1 || this.dpiInfo.ScaleY != 1) {
+                if (root != null)
+                {
+                    if (this.dpiInfo.ScaleX != 1 || this.dpiInfo.ScaleY != 1)
+                    {
                         root.LayoutTransform = new ScaleTransform(this.dpiInfo.ScaleX, this.dpiInfo.ScaleY);
                     }
-                    else {
+                    else
+                    {
                         root.LayoutTransform = null;
                     }
                 }
@@ -145,7 +160,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
             var relScaleX = width / this.Width;
             var relScaleY = height / this.Height;
 
-            if (relScaleX != 1 || relScaleY != 1) {
+            if (relScaleX != 1 || relScaleY != 1)
+            {
                 // adjust window size constraints as well
                 this.MinWidth *= relScaleX;
                 this.MaxWidth *= relScaleX;
@@ -162,7 +178,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
         /// </summary>
         protected void RefreshMonitorDpi()
         {
-            if (!this.isPerMonitorDpiAware) {
+            if (!this.isPerMonitorDpiAware)
+            {
                 return;
             }
 
@@ -171,7 +188,8 @@ namespace FirstFloor.ModernUI.Windows.Controls
 
             uint xDpi = 96;
             uint yDpi = 96;
-            if (NativeMethods.GetDpiForMonitor(monitor, (int)MonitorDpiType.EffectiveDpi, ref xDpi, ref yDpi) != NativeMethods.S_OK) {
+            if (NativeMethods.GetDpiForMonitor(monitor, (int)MonitorDpiType.EffectiveDpi, ref xDpi, ref yDpi) != NativeMethods.S_OK)
+            {
                 xDpi = 96;
                 yDpi = 96;
             }
@@ -184,17 +202,16 @@ namespace FirstFloor.ModernUI.Windows.Controls
             // update graphics and text based on the current DPI of the monitor
             UpdateLayoutTransform();
         }
-       
+
+#if !NETCOREAPP
         /// <summary>
         /// Raises the <see cref="E:DpiChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected virtual void OnDpiChanged(EventArgs e)
         {
-            var handler = this.DpiChanged;
-            if (handler != null) {
-                handler(this, e);
-            }
+            this.DpiChanged?.Invoke(this, e);
         }
+#endif
     }
 }
