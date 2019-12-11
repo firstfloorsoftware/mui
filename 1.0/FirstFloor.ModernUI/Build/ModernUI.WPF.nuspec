@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>ModernUI.WPF.Core</id>
-    <version>1.0.9</version>
+    <id>ModernUI.WPFCore</id>
+    <version>2.0.0</version>
     <title>ModernUI for WPF</title>
     <authors>First Floor Software</authors>
     <owners>First Floor Software</owners>
     <!-->licenseUrl>https://github.com/firstfloorsoftware/mui/blob/master/LICENSE.md</licenseUrl-->
     <license type="file">License.txt</license>
     <iconUrl>http://firstfloorsoftware.com/media/github/mui/mui-icon.png</iconUrl>
+    <!--icon>Icon.png</icon-->
     <projectUrl>https://github.com/firstfloorsoftware/mui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A set of controls and styles converting your WPF application into a great looking Modern UI app.</description>
@@ -18,6 +19,7 @@
   </metadata>
   <files>
     <file src="Output\Temp\License\License.txt" target="License.txt" />
+    <!--file src="Output\Temp\License\mui-icon.png" target="Icon.png" /-->
     <file src="Output\Temp\net45\FirstFloor.ModernUI.dll" target="lib\net45\FirstFloor.ModernUI.dll" />
     <file src="Output\Temp\net45\FirstFloor.ModernUI.pdb" target="lib\net45\FirstFloor.ModernUI.pdb" />
     <file src="Output\Temp\net45\FirstFloor.ModernUI.XML" target="lib\net45\FirstFloor.ModernUI.XML" />

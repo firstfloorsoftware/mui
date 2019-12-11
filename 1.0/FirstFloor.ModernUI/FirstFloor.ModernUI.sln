@@ -39,6 +39,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{950931F8-4F6E-43E2-847D-A4CBC120D08F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		mui-icon.png = mui-icon.png
 	EndProjectSection
 EndProject
 Global
