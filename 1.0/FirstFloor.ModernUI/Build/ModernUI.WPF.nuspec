@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>ModernUI.WPF</id>
+    <id>ModernUI.WPF.Core</id>
     <version>1.0.9</version>
     <title>ModernUI for WPF</title>
     <authors>First Floor Software</authors>
     <owners>First Floor Software</owners>
-    <licenseUrl>https://github.com/firstfloorsoftware/mui/blob/master/LICENSE.md</licenseUrl>
+    <!-->licenseUrl>https://github.com/firstfloorsoftware/mui/blob/master/LICENSE.md</licenseUrl-->
+    <license type="file">License.txt</license>
     <iconUrl>http://firstfloorsoftware.com/media/github/mui/mui-icon.png</iconUrl>
     <projectUrl>https://github.com/firstfloorsoftware/mui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -16,10 +17,16 @@
     <tags>modern ui, metro, wpf</tags>
   </metadata>
   <files>
-    <file src="Output\Temp\FirstFloor.ModernUI.dll" target="lib\net45\FirstFloor.ModernUI.dll" />
-    <file src="Output\Temp\FirstFloor.ModernUI.XML" target="lib\net45\FirstFloor.ModernUI.XML" />
-    <file src="Output\Temp\net40\FirstFloor.ModernUI.dll" target="lib\net40\FirstFloor.ModernUI.dll" />
-    <file src="Output\Temp\net40\FirstFloor.ModernUI.XML" target="lib\net40\FirstFloor.ModernUI.XML" />
-    <file src="Output\Temp\net40\Microsoft.Windows.Shell.dll" target="lib\net40\Microsoft.Windows.Shell.dll" />
+    <file src="Output\Temp\License\License.txt" target="License.txt" />
+    <file src="Output\Temp\net45\FirstFloor.ModernUI.dll" target="lib\net45\FirstFloor.ModernUI.dll" />
+    <file src="Output\Temp\net45\FirstFloor.ModernUI.pdb" target="lib\net45\FirstFloor.ModernUI.pdb" />
+    <file src="Output\Temp\net45\FirstFloor.ModernUI.XML" target="lib\net45\FirstFloor.ModernUI.XML" />
+    <file src="Output\Temp\netcoreapp3.0\FirstFloor.ModernUI.dll" target="lib\netcoreapp3.0\FirstFloor.ModernUI.dll" />
+    <file src="Output\Temp\netcoreapp3.0\FirstFloor.ModernUI.pdb" target="lib\netcoreapp3.0\FirstFloor.ModernUI.pdb" />
+    <file src="Output\Temp\netcoreapp3.0\FirstFloor.ModernUI.XML" target="lib\netcoreapp3.0\FirstFloor.ModernUI.XML" />
+    <file src="Output\Temp\net4\FirstFloor.ModernUI.dll" target="lib\net4\FirstFloor.ModernUI.pdb" />
+    <file src="Output\Temp\net4\FirstFloor.ModernUI.dll" target="lib\net4\FirstFloor.ModernUI.dll" />
+    <file src="Output\Temp\net4\FirstFloor.ModernUI.XML" target="lib\net4\FirstFloor.ModernUI.XML" />
+    <file src="Output\Temp\net4\Microsoft.Windows.Shell.dll" target="lib\net4\Microsoft.Windows.Shell.dll" />
   </files>
 </package>

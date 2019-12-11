@@ -15,8 +15,7 @@
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[11.0,)" />
     <InstallationTarget Id="Microsoft.VisualStudio.VSWinDesktopExpress" Version="[11.0,)" />
   </Installation>
-  <Dependencies>
-  </Dependencies>
+  <Dependencies></Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ModernUI.App" d:TargetPath="|ModernUI.App;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ModernUI.NavigationApp" d:TargetPath="|ModernUI.NavigationApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
@@ -29,4 +28,7 @@
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ModernUI.ModernDialog" d:TargetPath="|ModernUI.ModernDialog;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
   </Assets>
   <CustomExtension Type="ModernUI.WPF.1.0.9.nupkg">Packages/ModernUI.WPF.1.0.9.nupkg</CustomExtension>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.Net.Component.4.5.TargetingPack" Version="[16.0.28517.75,17.0)" DisplayName=".NET Framework 4.5 targeting pack" />
+  </Prerequisites>
 </PackageManifest>

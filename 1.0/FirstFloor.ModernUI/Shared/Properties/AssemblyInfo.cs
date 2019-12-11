@@ -13,7 +13,7 @@ using System;
 #if NET4
 [assembly: AssemblyDescription("Modern UI for WPF 4")]
 #else
-[assembly: AssemblyDescription("Modern UI for WPF 4.5")]
+[assembly: AssemblyDescription("Modern UI for WPF 4.5 or .NET Core 3")]
 #endif
 [assembly: AssemblyConfiguration("retail")]
 [assembly: AssemblyCompany("First Floor Software")]
